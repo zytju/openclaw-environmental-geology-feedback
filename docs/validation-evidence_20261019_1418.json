@@ -1,0 +1,120 @@
+{
+  "date": "2026-10-19",
+  "classroom_planned_date": "2026-10-23",
+  "package_version": "0.1.2-preview",
+  "contract_version": "1.1.0",
+  "python": "3.12.14",
+  "test_count": 100,
+  "failures": 0,
+  "errors": 0,
+  "success": true,
+  "real_openclaw_model_calls": 0,
+  "real_container_permission_tests": 0,
+  "classroom_implementation_completed": false,
+  "synthetic_batch": {
+    "backend": "mock",
+    "is_simulated": true,
+    "attempted": 66,
+    "valid_teacher_model_reviews": 66,
+    "human_final_reviews": 0,
+    "confirmed_beneficiaries": null,
+    "pending_or_failed": 0
+  },
+  "mock_call_records": 132,
+  "fake_cli_test": "Protocol and metadata adapter only; subprocess was mocked",
+  "native_config_validation": {
+    "runtime": "OpenClaw 2026.7.1-2 (0790d9f)",
+    "legacy_list_valid": true,
+    "legacy_warnings": [],
+    "current_entries_rejected_by_legacy": true,
+    "current_runtime_tested": false,
+    "real_skill_prompt_reading_tested": false
+  },
+  "skill_format_checks": {
+    "eg-report-feedback": true,
+    "eg-rubric-check": true,
+    "eg-authenticity-anchor": true
+  },
+  "independent_skill_trials": {
+    "environment": "Independent Codex subagents; direct synthetic skill use, not OpenClaw",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "real_student_data": false,
+    "student": {
+      "first_cli_exit_code": 0,
+      "correction_after_failure": false,
+      "out_of_scope_mitigation_issues": 0
+    },
+    "teacher": {
+      "first_cli_exit_code": 0,
+      "final_cli_exit_code": 0,
+      "correction_after_failure": false,
+      "minor_final_edit": "Added exact locators in two teacher questions after first passing validation",
+      "disposition": "revise_feedback"
+    },
+    "human_scientific_acceptance_completed": false
+  },
+  "protected_files_checked": 8,
+  "protected_files_unchanged": false,
+  "backup_restore_tested": false,
+  "raw_monitoring_files_obtained": false,
+  "github_published": false,
+  "deployed": false,
+  "core_test_count": 96,
+  "preview_entry_point_tests": 4,
+  "local_test_runtimes": [
+    {
+      "python": "3.12.14",
+      "tests": 100,
+      "failures": 0,
+      "errors": 0,
+      "test_exit_code": 0,
+      "smoke_count": 66,
+      "is_simulated": true,
+      "real_model_calls": 0
+    },
+    {
+      "python": "3.13.7",
+      "tests": 100,
+      "failures": 0,
+      "errors": 0,
+      "test_exit_code": 0,
+      "smoke_count": 66,
+      "is_simulated": true,
+      "real_model_calls": 0
+    }
+  ],
+  "github_actions": {
+    "configured": true,
+    "remote_executed": false,
+    "workflow": ".github/workflows/tests_20261019_1418.yml",
+    "planned_os": [
+      "ubuntu-latest",
+      "macos-latest"
+    ],
+    "planned_python": [
+      "3.12",
+      "3.13"
+    ],
+    "source_verification_date": "2026-10-19"
+  },
+  "native_config_check_inherited_from_draft": true,
+  "prior_draft_file_audit": {
+    "checked": 8,
+    "unchanged": 7,
+    "changed": 1,
+    "changed_reference": "附件1结题报告书",
+    "cause_confirmed": false,
+    "all_unchanged_prose_retracted": true
+  },
+  "preview_preparation_file_audit": {
+    "checked": 8,
+    "unchanged": 8,
+    "prior_draft_all_unchanged_claim_not_reinstated": true
+  },
+  "license": {
+    "authored_material": "MIT",
+    "copyright_notice": "2026 OpenClaw EG teaching project contributors",
+    "third_party_separate": true
+  }
+}

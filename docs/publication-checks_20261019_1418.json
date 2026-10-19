@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-19",
+  "package_version": "0.1.2-preview",
+  "workflow_yaml_parsed": true,
+  "workflow_structure_checked": true,
+  "github_actions_executed": false,
+  "json_files_parsed": 66,
+  "broken_local_links": [],
+  "personal_absolute_paths": [],
+  "credential_pattern_scan": "passed; targeted patterns only, not proof of absence of all sensitive information",
+  "license_authored_material": "MIT",
+  "third_party_material_separate": true,
+  "raw_school_or_student_files_packaged": false
+}

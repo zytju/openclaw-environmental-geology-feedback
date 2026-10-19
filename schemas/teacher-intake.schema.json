@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:eg:teacher-intake:1.1.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "1.1.0"
+    },
+    "student_id": {
+      "type": "string",
+      "minLength": 4,
+      "maxLength": 4,
+      "pattern": "^S[0-9]{3}$"
+    },
+    "submission_sha256": {
+      "type": "string",
+      "minLength": 64,
+      "maxLength": 64,
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "material_kind": {
+      "enum": [
+        "synthetic",
+        "student_work"
+      ]
+    },
+    "materials_readable": {
+      "type": "boolean"
+    },
+    "source_checks_done": {
+      "type": "boolean"
+    },
+    "deidentified": {
+      "type": "boolean"
+    },
+    "approved_for_feedback": {
+      "type": "boolean"
+    },
+    "previous_feedback_verified": {
+      "type": "boolean"
+    },
+    "reviewer_code": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 20,
+      "pattern": "^T[0-9]{3}$"
+    },
+    "reviewed_at": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 40
+    }
+  },
+  "required": [
+    "schema_version",
+    "student_id",
+    "submission_sha256",
+    "material_kind",
+    "materials_readable",
+    "source_checks_done",
+    "deidentified",
+    "approved_for_feedback",
+    "previous_feedback_verified",
+    "reviewer_code",
+    "reviewed_at"
+  ],
+  "additionalProperties": false
+}

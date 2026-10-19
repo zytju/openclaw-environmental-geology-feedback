@@ -1,0 +1,198 @@
+{
+  "schema_version": "1.1.0",
+  "student_id": "S001",
+  "case_id": "shuping-teaching-v1",
+  "submission_sha256": "e85a75fbf5dc9a1247377653b91d7ee2502828e7f342d16bd6f98afcf04874e9",
+  "requires_teacher_signoff": true,
+  "dimensions": [
+    {
+      "dimension": "problem_identification",
+      "assessment": "partial",
+      "level_proposal": 1,
+      "anchor": {
+        "paragraph_id": "P02",
+        "quote": "假设滑体快速入水"
+      },
+      "evidence_card_ids": [],
+      "citations": [
+        {
+          "claim_id": "C01",
+          "source_id": "ZOU2021",
+          "locator": "2.2 Driving–resisting model; 3.1 Geological setting"
+        }
+      ],
+      "basis": "已识别滑坡及假设入水后的次生风险，并提出库岸和航运受体；但未定位滑体、滑面、后部驱动段、前部抗滑段及具体暴露对象。注册文献简述C01提供了空间判读对象，现有片段尚未据此建立诊断范围。",
+      "issues": [
+        {
+          "issue_id": "I01",
+          "severity": "minor",
+          "anchor": {
+            "paragraph_id": "P02",
+            "quote": "涌浪传播路径、库岸暴露与航运受体"
+          },
+          "evidence_card_ids": [],
+          "citations": [
+            {
+              "claim_id": "C01",
+              "source_id": "ZOU2021",
+              "locator": "2.2 Driving–resisting model; 3.1 Geological setting"
+            }
+          ],
+          "problem": "风险对象已有名称，但空间范围与受体位置尚未说明。",
+          "rationale": "机制与措施的判断需要明确作用于哪一段坡体、影响哪个受体。需补充可追溯的地质剖面或示意依据，不能凭概念名称推定实际位置。",
+          "revision_action": "核对注册文献的地质背景，制作定位简图或对象表，标明滑体、滑面、驱动段、抗滑段及拟讨论受体；无法确认的位置明确记为待核。",
+          "check_question": "每个风险判断分别对应哪一段坡体和哪个暴露对象，定位依据在哪里？",
+          "uncertainty": "当前仅有两段合成片段，不能推断完整报告也缺少图件；教师应核实本轮空间分析要求。"
+        }
+      ]
+    },
+    {
+      "dimension": "evidence_extraction",
+      "assessment": "partial",
+      "level_proposal": 1,
+      "anchor": {
+        "paragraph_id": "P01",
+        "quote": "库水位下降必然导致孔压上升"
+      },
+      "evidence_card_ids": [
+        "E01"
+      ],
+      "citations": [
+        {
+          "claim_id": "C03",
+          "source_id": "ZOU2021",
+          "locator": "5.3 Scenario 3; 6 Discussion"
+        }
+      ],
+      "basis": "E01有注册来源、章节定位和P01对应关系，且明确声明文献机理不能证明本片段拥有实测孔压证据。正文尚未说明哪些材料属于文献模型、哪些现场条件尚未获得，也未给出足以判断孔压变化的证据。",
+      "issues": [
+        {
+          "issue_id": "I02",
+          "severity": "minor",
+          "anchor": {
+            "paragraph_id": "P01",
+            "quote": "库水位下降必然导致孔压上升"
+          },
+          "evidence_card_ids": [
+            "E01"
+          ],
+          "citations": [
+            {
+              "claim_id": "C03",
+              "source_id": "ZOU2021",
+              "locator": "5.3 Scenario 3; 6 Discussion"
+            }
+          ],
+          "problem": "证据卡的来源限制尚未进入正文，文献模型机理与待验证的孔压判断之间缺少明确对应。",
+          "rationale": "C03归纳的是模型情景中的地下水滞后响应与排泄，不能替代该位置的孔压观测。需要区分文献结论、数值模拟条件和缺失的现场资料。",
+          "revision_action": "把E01按模型条件、模型结果、可用于本片段的判断、不能外推的部分列成证据表；对孔压资料填写真实获取状态，未取得时标缺证，勿补造数值。",
+          "check_question": "E01支持的是哪一种模型机制，还是本片段某位置、某时段的孔压变化？",
+          "uncertainty": "提供材料未含原始孔压记录，也未含文献全文；本反馈仅依据注册简述，细部参数须教师核对原文。"
+        }
+      ]
+    },
+    {
+      "dimension": "reasoning_chain",
+      "assessment": "partial",
+      "level_proposal": 1,
+      "anchor": {
+        "paragraph_id": "P01",
+        "quote": "库水位下降必然导致孔压上升，故滑坡一定发生；这一断言需要核查。"
+      },
+      "evidence_card_ids": [
+        "E01"
+      ],
+      "citations": [
+        {
+          "claim_id": "C03",
+          "source_id": "ZOU2021",
+          "locator": "5.3 Scenario 3; 6 Discussion"
+        }
+      ],
+      "basis": "P01已把断言标为待核查，A01也提出区分水位、孔压、渗流和临水支撑，说明已有正确核查方向。但正文尚未完成水文响应到力学作用再到稳定性判断的条件推理；不能将待核查措辞视为已经修正，也不能断定学生已认同该断言。",
+      "issues": [
+        {
+          "issue_id": "I03",
+          "severity": "major",
+          "anchor": {
+            "paragraph_id": "P01",
+            "quote": "库水位下降必然导致孔压上升，故滑坡一定发生"
+          },
+          "evidence_card_ids": [
+            "E01"
+          ],
+          "citations": [
+            {
+              "claim_id": "C03",
+              "source_id": "ZOU2021",
+              "locator": "5.3 Scenario 3; 6 Discussion"
+            }
+          ],
+          "problem": "待核查断言连续跨过地下水响应、力学条件和稳定性判据，尚未给出核查结果。",
+          "rationale": "库水位下降不等于孔压必然上升。C03描述的滞后与排泄属于条件性机制；判断还需要位置、渗透性、边界条件、时滞和力学证据。即使讨论有效应力，也需说明总应力与孔压条件，不能由水位单独推出必然失稳。",
+          "revision_action": "将A01的核查方向整理成条件链：库水变化、坡内响应、力学作用、可支持的结论；每环列所需证据和未知项，并比较至少一个不同响应情景，暂不下确定性失稳结论。",
+          "check_question": "如果孔压也在下降但存在时滞，你原有两步推断是否仍成立，还缺哪些证据？",
+          "uncertainty": "现有材料不能判定实际孔压方向或真实稳定状态；具体场地解释需教师结合已核验资料复核。"
+        }
+      ]
+    },
+    {
+      "dimension": "hazard_chain",
+      "assessment": "partial",
+      "level_proposal": 1,
+      "anchor": {
+        "paragraph_id": "P02",
+        "quote": "该情境不是已发生的树坪灾害事件。"
+      },
+      "evidence_card_ids": [],
+      "citations": [],
+      "basis": "P02明确采用假设情境，并未把次生灾害冒充历史事件；也列出了快速入水、涌浪传播和库岸及航运受体。当前表述主要是核查任务，尚未展示各环节成立的条件、空间路径和证据对应。",
+      "issues": [
+        {
+          "issue_id": "I04",
+          "severity": "minor",
+          "anchor": {
+            "paragraph_id": "P02",
+            "quote": "需进一步核查涌浪传播路径、库岸暴露与航运受体"
+          },
+          "evidence_card_ids": [],
+          "citations": [],
+          "problem": "已提出灾害链核查方向，但尚无逐环的条件和证据表。",
+          "rationale": "滑体入水、涌浪传播、受体遭受影响分别需要触发、传播及暴露条件。仅列受体名称不能证明影响已发生或必将发生；需要可追溯的几何、水域路径和暴露依据。",
+          "revision_action": "制作触发、传播、受体三环表，逐环填写成立条件、已知依据及缺证项；没有传播或历史依据的部分继续标为教学假设，并交教师确定补证范围。",
+          "check_question": "哪一环仍只是假设，若该环不成立，后续受体风险判断应如何收缩？",
+          "uncertainty": "没有提供历史事件、入水动力或传播资料，不能判断真实涌浪大小、到达时间或实际航运风险。"
+        }
+      ]
+    },
+    {
+      "dimension": "uncertainty",
+      "assessment": "supported",
+      "level_proposal": 2,
+      "anchor": {
+        "paragraph_id": "P02",
+        "quote": "假设滑体快速入水"
+      },
+      "evidence_card_ids": [
+        "E01"
+      ],
+      "citations": [],
+      "basis": "P02区分教学假设与既成事件，P01保留核查标记；A01明确没有原始孔压记录，E01也限制文献机理的证明范围。这些内容支持已有不确定性意识，P01的条件链修订见I03。本片段尚不足以建议等级3所需的判断影响分析与补证优先级。",
+      "issues": []
+    },
+    {
+      "dimension": "mitigation_match",
+      "assessment": "not_in_scope",
+      "level_proposal": null,
+      "anchor": {
+        "paragraph_id": "REPORT",
+        "quote": null
+      },
+      "evidence_card_ids": [],
+      "citations": [],
+      "basis": "本轮教师只评价前五维，防治不在片段评价范围内；不作为学生缺陷或补交要求。",
+      "issues": []
+    }
+  ],
+  "boundary_reminder": "本反馈仅用于明确标记的合成测试，教师材料核查是测试设定，不是真实审核证据，也不是受控包装流程的真实运行记录。等级仅为待教师校准的建议，不加总为成绩，仍须教师签核。文献模型、教学假设与现场事实应保持区分；学生可基于证据拒绝或部分采纳建议。"
+}

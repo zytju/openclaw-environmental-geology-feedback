@@ -1,0 +1,86 @@
+[
+  {
+    "claim_id": "C01",
+    "source_id": "ZOU2021",
+    "locator": "2.2 Driving–resisting model; 3.1 Geological setting",
+    "text": "研究对象为三峡库区树坪滑坡。教学判读需区分滑体、滑面、后部驱动段和前部抗滑段。",
+    "kind": "literature_summary"
+  },
+  {
+    "claim_id": "C02",
+    "source_id": "ZOU2021",
+    "locator": "Abstract; 4 Field observational results",
+    "text": "该研究观测期内位移速率与库水位变化密切相关，降雨影响相对有限；这是特定场地和时段的结果。",
+    "kind": "literature_summary"
+  },
+  {
+    "claim_id": "C03",
+    "source_id": "ZOU2021",
+    "locator": "5.3 Scenario 3; 6 Discussion",
+    "text": "模型将快速降水位阶段的不利效应与地下水滞后响应、坡内地下水向库水排泄联系起来；不能据此断言孔压必然升高。",
+    "kind": "literature_summary"
+  },
+  {
+    "claim_id": "C04",
+    "source_id": "ZOU2021",
+    "locator": "Abstract; 6 Discussion",
+    "text": "文中介绍从驱动段向抗滑段转移土方的治理措施；工程建议仍须核查几何、水文与实施条件。",
+    "kind": "literature_summary"
+  },
+  {
+    "claim_id": "C05",
+    "source_id": "WEN2017",
+    "locator": "Abstract",
+    "text": "论文用趋势项与周期项建模位移。预测拟合不能单独证明触发机制，更不能直接成为本课程预警阈值。",
+    "kind": "literature_summary_and_teaching_inference"
+  },
+  {
+    "claim_id": "C06",
+    "source_id": "NCDC2020",
+    "locator": "Datasets description; license agreement; Share mode",
+    "text": "目录描述位移月尺度、降雨和库水位日尺度，标示申请访问及CC BY 4.0；未取得文件时不能声称已拥有监测数据。",
+    "kind": "metadata_summary"
+  },
+  {
+    "claim_id": "C07",
+    "source_id": "SIMULATION",
+    "locator": "simulation-metadata_20261019_1418.json",
+    "text": "附带序列仅供解析、单位检查和工作流测试，不对应真实日期、测点、孔压或治理效果。",
+    "kind": "simulation_disclosure"
+  },
+  {
+    "claim_id": "C08",
+    "source_id": "ZOU2021",
+    "locator": "2.3 Effect of water force on the resisting and driving sections; 5.3 Scenario 3",
+    "text": "在论文所分析的树坪水文与几何条件下，快速降库水位时坡内地下水消退滞后，形成朝向库水的水力梯度；向外渗流力不利于稳定。升水期向内渗流力具有有利作用，但不能据此断言所有库岸升水都提高稳定性。",
+    "kind": "literature_summary"
+  },
+  {
+    "claim_id": "C09",
+    "source_id": "ZOU2021",
+    "locator": "5.3 Scenario 3; Figures 16–17",
+    "text": "论文情景3数值模拟在快速降水位末期给出最低安全系数约0.995和最大坡内外水头差约14米；抗滑段浮托减小有抵消作用但小于不利渗流作用。这些是该模型情景结果，不是本课程实测值、现状安全评价或通用阈值。",
+    "kind": "published_model_result"
+  },
+  {
+    "claim_id": "C10",
+    "source_id": "ZOU2021",
+    "locator": "6 Discussion; 7 Conclusions",
+    "text": "论文提出驱动段向抗滑段转移土方，以及降库水位期间通过排水或抽水降低坡内地下水位两类思路。土方转移有该案例治理记录，排水或抽水属于建议，不能都写成已实施且已证实有效的工程；实际设计须专业论证。",
+    "kind": "literature_summary"
+  },
+  {
+    "claim_id": "C11",
+    "source_id": "ZOU2021",
+    "locator": "5.1 Scenario 1; 7 Conclusions",
+    "text": "论文将首次蓄水至135米后的不利作用与抗滑段浮托联系起来；后来水位同时影响驱动段与抗滑段，作用组合发生变化。需区分首次蓄水与后续周期升降水位，不能用单一水位方向概括全部过程。",
+    "kind": "literature_summary"
+  },
+  {
+    "claim_id": "C12",
+    "source_id": "ZOU2021",
+    "locator": "4.1 Overall deformation feature; 5.1 Scenario 1",
+    "text": "论文现场观测记录持续变形，首次蓄水后的裂缝也有文献描述。它们不能单独证明已发生快速入水—涌浪链；本包未核实建筑受损或伤亡事件，不将其写成既成事实。",
+    "kind": "literature_summary"
+  }
+]

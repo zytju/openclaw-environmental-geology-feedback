@@ -1,0 +1,274 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:eg:teacher-review:1.1.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "1.1.0"
+    },
+    "student_id": {
+      "type": "string",
+      "minLength": 4,
+      "maxLength": 4,
+      "pattern": "^S[0-9]{3}$"
+    },
+    "case_id": {
+      "const": "shuping-teaching-v1"
+    },
+    "submission_sha256": {
+      "type": "string",
+      "minLength": 64,
+      "maxLength": 64,
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "feedback_sha256": {
+      "type": "string",
+      "minLength": 64,
+      "maxLength": 64,
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "requires_teacher_signoff": {
+      "const": true
+    },
+    "disposition": {
+      "enum": [
+        "accept_proposal",
+        "revise_feedback",
+        "hold"
+      ]
+    },
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "dimension": {
+            "enum": [
+              "problem_identification",
+              "evidence_extraction",
+              "reasoning_chain",
+              "hazard_chain",
+              "uncertainty",
+              "mitigation_match"
+            ]
+          },
+          "verdict": {
+            "enum": [
+              "aligned",
+              "suspect",
+              "omitted",
+              "needs_teacher"
+            ]
+          },
+          "issue_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 2,
+              "maxLength": 20,
+              "pattern": "^I[0-9]{2,6}$"
+            },
+            "minItems": 0,
+            "maxItems": 18,
+            "uniqueItems": true
+          },
+          "anchor": {
+            "type": "object",
+            "properties": {
+              "paragraph_id": {
+                "type": "string",
+                "minLength": 3,
+                "maxLength": 8,
+                "pattern": "^(P[0-9]{2,6}|REPORT)$"
+              },
+              "quote": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 160
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "paragraph_id",
+              "quote"
+            ],
+            "additionalProperties": false
+          },
+          "citations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim_id": {
+                  "type": "string",
+                  "minLength": 2,
+                  "maxLength": 40
+                },
+                "source_id": {
+                  "type": "string",
+                  "minLength": 2,
+                  "maxLength": 40
+                },
+                "locator": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 160
+                }
+              },
+              "required": [
+                "claim_id",
+                "source_id",
+                "locator"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 0,
+            "maxItems": 6
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 400
+          }
+        },
+        "required": [
+          "dimension",
+          "verdict",
+          "issue_ids",
+          "anchor",
+          "citations",
+          "reason"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 6,
+      "maxItems": 6
+    },
+    "omissions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "dimension": {
+            "enum": [
+              "problem_identification",
+              "evidence_extraction",
+              "reasoning_chain",
+              "hazard_chain",
+              "uncertainty",
+              "mitigation_match"
+            ]
+          },
+          "anchor": {
+            "type": "object",
+            "properties": {
+              "paragraph_id": {
+                "type": "string",
+                "minLength": 3,
+                "maxLength": 8,
+                "pattern": "^(P[0-9]{2,6}|REPORT)$"
+              },
+              "quote": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 160
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "paragraph_id",
+              "quote"
+            ],
+            "additionalProperties": false
+          },
+          "citations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim_id": {
+                  "type": "string",
+                  "minLength": 2,
+                  "maxLength": 40
+                },
+                "source_id": {
+                  "type": "string",
+                  "minLength": 2,
+                  "maxLength": 40
+                },
+                "locator": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 160
+                }
+              },
+              "required": [
+                "claim_id",
+                "source_id",
+                "locator"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 0,
+            "maxItems": 6
+          },
+          "problem": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 300
+          },
+          "suggested_check": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 300
+          }
+        },
+        "required": [
+          "dimension",
+          "anchor",
+          "citations",
+          "problem",
+          "suggested_check"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0,
+      "maxItems": 12
+    },
+    "teacher_questions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 250
+      },
+      "minItems": 0,
+      "maxItems": 12
+    }
+  },
+  "required": [
+    "schema_version",
+    "student_id",
+    "case_id",
+    "submission_sha256",
+    "feedback_sha256",
+    "requires_teacher_signoff",
+    "disposition",
+    "checks",
+    "omissions",
+    "teacher_questions"
+  ],
+  "additionalProperties": false
+}

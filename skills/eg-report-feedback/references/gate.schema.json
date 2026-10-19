@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:eg:gate:1.1.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "1.1.0"
+    },
+    "student_id": {
+      "type": "string",
+      "minLength": 4,
+      "maxLength": 4,
+      "pattern": "^S[0-9]{3}$"
+    },
+    "submission_sha256": {
+      "type": "string",
+      "minLength": 64,
+      "maxLength": 64,
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "status": {
+      "enum": [
+        "eligible",
+        "needs_material",
+        "teacher_hold"
+      ]
+    },
+    "missing": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 1000
+      },
+      "minItems": 0,
+      "maxItems": 20,
+      "uniqueItems": true
+    },
+    "holds": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 1000
+      },
+      "minItems": 0,
+      "maxItems": 20,
+      "uniqueItems": true
+    },
+    "authorship_proven": {
+      "const": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "student_id",
+    "submission_sha256",
+    "status",
+    "missing",
+    "holds",
+    "authorship_proven"
+  ],
+  "additionalProperties": false
+}

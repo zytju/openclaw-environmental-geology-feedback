@@ -1,0 +1,23 @@
+__pycache__/
+*.py[cod]
+.venv/
+.DS_Store
+.env
+.env.*
+private/
+private-audit/
+student-data/
+intake/
+runs/
+profiles/
+*.sqlite*
+auth-profiles.json
+openclaw.json
+*.key
+*.pem
+
+# Local artifacts and generated state
+deliverables/
+*.log
+*.zip
+!history/*.zip

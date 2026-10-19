@@ -1,0 +1,217 @@
+{
+  "schema_version": "1.1.0",
+  "student_id": "S001",
+  "case_id": "shuping-teaching-v1",
+  "submission_sha256": "e85a75fbf5dc9a1247377653b91d7ee2502828e7f342d16bd6f98afcf04874e9",
+  "requires_teacher_signoff": true,
+  "dimensions": [
+    {
+      "dimension": "problem_identification",
+      "assessment": "partial",
+      "level_proposal": 1,
+      "anchor": {
+        "paragraph_id": "P02",
+        "quote": "假设滑体快速入水，需进一步核查涌浪传播路径、库岸暴露与航运受体。"
+      },
+      "evidence_card_ids": [],
+      "citations": [
+        {
+          "claim_id": "C01",
+          "source_id": "ZOU2021",
+          "locator": "2.2 Driving–resisting model; 3.1 Geological setting"
+        }
+      ],
+      "basis": "P01围绕库水位与滑坡稳定性提出待核查命题，P02已识别库岸和航运两类候选受体。片段尚未说明滑体及坡段对象，难以判断本段究竟在做机制辨析还是整体稳定性评价。",
+      "issues": [
+        {
+          "issue_id": "I01",
+          "severity": "minor",
+          "anchor": {
+            "paragraph_id": "P02",
+            "quote": "假设滑体快速入水，需进一步核查涌浪传播路径、库岸暴露与航运受体。"
+          },
+          "evidence_card_ids": [],
+          "citations": [
+            {
+              "claim_id": "C01",
+              "source_id": "ZOU2021",
+              "locator": "2.2 Driving–resisting model; 3.1 Geological setting"
+            }
+          ],
+          "problem": "P02的“滑体”及其与库水接触的空间对象未界定。",
+          "rationale": "树坪案例需要区分滑体、滑面、后部驱动段和前部抗滑段；笼统使用“滑体”会使后续水文与力学判断缺少明确对象。",
+          "revision_action": "在片段开头补一句研究对象和判断边界，指出讨论哪些坡段及水位阶段；本轮若仅做机制辨析，明确不据此评价整坡当前安全状态。",
+          "check_question": "所讨论的是哪个坡段、哪个水位阶段？本段能支持机制核查，还是已有材料足以支持整体稳定性结论？",
+          "uncertainty": "本次仅有两段合成文本，不能推断完整报告是否已有空间示意或坡段说明。"
+        }
+      ]
+    },
+    {
+      "dimension": "evidence_extraction",
+      "assessment": "supported",
+      "level_proposal": 2,
+      "anchor": {
+        "paragraph_id": "P01",
+        "quote": "库水位下降必然导致孔压上升，故滑坡一定发生；这一断言需要核查。"
+      },
+      "evidence_card_ids": [
+        "E01"
+      ],
+      "citations": [
+        {
+          "claim_id": "C03",
+          "source_id": "ZOU2021",
+          "locator": "5.3 Scenario 3; 6 Discussion"
+        }
+      ],
+      "basis": "E01列出ZOU2021及精确章节、注明转述并对应P01，且明确文献机理不等于本片段拥有实测孔压证据。来源与用途可追溯；它支持核查方向，不支持“孔压必然上升”或“一定失稳”。后一推断缺口统一列于推理链维度。",
+      "issues": []
+    },
+    {
+      "dimension": "reasoning_chain",
+      "assessment": "partial",
+      "level_proposal": 1,
+      "anchor": {
+        "paragraph_id": "P01",
+        "quote": "库水位下降必然导致孔压上升，故滑坡一定发生；这一断言需要核查。"
+      },
+      "evidence_card_ids": [
+        "E01"
+      ],
+      "citations": [
+        {
+          "claim_id": "C03",
+          "source_id": "ZOU2021",
+          "locator": "5.3 Scenario 3; 6 Discussion"
+        },
+        {
+          "claim_id": "C08",
+          "source_id": "ZOU2021",
+          "locator": "2.3 Effect of water force on the resisting and driving sections; 5.3 Scenario 3"
+        },
+        {
+          "claim_id": "C11",
+          "source_id": "ZOU2021",
+          "locator": "5.1 Scenario 1; 7 Conclusions"
+        }
+      ],
+      "basis": "P01主动标明断言需要核查，A01也已提出区分水位响应和力学作用的方向，这些都是有效起点。但P01尚未给出水文响应到稳定性判断的中间环节，不能把待检命题直接作为因果结论。",
+      "issues": [
+        {
+          "issue_id": "I02",
+          "severity": "major",
+          "anchor": {
+            "paragraph_id": "P01",
+            "quote": "库水位下降必然导致孔压上升，故滑坡一定发生；这一断言需要核查。"
+          },
+          "evidence_card_ids": [
+            "E01"
+          ],
+          "citations": [
+            {
+              "claim_id": "C03",
+              "source_id": "ZOU2021",
+              "locator": "5.3 Scenario 3; 6 Discussion"
+            },
+            {
+              "claim_id": "C08",
+              "source_id": "ZOU2021",
+              "locator": "2.3 Effect of water force on the resisting and driving sections; 5.3 Scenario 3"
+            },
+            {
+              "claim_id": "C11",
+              "source_id": "ZOU2021",
+              "locator": "5.1 Scenario 1; 7 Conclusions"
+            }
+          ],
+          "problem": "待核查命题从库水位下降直接跳到孔压上升和必然失稳，机制与成立条件仍未展开。",
+          "rationale": "在论文所分析条件下，快速降库水位、坡内地下水消退滞后及朝向库水的水力梯度可形成不利渗流作用；这不等于孔压必然上升。还须区分支撑条件、驱动与抗滑坡段以及首次蓄水和周期升降水位。",
+          "revision_action": "将该句保留为待检命题，补一条条件式推理链，逐项区分库水位、坡内地下水位、局部孔压、渗流方向与力学作用；标明哪些环节由E01支持、哪些仍需核查。",
+          "check_question": "在具体位置和时段，坡内水位相对库水位如何响应？现有材料能否决定局部孔压方向及其对稳定性的净影响？",
+          "uncertainty": "本片段没有原始孔压记录、几何与边界条件，不能判定孔压变化方向、当前稳定性或失稳时间。"
+        }
+      ]
+    },
+    {
+      "dimension": "hazard_chain",
+      "assessment": "partial",
+      "level_proposal": 1,
+      "anchor": {
+        "paragraph_id": "P02",
+        "quote": "假设滑体快速入水，需进一步核查涌浪传播路径、库岸暴露与航运受体。"
+      },
+      "evidence_card_ids": [],
+      "citations": [
+        {
+          "claim_id": "C12",
+          "source_id": "ZOU2021",
+          "locator": "4.1 Overall deformation feature; 5.1 Scenario 1"
+        }
+      ],
+      "basis": "P02明确采用快速入水假设，指出传播路径与库岸、航运受体需要核查，并未把涌浪写成已发生的树坪历史。当前仍是候选灾害链，尚未逐边说明触发、传播、受体和证据地位。",
+      "issues": [
+        {
+          "issue_id": "I03",
+          "severity": "minor",
+          "anchor": {
+            "paragraph_id": "P02",
+            "quote": "假设滑体快速入水，需进一步核查涌浪传播路径、库岸暴露与航运受体。"
+          },
+          "evidence_card_ids": [],
+          "citations": [
+            {
+              "claim_id": "C12",
+              "source_id": "ZOU2021",
+              "locator": "4.1 Overall deformation feature; 5.1 Scenario 1"
+            }
+          ],
+          "problem": "P02列出核查对象，但尚未说明每一条链边的成立条件及证据状态。",
+          "rationale": "滑体入水、涌浪传播和受体暴露各需单独核查，列出库岸或航运不等于已证实暴露。本包的持续变形与裂缝描述不能单独证明树坪曾发生快速入水—涌浪链。",
+          "revision_action": "为本教学情景补一张简表，逐边列出触发条件、传播环节、候选受体，以及已核实、文献依据、教学假设或待查；无法核实的环节保留为条件，不填造数值。",
+          "check_question": "快速入水需要哪些前提？从入水到涌浪、从涌浪到库岸或航运影响，每一边分别有何证据或仍是何种假设？",
+          "uncertainty": "本包没有核实该快速入水—涌浪历史，也未提供传播计算或实际暴露资料，不能推定影响范围或损失。"
+        }
+      ]
+    },
+    {
+      "dimension": "uncertainty",
+      "assessment": "supported",
+      "level_proposal": 2,
+      "anchor": {
+        "paragraph_id": "P02",
+        "quote": "该情境不是已发生的树坪灾害事件。"
+      },
+      "evidence_card_ids": [
+        "E01"
+      ],
+      "citations": [
+        {
+          "claim_id": "C03",
+          "source_id": "ZOU2021",
+          "locator": "5.3 Scenario 3; 6 Discussion"
+        },
+        {
+          "claim_id": "C12",
+          "source_id": "ZOU2021",
+          "locator": "4.1 Overall deformation feature; 5.1 Scenario 1"
+        }
+      ],
+      "basis": "P01将确定性表述明确列为待核查断言；P02把快速入水情景标为假设并与既成事件区分。E01区分文献机理与实测孔压证据，A01仅作辅助笔记说明资料限制。因此不把待检命题直接判为学生已认可的确定结论。",
+      "issues": []
+    },
+    {
+      "dimension": "mitigation_match",
+      "assessment": "not_in_scope",
+      "level_proposal": null,
+      "anchor": {
+        "paragraph_id": "REPORT",
+        "quote": null
+      },
+      "evidence_card_ids": [],
+      "citations": [],
+      "basis": "本次为片段反馈，assessed_dimensions未包含防治建议匹配；不要求补交，不计为缺项。",
+      "issues": []
+    }
+  ],
+  "boundary_reminder": "本反馈仅针对两段合成材料的本轮五个维度；等级是待教师校准的形成性建议，不加总、不定正式成绩。需教师终审后决定使用。未作现实树坪现状安全评价，也不代表真实学生已收反馈、教学效果或在OpenClaw中完成运行。"
+}

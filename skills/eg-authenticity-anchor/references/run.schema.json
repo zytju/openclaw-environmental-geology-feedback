@@ -1,0 +1,349 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:eg:run:1.1.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "1.1.0"
+    },
+    "run_id": {
+      "type": "string",
+      "minLength": 36,
+      "maxLength": 36,
+      "pattern": "^[0-9a-f-]{36}$"
+    },
+    "timestamp_asia_shanghai": {
+      "type": "string",
+      "minLength": 13,
+      "maxLength": 13,
+      "pattern": "^[0-9]{8}_[0-9]{4}$"
+    },
+    "backend": {
+      "enum": [
+        "mock",
+        "openclaw"
+      ]
+    },
+    "is_simulated": {
+      "type": "boolean"
+    },
+    "enrolled_students": {
+      "const": 66
+    },
+    "attempted": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 66
+    },
+    "valid_teacher_model_reviews": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 66
+    },
+    "human_final_reviews": {
+      "const": 0
+    },
+    "confirmed_beneficiaries": {
+      "type": "null"
+    },
+    "pending_or_failed": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 66
+    },
+    "caution": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1000
+    },
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "student_id": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 20,
+            "pattern": "^(S[0-9]{3}|invalid-[0-9]{3})$"
+          },
+          "status": {
+            "enum": [
+              "input_invalid",
+              "gate_blocked",
+              "feedback_error",
+              "teacher_error",
+              "teacher_model_review_valid_human_pending"
+            ]
+          },
+          "error_code": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 1000
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "input_sha256": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 64,
+                "maxLength": 64,
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "feedback_sha256": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 64,
+                "maxLength": 64,
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "teacher_review_sha256": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 64,
+                "maxLength": 64,
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "teacher_disposition": {
+            "anyOf": [
+              {
+                "enum": [
+                  "accept_proposal",
+                  "revise_feedback",
+                  "hold"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "material_kind": {
+            "anyOf": [
+              {
+                "enum": [
+                  "synthetic",
+                  "student_work"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "sessions": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 36,
+              "maxLength": 36,
+              "pattern": "^[0-9a-f-]{36}$"
+            },
+            "minItems": 0,
+            "maxItems": 2,
+            "uniqueItems": true
+          },
+          "feedback_review_flags": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "problem_identification",
+                "evidence_extraction",
+                "reasoning_chain",
+                "hazard_chain",
+                "uncertainty",
+                "mitigation_match"
+              ]
+            },
+            "minItems": 0,
+            "maxItems": 6,
+            "uniqueItems": true
+          },
+          "calls": {
+            "type": "array",
+            "minItems": 0,
+            "maxItems": 2,
+            "items": {
+              "type": "object",
+              "properties": {
+                "role": {
+                  "enum": [
+                    "student",
+                    "teacher"
+                  ]
+                },
+                "wall_seconds": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "protocol_valid": {
+                  "type": "boolean"
+                },
+                "reported_duration_ms": {
+                  "anyOf": [
+                    {
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "input_tokens": {
+                  "anyOf": [
+                    {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "output_tokens": {
+                  "anyOf": [
+                    {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "total_tokens": {
+                  "anyOf": [
+                    {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "role",
+                "wall_seconds",
+                "protocol_valid",
+                "reported_duration_ms",
+                "input_tokens",
+                "output_tokens",
+                "total_tokens"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "student_id",
+          "status",
+          "error_code",
+          "input_sha256",
+          "feedback_sha256",
+          "teacher_review_sha256",
+          "teacher_disposition",
+          "material_kind",
+          "sessions",
+          "feedback_review_flags",
+          "calls"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1,
+      "maxItems": 66
+    },
+    "feedback_review_flag_counts": {
+      "type": "object",
+      "properties": {
+        "problem_identification": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 66
+        },
+        "evidence_extraction": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 66
+        },
+        "reasoning_chain": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 66
+        },
+        "hazard_chain": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 66
+        },
+        "uncertainty": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 66
+        },
+        "mitigation_match": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 66
+        }
+      },
+      "required": [
+        "problem_identification",
+        "evidence_extraction",
+        "reasoning_chain",
+        "hazard_chain",
+        "uncertainty",
+        "mitigation_match"
+      ],
+      "additionalProperties": false
+    },
+    "feedback_review_denominator": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 66
+    }
+  },
+  "required": [
+    "schema_version",
+    "run_id",
+    "timestamp_asia_shanghai",
+    "backend",
+    "is_simulated",
+    "enrolled_students",
+    "attempted",
+    "valid_teacher_model_reviews",
+    "human_final_reviews",
+    "confirmed_beneficiaries",
+    "pending_or_failed",
+    "feedback_review_flag_counts",
+    "feedback_review_denominator",
+    "caution",
+    "records"
+  ],
+  "additionalProperties": false
+}

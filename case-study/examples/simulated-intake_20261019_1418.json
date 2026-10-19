@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.1.0",
+  "student_id": "S001",
+  "submission_sha256": "e85a75fbf5dc9a1247377653b91d7ee2502828e7f342d16bd6f98afcf04874e9",
+  "material_kind": "synthetic",
+  "materials_readable": true,
+  "source_checks_done": true,
+  "deidentified": true,
+  "approved_for_feedback": true,
+  "previous_feedback_verified": false,
+  "reviewer_code": "T000",
+  "reviewed_at": "SIMULATED_NOT_A_TEACHER_REVIEW"
+}

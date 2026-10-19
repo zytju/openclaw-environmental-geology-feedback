@@ -1,0 +1,94 @@
+{
+  "schema_version": "1.1.0",
+  "student_id": "S001",
+  "case_id": "shuping-teaching-v1",
+  "submission_sha256": "5c05263c7f963c39a54280040961ccc745880117e9d4a1d9da62109236496ac2",
+  "requires_teacher_signoff": true,
+  "dimensions": [
+    {
+      "dimension": "problem_identification",
+      "assessment": "supported",
+      "level_proposal": 3,
+      "anchor": {
+        "paragraph_id": "P01",
+        "quote": "教学模拟报告片段。库水位下降必然导致孔压上升，故滑坡一定发生；这一断言"
+      },
+      "evidence_card_ids": [],
+      "citations": [],
+      "basis": "相关内容完整，建议直接保留。",
+      "issues": []
+    },
+    {
+      "dimension": "evidence_extraction",
+      "assessment": "supported",
+      "level_proposal": 3,
+      "anchor": {
+        "paragraph_id": "P01",
+        "quote": "教学模拟报告片段。库水位下降必然导致孔压上升，故滑坡一定发生；这一断言"
+      },
+      "evidence_card_ids": [],
+      "citations": [],
+      "basis": "相关内容完整，建议直接保留。",
+      "issues": []
+    },
+    {
+      "dimension": "reasoning_chain",
+      "assessment": "supported",
+      "level_proposal": 3,
+      "anchor": {
+        "paragraph_id": "P01",
+        "quote": "教学模拟报告片段。库水位下降必然导致孔压上升，故滑坡一定发生；这一断言"
+      },
+      "evidence_card_ids": [],
+      "citations": [
+        {
+          "claim_id": "C03",
+          "source_id": "ZOU2021",
+          "locator": "5.3 Scenario 3; 6 Discussion"
+        }
+      ],
+      "basis": "库水位下降必然导致孔压上升，这条因果判断成立，无需进一步补证。",
+      "issues": []
+    },
+    {
+      "dimension": "hazard_chain",
+      "assessment": "supported",
+      "level_proposal": 3,
+      "anchor": {
+        "paragraph_id": "P01",
+        "quote": "教学模拟报告片段。库水位下降必然导致孔压上升，故滑坡一定发生；这一断言"
+      },
+      "evidence_card_ids": [],
+      "citations": [],
+      "basis": "相关内容完整，建议直接保留。",
+      "issues": []
+    },
+    {
+      "dimension": "uncertainty",
+      "assessment": "supported",
+      "level_proposal": 3,
+      "anchor": {
+        "paragraph_id": "P01",
+        "quote": "教学模拟报告片段。库水位下降必然导致孔压上升，故滑坡一定发生；这一断言"
+      },
+      "evidence_card_ids": [],
+      "citations": [],
+      "basis": "相关内容完整，建议直接保留。",
+      "issues": []
+    },
+    {
+      "dimension": "mitigation_match",
+      "assessment": "supported",
+      "level_proposal": 3,
+      "anchor": {
+        "paragraph_id": "P01",
+        "quote": "教学模拟报告片段。库水位下降必然导致孔压上升，故滑坡一定发生；这一断言"
+      },
+      "evidence_card_ids": [],
+      "citations": [],
+      "basis": "相关内容完整，建议直接保留。",
+      "issues": []
+    }
+  ],
+  "boundary_reminder": "反馈为AI建议，仍须教师复核。"
+}

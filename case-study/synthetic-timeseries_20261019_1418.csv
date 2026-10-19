@@ -1,0 +1,13 @@
+step,is_simulated,reservoir_level_m,rainfall_mm,cumulative_displacement_mm
+1,true,172.0,25,2.5
+2,true,170.392,30,6.0
+3,true,166.0,35,10.5
+4,true,160.0,20,16.0
+5,true,154.0,25,22.5
+6,true,149.608,30,30.0
+7,true,148.0,35,38.5
+8,true,149.608,20,48.0
+9,true,154.0,25,58.5
+10,true,160.0,30,70.0
+11,true,166.0,35,82.5
+12,true,170.392,20,96.0

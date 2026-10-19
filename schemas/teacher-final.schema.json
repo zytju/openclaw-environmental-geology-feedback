@@ -1,0 +1,130 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:eg:teacher-final:1.1.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "1.1.0"
+    },
+    "student_id": {
+      "type": "string",
+      "minLength": 4,
+      "maxLength": 4,
+      "pattern": "^S[0-9]{3}$"
+    },
+    "stage": {
+      "enum": [
+        "draft",
+        "revision"
+      ]
+    },
+    "material_kind": {
+      "enum": [
+        "synthetic",
+        "student_work"
+      ]
+    },
+    "submission_sha256": {
+      "type": "string",
+      "minLength": 64,
+      "maxLength": 64,
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "feedback_sha256": {
+      "type": "string",
+      "minLength": 64,
+      "maxLength": 64,
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "teacher_review_sha256": {
+      "type": "string",
+      "minLength": 64,
+      "maxLength": 64,
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "reviewer_code": {
+      "type": "string",
+      "pattern": "^T[0-9]{3}$",
+      "minLength": 4,
+      "maxLength": 4
+    },
+    "reviewed_at": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 40
+    },
+    "human_review_complete": {
+      "type": "boolean"
+    },
+    "approved_for_release": {
+      "type": "boolean"
+    },
+    "released_issue_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 2,
+        "maxLength": 20,
+        "pattern": "^I[0-9]{2,6}$"
+      },
+      "minItems": 0,
+      "maxItems": 60,
+      "uniqueItems": true
+    },
+    "confirmed_student_problem_dimensions": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "problem_identification",
+          "evidence_extraction",
+          "reasoning_chain",
+          "hazard_chain",
+          "uncertainty",
+          "mitigation_match"
+        ]
+      },
+      "minItems": 0,
+      "maxItems": 6,
+      "uniqueItems": true
+    },
+    "comment": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1200
+    },
+    "assessed_dimensions": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 6,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "problem_identification",
+          "evidence_extraction",
+          "reasoning_chain",
+          "hazard_chain",
+          "uncertainty",
+          "mitigation_match"
+        ]
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "student_id",
+    "stage",
+    "material_kind",
+    "submission_sha256",
+    "feedback_sha256",
+    "teacher_review_sha256",
+    "reviewer_code",
+    "reviewed_at",
+    "human_review_complete",
+    "approved_for_release",
+    "released_issue_ids",
+    "confirmed_student_problem_dimensions",
+    "comment",
+    "assessed_dimensions"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,23 @@
+{
+  "is_simulated": true,
+  "source": "原创数学序列",
+  "observed_location": null,
+  "observed_dates": null,
+  "purpose": "接口和绘表练习，不是树坪监测记录",
+  "formulas": {
+    "reservoir_level_m": "160+12*cos(2*pi*(step-1)/12)",
+    "rainfall_mm": "20+5*(step%4)",
+    "cumulative_displacement_mm": "2*step+0.5*step*step"
+  },
+  "units": {
+    "reservoir_level_m": "m; arbitrary teaching datum",
+    "rainfall_mm": "mm per artificial step",
+    "cumulative_displacement_mm": "mm"
+  },
+  "cautions": [
+    "序列未按树坪参数校准",
+    "不得用于风险阈值或教学效果分析",
+    "未模拟地下水位与孔压",
+    "不同变量的共变不构成因果证据"
+  ]
+}

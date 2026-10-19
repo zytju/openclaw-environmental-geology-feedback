@@ -1,0 +1,137 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:eg:human-summary:1.1.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "1.1.0"
+    },
+    "stage": {
+      "enum": [
+        "draft",
+        "revision"
+      ]
+    },
+    "is_simulated": {
+      "type": "boolean"
+    },
+    "human_final_reviews": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 66
+    },
+    "approved_feedback_packages": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 66
+    },
+    "confirmed_beneficiaries": {
+      "type": "null"
+    },
+    "student_problem_counts": {
+      "type": "object",
+      "properties": {
+        "problem_identification": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 66
+        },
+        "evidence_extraction": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 66
+        },
+        "reasoning_chain": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 66
+        },
+        "hazard_chain": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 66
+        },
+        "uncertainty": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 66
+        },
+        "mitigation_match": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 66
+        }
+      },
+      "required": [
+        "problem_identification",
+        "evidence_extraction",
+        "reasoning_chain",
+        "hazard_chain",
+        "uncertainty",
+        "mitigation_match"
+      ],
+      "additionalProperties": false
+    },
+    "scope_denominators": {
+      "type": "object",
+      "properties": {
+        "problem_identification": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 66
+        },
+        "evidence_extraction": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 66
+        },
+        "reasoning_chain": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 66
+        },
+        "hazard_chain": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 66
+        },
+        "uncertainty": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 66
+        },
+        "mitigation_match": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 66
+        }
+      },
+      "required": [
+        "problem_identification",
+        "evidence_extraction",
+        "reasoning_chain",
+        "hazard_chain",
+        "uncertainty",
+        "mitigation_match"
+      ],
+      "additionalProperties": false
+    },
+    "caution": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1000
+    }
+  },
+  "required": [
+    "schema_version",
+    "stage",
+    "is_simulated",
+    "human_final_reviews",
+    "approved_feedback_packages",
+    "confirmed_beneficiaries",
+    "student_problem_counts",
+    "scope_denominators",
+    "caution"
+  ],
+  "additionalProperties": false
+}

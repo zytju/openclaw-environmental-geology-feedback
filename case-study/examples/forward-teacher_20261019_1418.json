@@ -1,0 +1,217 @@
+{
+  "schema_version": "1.1.0",
+  "student_id": "S001",
+  "case_id": "shuping-teaching-v1",
+  "submission_sha256": "5c05263c7f963c39a54280040961ccc745880117e9d4a1d9da62109236496ac2",
+  "feedback_sha256": "8bbc04b19d46e92ebb986c8a7400ff9d3a3f4ff816acc1e2c6a658c60e46b814",
+  "requires_teacher_signoff": true,
+  "disposition": "revise_feedback",
+  "checks": [
+    {
+      "dimension": "problem_identification",
+      "verdict": "suspect",
+      "issue_ids": [],
+      "anchor": {
+        "paragraph_id": "P02",
+        "quote": "假设滑体快速入水，需进一步核查涌浪传播路径、库岸暴露与航运受体。该情境不是已发生的树坪灾害事件。"
+      },
+      "citations": [
+        {
+          "claim_id": "C01",
+          "source_id": "ZOU2021",
+          "locator": "2.2 Driving–resisting model; 3.1 Geological setting"
+        }
+      ],
+      "reason": "反馈以P01笼统支持本维3级，没有说明问题边界和优先级的依据。P02已经提出假设滑体、库岸暴露及航运受体，不能判成完全未识别问题；但目前未交代具体空间对象、滑体与滑面或驱动段和抗滑段，3级建议缺少支撑。应先核实full_report与正文“片段”的范围冲突，再依量规修订。"
+    },
+    {
+      "dimension": "evidence_extraction",
+      "verdict": "suspect",
+      "issue_ids": [],
+      "anchor": {
+        "paragraph_id": "P01",
+        "quote": "教学模拟报告片段。库水位下降必然导致孔压上升，故滑坡一定发生；这一断言需要核查。"
+      },
+      "citations": [
+        {
+          "claim_id": "C03",
+          "source_id": "ZOU2021",
+          "locator": "5.3 Scenario 3; 6 Discussion"
+        }
+      ],
+      "reason": "3级要求交叉核验并处理资料性质或冲突，反馈未给依据，也没有关联E01。E01有ZOU2021及章节定位，明确文献机理不等于本材料有实测孔压证据；A01也说明缺少原始孔压记录，应承认这些已有证据边界。不能将未提供实测数据等同于完全无可追溯证据，也不能据此直接评最高档。"
+    },
+    {
+      "dimension": "reasoning_chain",
+      "verdict": "suspect",
+      "issue_ids": [],
+      "anchor": {
+        "paragraph_id": "P01",
+        "quote": "教学模拟报告片段。库水位下降必然导致孔压上升，故滑坡一定发生；这一断言需要核查。"
+      },
+      "citations": [
+        {
+          "claim_id": "C03",
+          "source_id": "ZOU2021",
+          "locator": "5.3 Scenario 3; 6 Discussion"
+        },
+        {
+          "claim_id": "C08",
+          "source_id": "ZOU2021",
+          "locator": "2.3 Effect of water force on the resisting and driving sections; 5.3 Scenario 3"
+        }
+      ],
+      "reason": "反馈明确认定“下降必然导致孔压上升”成立且无需补证，与所引C03相反，影响核心专业结论。其引文在“这一断言”处截断，遗漏“需要核查”，不能据此认定学生无条件主张该断言。A01还说明先分辨地下水响应，不能确定孔压方向。应改为有条件的地下水消退滞后—向库水水力梯度—不利渗流作用，并核查适用条件；现有内容未支撑比较机制、时滞及证伪办法的3级要求。"
+    },
+    {
+      "dimension": "hazard_chain",
+      "verdict": "suspect",
+      "issue_ids": [],
+      "anchor": {
+        "paragraph_id": "P02",
+        "quote": "假设滑体快速入水，需进一步核查涌浪传播路径、库岸暴露与航运受体。该情境不是已发生的树坪灾害事件。"
+      },
+      "citations": [
+        {
+          "claim_id": "C12",
+          "source_id": "ZOU2021",
+          "locator": "4.1 Overall deformation feature; 5.1 Scenario 1"
+        }
+      ],
+      "reason": "P01不能支持本维最高档。P02明确将快速入水、涌浪与受体作为假设，且否认是已发生的树坪事件，这一正确边界应保留。它列出了待核查的传播与暴露环节，但尚未给出逐边证据、触发条件、阻断环节或情景比较，不能称内容完整并建议直接保留3级；也不能把假设误判为历史事件。"
+    },
+    {
+      "dimension": "uncertainty",
+      "verdict": "suspect",
+      "issue_ids": [],
+      "anchor": {
+        "paragraph_id": "P01",
+        "quote": "教学模拟报告片段。库水位下降必然导致孔压上升，故滑坡一定发生；这一断言需要核查。"
+      },
+      "citations": [
+        {
+          "claim_id": "C03",
+          "source_id": "ZOU2021",
+          "locator": "5.3 Scenario 3; 6 Discussion"
+        }
+      ],
+      "reason": "反馈忽略P01“这一断言需要核查”、P02的假设声明及A01/E01的实测证据限制，却在推理维度给出无需补证的确定性判断。应承认已有事实、推断与假设区分，不能将反馈的必然化错误算作学生错误。现有材料未系统说明不确定性如何改变建议或优先补证项，3级建议仍缺依据；具体档位由教师结合范围与作业要求决定。"
+    },
+    {
+      "dimension": "mitigation_match",
+      "verdict": "omitted",
+      "issue_ids": [],
+      "anchor": {
+        "paragraph_id": "REPORT",
+        "quote": null
+      },
+      "citations": [
+        {
+          "claim_id": "C10",
+          "source_id": "ZOU2021",
+          "locator": "6 Discussion; 7 Conclusions"
+        }
+      ],
+      "reason": "按已声明full_report和六维评价范围，P01、P02、A01、E01均未提出防治措施、实施对象、适用条件或监测评价，反馈却建议supported/3，漏掉范围内缺项。若范围声明准确，本维应按absent处理并由教师决定等级建议；若只是摘录，应先纠正范围并重新核对，不能推断未提供的整篇报告缺项。C10只作补写方向，不证明本材料已有措施。"
+    }
+  ],
+  "omissions": [
+    {
+      "dimension": "evidence_extraction",
+      "anchor": {
+        "paragraph_id": "P01",
+        "quote": "教学模拟报告片段。库水位下降必然导致孔压上升，故滑坡一定发生；这一断言需要核查。"
+      },
+      "citations": [
+        {
+          "claim_id": "C03",
+          "source_id": "ZOU2021",
+          "locator": "5.3 Scenario 3; 6 Discussion"
+        }
+      ],
+      "problem": "反馈没有利用E01的可追溯章节、文献转述性质及“非实测孔压证据”的说明，遗漏已有证据与证据边界。",
+      "suggested_check": "将E01与P01对应，承认来源和资料性质区分；核实能支撑的具体命题，不要求从定性材料补造单位、时段或孔压值。"
+    },
+    {
+      "dimension": "reasoning_chain",
+      "anchor": {
+        "paragraph_id": "P01",
+        "quote": "教学模拟报告片段。库水位下降必然导致孔压上升，故滑坡一定发生；这一断言需要核查。"
+      },
+      "citations": [
+        {
+          "claim_id": "C03",
+          "source_id": "ZOU2021",
+          "locator": "5.3 Scenario 3; 6 Discussion"
+        },
+        {
+          "claim_id": "C08",
+          "source_id": "ZOU2021",
+          "locator": "2.3 Effect of water force on the resisting and driving sections; 5.3 Scenario 3"
+        }
+      ],
+      "problem": "反馈遗漏待核查语气和A01的条件意识，反而将孔压方向及滑坡发生必然化；未给出可成立的条件机理。",
+      "suggested_check": "要求反馈保留完整限定语，用C08的场地和水文条件解释滞后地下水与向外渗流；区分孔压绝对变化、水头差和渗流作用，不从定性机理推出滑坡一定发生。"
+    },
+    {
+      "dimension": "hazard_chain",
+      "anchor": {
+        "paragraph_id": "P02",
+        "quote": "假设滑体快速入水，需进一步核查涌浪传播路径、库岸暴露与航运受体。该情境不是已发生的树坪灾害事件。"
+      },
+      "citations": [
+        {
+          "claim_id": "C12",
+          "source_id": "ZOU2021",
+          "locator": "4.1 Overall deformation feature; 5.1 Scenario 1"
+        }
+      ],
+      "problem": "反馈遗漏P02已经正确标明假设及非历史事件，也未说明快速入水—涌浪—暴露路径仍需逐环节补证。",
+      "suggested_check": "肯定情景边界，再列触发条件、传播条件及受体暴露的核查需求；无核实材料时不得新增涌浪已发生、建筑受损或伤亡等事实。"
+    },
+    {
+      "dimension": "uncertainty",
+      "anchor": {
+        "paragraph_id": "P01",
+        "quote": "这一断言需要核查。"
+      },
+      "citations": [
+        {
+          "claim_id": "C03",
+          "source_id": "ZOU2021",
+          "locator": "5.3 Scenario 3; 6 Discussion"
+        }
+      ],
+      "problem": "反馈遗漏“需要核查”的限定，未评价A01和E01承认无原始孔压证据的正确做法，也未指出如何将不确定性转成核查优先级。",
+      "suggested_check": "先确认P01是在引用待驳断言还是本人结论；保留已有谨慎表达，再提出需要哪些独立观测检验孔压方向及滞后，不以模型建议替代教师判断。"
+    },
+    {
+      "dimension": "mitigation_match",
+      "anchor": {
+        "paragraph_id": "REPORT",
+        "quote": null
+      },
+      "citations": [
+        {
+          "claim_id": "C04",
+          "source_id": "ZOU2021",
+          "locator": "Abstract; 6 Discussion"
+        },
+        {
+          "claim_id": "C10",
+          "source_id": "ZOU2021",
+          "locator": "6 Discussion; 7 Conclusions"
+        }
+      ],
+      "problem": "full_report所声明范围内未见防治方案，反馈漏报这一缺项，却以无关P01作为最高档依据。",
+      "suggested_check": "教师先确认范围。若确属完整报告，提示补充与驱动段、抗滑段或地下水机制相对应的措施及实施和监测条件；区分有记录的土方转移与建议性的排水、抽水，不写成均已实施有效。"
+    }
+  ],
+  "teacher_questions": [
+    "元数据声明full_report并评六维，但P01自称“报告片段”。本次究竟提交完整报告还是摘录？请教师确认范围；如须修改，重新生成提交哈希、intake和反馈绑定，不能直接沿用旧哈希。",
+    "P01的“下降必然导致孔压上升，故滑坡一定发生”是待检验的引述还是拟采纳的结论？现有“这一断言需要核查”及A01不支持将其直接记作学生已确认的专业错误。",
+    "本作业是否要求区分首次蓄水与后续周期升降？C11，ZOU2021，5.1 Scenario 1; 7 Conclusions：两者作用组合不同。当前未明确阶段，补写时不能用单一升降方向概括全部过程，也不应将未要求的细节直接计为缺项。",
+    "若补充文献数值，如何明确资料性质？C09，ZOU2021，5.3 Scenario 3; Figures 16–17：安全系数约0.995及水头差约14米仅是论文情景3模型结果，不能变成本合成报告实测值、现状安全结论或课程阈值。",
+    "这是一条合成材料试用，intake标为T000和SIMULATED_NOT_A_TEACHER_REVIEW。请由教师对专业解释、修订反馈与最终处置独立签认；程序eligible和本复核均不构成真实教师终审或发放。"
+  ]
+}

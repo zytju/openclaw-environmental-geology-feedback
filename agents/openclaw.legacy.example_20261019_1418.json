@@ -1,0 +1,98 @@
+{
+  "agents": {
+    "list": [
+      {
+        "id": "eg-student-feedback",
+        "workspace": "/ABSOLUTE/NEW/EG_PROFILE/workspaces/eg-student-feedback",
+        "agentDir": "/ABSOLUTE/NEW/EG_PROFILE/agent-state/eg-student-feedback",
+        "model": "example-provider/example-model",
+        "skills": [
+          "eg-authenticity-anchor",
+          "eg-report-feedback"
+        ],
+        "sandbox": {
+          "mode": "all",
+          "scope": "session",
+          "workspaceAccess": "ro",
+          "docker": {
+            "network": "none"
+          }
+        },
+        "tools": {
+          "allow": [
+            "read"
+          ],
+          "deny": [
+            "exec",
+            "process",
+            "write",
+            "edit",
+            "apply_patch",
+            "browser",
+            "message",
+            "sessions_list",
+            "sessions_history",
+            "sessions_send",
+            "sessions_spawn",
+            "memory_search",
+            "memory_get",
+            "web_search",
+            "web_fetch",
+            "gateway",
+            "cron",
+            "nodes"
+          ],
+          "elevated": {
+            "enabled": false
+          }
+        }
+      },
+      {
+        "id": "eg-teacher-review",
+        "workspace": "/ABSOLUTE/NEW/EG_PROFILE/workspaces/eg-teacher-review",
+        "agentDir": "/ABSOLUTE/NEW/EG_PROFILE/agent-state/eg-teacher-review",
+        "model": "example-provider/example-model",
+        "skills": [
+          "eg-rubric-check",
+          "eg-authenticity-anchor"
+        ],
+        "sandbox": {
+          "mode": "all",
+          "scope": "session",
+          "workspaceAccess": "ro",
+          "docker": {
+            "network": "none"
+          }
+        },
+        "tools": {
+          "allow": [
+            "read"
+          ],
+          "deny": [
+            "exec",
+            "process",
+            "write",
+            "edit",
+            "apply_patch",
+            "browser",
+            "message",
+            "sessions_list",
+            "sessions_history",
+            "sessions_send",
+            "sessions_spawn",
+            "memory_search",
+            "memory_get",
+            "web_search",
+            "web_fetch",
+            "gateway",
+            "cron",
+            "nodes"
+          ],
+          "elevated": {
+            "enabled": false
+          }
+        }
+      }
+    ]
+  }
+}

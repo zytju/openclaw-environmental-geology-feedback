@@ -1,0 +1,122 @@
+[
+  {
+    "source_id": "ZOU2021",
+    "kind": "paper",
+    "title": "A model for interpreting the deformation mechanism of reservoir landslides in the Three Gorges Reservoir area, China",
+    "authors": [
+      "Zongxing Zou",
+      "Huiming Tang",
+      "Robert E. Criss",
+      "Xinli Hu",
+      "Chengren Xiong",
+      "Qiong Wu",
+      "Yi Yuan"
+    ],
+    "year": 2021,
+    "journal": "Natural Hazards and Earth System Sciences",
+    "volume": "21",
+    "pages": "517–532",
+    "doi": "10.5194/nhess-21-517-2021",
+    "url": "https://nhess.copernicus.org/articles/21/517/2021/",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "verified_on": "2026-10-16",
+    "verified_parts": [
+      "publisher citation",
+      "Abstract",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "Data availability",
+      "license",
+      "2.2",
+      "2.3"
+    ],
+    "availability": "论文说明观测资料来自湖北省国土资源部门；没有声明原始监测数据随论文开放下载。",
+    "included": "原创中文简述与来源指针；未复制论文图片、表格或原始数据",
+    "mechanism_rechecked_on": "2026-10-19"
+  },
+  {
+    "source_id": "WEN2017",
+    "kind": "paper",
+    "title": "Landslide displacement prediction using the GA-LSSVM model and time series analysis: a case study of Three Gorges Reservoir, China",
+    "authors": [
+      "Tao Wen",
+      "Huiming Tang",
+      "Yankun Wang",
+      "Chengyuan Lin",
+      "Chengren Xiong"
+    ],
+    "year": 2017,
+    "journal": "Natural Hazards and Earth System Sciences",
+    "volume": "17",
+    "pages": "2181–2198",
+    "doi": "10.5194/nhess-17-2181-2017",
+    "url": "https://nhess.copernicus.org/articles/17/2181/2017/",
+    "license": "CC-BY-3.0",
+    "license_url": "https://creativecommons.org/licenses/by/3.0/",
+    "verified_on": "2026-10-16",
+    "verified_parts": [
+      "publisher citation",
+      "Abstract",
+      "PDF section 3.1",
+      "Assets dataset link",
+      "license"
+    ],
+    "availability": "出版商 Assets 页面链接 DOI 10.13140/RG.2.2.27329.04964；该外部数据文件及其许可尚未核验，不纳入分发。",
+    "included": "仅书目信息与方法边界说明"
+  },
+  {
+    "source_id": "NCDC2016",
+    "kind": "dataset_metadata",
+    "title": "2016年长江三峡库区秭归县树坪滑坡变形、降雨及库水位监测资料",
+    "authors": [
+      "易武"
+    ],
+    "year": 2020,
+    "observation_year": 2016,
+    "doi": "10.12072/sanxia.003.2017.db",
+    "url": "https://www.ncdc.ac.cn/portal/metadata/94d8a2fb-0abb-4089-a231-d015c2a39628",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "verified_on": "2026-10-16",
+    "access": "Apply to Access / Login to Apply",
+    "download_status": "metadata_only",
+    "included": "只含元数据指针；原始 doc 和图片未下载、未分发",
+    "doi_resolution_check": "DOI值已对照提供方元数据；本工具直接访问doi.org未成功，未把解析成功作为已验证项。"
+  },
+  {
+    "source_id": "NCDC2020",
+    "kind": "dataset_metadata",
+    "title": "2020年长江三峡库区秭归县树坪滑坡变形、降雨及库水位监测资料",
+    "authors": [
+      "卢书强",
+      "黄海峰",
+      "易武"
+    ],
+    "year": 2026,
+    "observation_year": 2020,
+    "doi": "10.12072/ncdc.sanxia.db7436.2026",
+    "url": "https://www.ncdc.ac.cn/portal/metadata/4f9df125-dcbc-4c11-970a-d5ca78fddd57",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "verified_on": "2026-10-16",
+    "access": "Apply to Access / Login to Apply",
+    "download_status": "metadata_only",
+    "included": "只含元数据指针；原始 doc 未下载、未分发",
+    "doi_resolution_check": "DOI值已对照提供方元数据；本工具直接访问doi.org未成功，未把解析成功作为已验证项。"
+  },
+  {
+    "source_id": "SIMULATION",
+    "kind": "synthetic",
+    "title": "教学工具测试用模拟序列",
+    "authors": [],
+    "year": 2026,
+    "url": "local:case-study/synthetic-timeseries_20261019_1418.csv",
+    "license": "MIT",
+    "verified_on": "2026-10-16",
+    "included": "原创确定性模拟值，不是树坪实测值，不能用于校准真实阈值"
+  }
+]
