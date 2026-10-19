@@ -1,0 +1,60 @@
+name: Publish verified preview
+
+on:
+  workflow_run:
+    workflows: ['Offline tests']
+    types: [completed]
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publish-v0.1.2-preview
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: >-
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.event == 'push' &&
+      github.event.workflow_run.head_repository.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    env:
+      GH_REPO: ${{ github.repository }}
+      REL_COMMIT: ${{ github.event.workflow_run.head_sha }}
+      REL_TEST_URL: ${{ github.event.workflow_run.html_url }}
+      REL_TAG: v0.1.2-preview
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+          persist-credentials: false
+      - name: Publish once without replacing an existing release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if gh release view "$REL_TAG" --json tagName >/dev/null 2>&1; then
+            echo "Release already exists; keeping its tag and assets unchanged."
+            exit 0
+          fi
+          test "$(git rev-parse HEAD)" = "$REL_COMMIT"
+          sha256sum -c MANIFEST_20261019_1726.sha256
+          REL_STAMP=$(TZ=Asia/Shanghai date +%Y%m%d_%H%M)
+          REL_DIR="$RUNNER_TEMP/eg-preview-release"
+          mkdir -p "$REL_DIR"
+          REL_NAME="OpenClaw_GitHub_v0.1.2-preview_${REL_STAMP}.zip"
+          git archive --format=zip --prefix=openclaw-environmental-geology-feedback/ "$REL_COMMIT" > "$REL_DIR/$REL_NAME"
+          (cd "$REL_DIR" && sha256sum "$REL_NAME" > "SHA256SUMS_${REL_STAMP}.txt")
+          cp docs/release-notes_20261019_1726.md "$REL_DIR/release-notes.md"
+          printf '\n发布提交：%s\n\n通过的四组在线测试：%s\n' "$REL_COMMIT" "$REL_TEST_URL" >> "$REL_DIR/release-notes.md"
+          gh release create "$REL_TAG" "$REL_DIR/$REL_NAME" "$REL_DIR/SHA256SUMS_${REL_STAMP}.txt" \
+            --target "$REL_COMMIT" --prerelease \
+            --title 'v0.1.2-preview：环境地质学形成性反馈开发预览' \
+            --notes-file "$REL_DIR/release-notes.md"
+          gh release view "$REL_TAG" --json url,tagName,isPrerelease,targetCommitish,assets

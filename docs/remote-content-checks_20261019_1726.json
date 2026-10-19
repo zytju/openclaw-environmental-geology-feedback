@@ -1,0 +1,803 @@
+{
+  "commit": "b697364be81fcbf85d02c8396236e37544b95f97",
+  "files": [
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "sha256": "05849ccd08ef41d6910ee9796aba15c657562518537641f9554fab986853ddc1",
+      "blob_sha": "519a9cc30c490940ae935c78bf26bad16ad19fcb",
+      "equal_original": true
+    },
+    {
+      "path": "CHANGELOG.md",
+      "sha256": "adfdea70c9b18dbf4a6a9a8c616836edf5ac193c85ab17e68be637678f2b8dbb",
+      "blob_sha": "57d14cb0804847e294d2ca5dac8edfcebda84488",
+      "equal_original": true
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "f35bf4c3d608d5a6e700d615a73d6510848f4f95f5940370515f32bb3f4fb982",
+      "blob_sha": "e796551bc76d3e7f95f85c09214540a1e8a0ccee",
+      "equal_original": true
+    },
+    {
+      "path": "agents/eg-student-feedback/AGENTS.md",
+      "sha256": "bad5550fab1a1459ddf78d23279fb9ce102e71ebcc11598a46d2f5df3c7b2dcc",
+      "blob_sha": "1ff1e0481be0318367e2cd7aa0b82cab85446316",
+      "equal_original": true
+    },
+    {
+      "path": ".github/workflows/tests_20261019_1418.yml",
+      "sha256": "6154e3c931803f29b035fb16d15845e74e36cd1632076951ed501d0e5136bb8b",
+      "blob_sha": "96b7e567b2e8fcf7d3228dba576d7c1ffa62958f",
+      "equal_original": true
+    },
+    {
+      "path": "README.md",
+      "sha256": "4fbe29525eb33c69da8029db5a4e5db3cc304e7dcc129a9a7e20d159bcd06b25",
+      "blob_sha": "b06e8ad9eb4106a762fb205d6e61f49b65e57a8a",
+      "equal_original": false
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "7d4af9dacd865c63c096ea3db96208016218c9e47b76325f8a71a2c8c874c3bc",
+      "blob_sha": "c83ef989b89f6158c28c507c566aa9ae23cefa8d",
+      "equal_original": true
+    },
+    {
+      "path": "MANIFEST_20261019_1418.sha256",
+      "sha256": "36a637aa0918066587b13d9ad7ee23f7416c81ee2f376de779ffdf9a86218bd4",
+      "blob_sha": "5186702ba627dc14492b0d5d34dc386a481daa80",
+      "equal_original": true
+    },
+    {
+      "path": "agents/eg-student-feedback/SOUL.md",
+      "sha256": "80a462b5b3d9f10d20ffa49d39ca9e09971629c5a3c42be1298315fc835f8c2d",
+      "blob_sha": "76f8c304956d7471009f64455a03f1f523641e98",
+      "equal_original": true
+    },
+    {
+      "path": "agents/eg-teacher-review/SOUL.md",
+      "sha256": "80a462b5b3d9f10d20ffa49d39ca9e09971629c5a3c42be1298315fc835f8c2d",
+      "blob_sha": "76f8c304956d7471009f64455a03f1f523641e98",
+      "equal_original": true
+    },
+    {
+      "path": "agents/eg-teacher-review/AGENTS.md",
+      "sha256": "9479f313bb6b7bf224e3145206932a6c2b14a4182a242f983c89b2f0aebb4f2b",
+      "blob_sha": "dcff44a645fca27c91ecb983cfa01b5877f13634",
+      "equal_original": true
+    },
+    {
+      "path": "case-study/assignment_20261019_1418.md",
+      "sha256": "8d168000817f7b9d7f33ae417f0dcfd607324d70ae241d1d099c69b2440aec14",
+      "blob_sha": "5606caa5bd754bd4d8d58273e43f241363bd0283",
+      "equal_original": true
+    },
+    {
+      "path": "agents/openclaw.legacy.example_20261019_1418.json",
+      "sha256": "c51c06901d3453e2cf80d303b6d4f54c017dadf9c1a4230e1eb741941e120027",
+      "blob_sha": "c55a7a6e7054c42922cf1d485aaa3ca91b407448",
+      "equal_original": true
+    },
+    {
+      "path": "case-study/case-facts.json",
+      "sha256": "c76831711649d071f8cc0de2904adf4158becc4bc10f7029f4f45b836e28016c",
+      "blob_sha": "4402615f7ae528fc7a58327a544f990e6dee6df0",
+      "equal_original": true
+    },
+    {
+      "path": "case-study/conversion-examples/expected-S002_20261019_1418.json",
+      "sha256": "ceeb9a8d0e7a8d69de3746562e3f8942458700b74049cef2c30b3381e4ed2a12",
+      "blob_sha": "1a4467eb8e01b08ff7a76dc942d7474c42bae37c",
+      "equal_original": true
+    },
+    {
+      "path": "case-study/conversion-examples/expected-S003_20261019_1418.json",
+      "sha256": "6cb289de76530aef795ff3a5a6fbe325f3415a1710b812e639ce39041d9a9ca6",
+      "blob_sha": "04b4f32f939bce0b7f230d37b66bbb3e2c04260a",
+      "equal_original": true
+    },
+    {
+      "path": "case-study/conversion-examples/expected-S001_20261019_1418.json",
+      "sha256": "9d5b91419b15c4ab82ca5b87fe6f02edfde5dfba7db642e835a7b2f91d3b3c11",
+      "blob_sha": "3e196ea812bcdbd8261957a05e5f54ec4610a058",
+      "equal_original": true
+    },
+    {
+      "path": "case-study/conversion-examples/synthetic-S001_20261019_1418.md",
+      "sha256": "4bde12ded73bed621d310d5838aba792152efe202b08b704a22fa83e7814160d",
+      "blob_sha": "2fe3420d335d3e7cd51abaea1ae4b6aa483ff1a6",
+      "equal_original": true
+    },
+    {
+      "path": "case-study/conversion-examples/synthetic-S002_20261019_1418.md",
+      "sha256": "e3fa5f23b6a66d626603844985e30477b122e2b149f7de92c3111cd91095e4cf",
+      "blob_sha": "2142b57f71813602edb2d3b79923bbed3ff4c300",
+      "equal_original": true
+    },
+    {
+      "path": "case-study/conversion-examples/synthetic-S003_20261019_1418.md",
+      "sha256": "b1a24eced61d64fd63cff518175dca9f618ff53154d26f596a015c35b83d5671",
+      "blob_sha": "fd1f8f67028d57429a44004b32da6332636cb5f1",
+      "equal_original": true
+    },
+    {
+      "path": "case-study/examples/example-guide_20261019_1418.md",
+      "sha256": "fc5d866b2dcfc6e7a6e4987cc16e475da6592e20a3211d8bcffd2e08e2b21093",
+      "blob_sha": "5e4ba0cd7a948c59ad95fc70bc87f5408b853676",
+      "equal_original": true
+    },
+    {
+      "path": "agents/openclaw.current.example_20261019_1418.json",
+      "sha256": "524e81fae50ca4b9dae649ba92597783e681a8c4b3b2d084692ff21edc455a23",
+      "blob_sha": "297bf929810c50f6f100d5f1ccf0408be6279978",
+      "equal_original": true
+    },
+    {
+      "path": "case-study/examples/feedback-demo_20261019_1418.md",
+      "sha256": "74ae53f37da8fb072400054c55b54407d619a3e118e38dc95007f1a464cadd7a",
+      "blob_sha": "ecd7dabc91f5e40bf88c7128f038f0b4ce4c710e",
+      "equal_original": true
+    },
+    {
+      "path": "case-study/examples/feedback-demo_20261019_1418.json",
+      "sha256": "8701283ae5c240873e4aa4f5c410f1bea5a886f892aa2ce6dad86bc356ce4310",
+      "blob_sha": "7e19f84597d1c56a0f96ec859bb59e01d93c2f05",
+      "equal_original": true
+    },
+    {
+      "path": "case-study/examples/forward-evidence_20261019_1418.json",
+      "sha256": "3d2b33a80b41ea1e726b0d422ed3b1f77ebef489bef3694c7c868890951376fa",
+      "blob_sha": "303efc04af4d8116648b6a46f07c12340847bc54",
+      "equal_original": true
+    },
+    {
+      "path": "case-study/examples/forward-student_20261019_1418.json",
+      "sha256": "1697d9328e4a848bb589c70e156eaf7b361b4cd8ff4f66a74da8ee3e668c4d1b",
+      "blob_sha": "9da9201128804634297d4c3d1ba889859f2098d9",
+      "equal_original": true
+    },
+    {
+      "path": "case-study/examples/forward-teacher_20261019_1418.json",
+      "sha256": "934be053be6cd890a5d1ea45e52486af1b4900f81c71a5dd16bfbee99f1e38d8",
+      "blob_sha": "8edb880661d72237860c1256a5445964ad4e5300",
+      "equal_original": true
+    },
+    {
+      "path": "case-study/examples/forward-notes_20261019_1418.md",
+      "sha256": "a63407e1a10de5167fb9adb95713e4b5b4d713b736db8db3a42ccf6f037660af",
+      "blob_sha": "cee8663d11f936b3aed70bd91832269c148e681e",
+      "equal_original": true
+    },
+    {
+      "path": "case-study/examples/gate_20261019_1418.json",
+      "sha256": "625d3a3a9d996444617486c8ca7b38c057637c4c6343fe6d8520cd4e41d26ef9",
+      "blob_sha": "115a8d904c1779cde8f9e21ad81b76a6a5fd6691",
+      "equal_original": true
+    },
+    {
+      "path": "case-study/examples/submission_20261019_1418.json",
+      "sha256": "9d5b91419b15c4ab82ca5b87fe6f02edfde5dfba7db642e835a7b2f91d3b3c11",
+      "blob_sha": "3e196ea812bcdbd8261957a05e5f54ec4610a058",
+      "equal_original": true
+    },
+    {
+      "path": "case-study/examples/teacher-trial-output_20261019_1418.json",
+      "sha256": "fd1f5602013b98821a8c8b5486619afc93ef1430953f81c53db99571ea7b125e",
+      "blob_sha": "52cd4700aa7c12541e0e80ac025b3e5d6dd94e39",
+      "equal_original": true
+    },
+    {
+      "path": "case-study/examples/simulated-intake_20261019_1418.json",
+      "sha256": "fc77130a3ecc66962cb40a5f6ae38263aa9dae9ba2dddb3f9654a88c8c91cce0",
+      "blob_sha": "386e266f3db6d2f640647349498426ba69af9030",
+      "equal_original": true
+    },
+    {
+      "path": "case-study/examples/teacher-trial-output_20261019_1418.md",
+      "sha256": "1a6fd168bd01f063a4d6be75ec4b9f144c3d4968a5329947e759a18214817920",
+      "blob_sha": "761b348520b127e691e130407ec3933e1808c33f",
+      "equal_original": true
+    },
+    {
+      "path": "case-study/examples/forward-trial-note_20261019_1418.md",
+      "sha256": "44e6f3655aff5287051e360b73434e676e628e7aa51ed9eeaf3e152f64954c88",
+      "blob_sha": "dcf1f98f911ab47620a63e26a432f48cf67a7b06",
+      "equal_original": true
+    },
+    {
+      "path": "case-study/references.bib",
+      "sha256": "568267b5e0ca4328de263855a351cffcd73b2a48e0f9a30bf9d9cb2a29d75193",
+      "blob_sha": "dce32bafeb1ddb4a5d387596cf11fa73a4cd246b",
+      "equal_original": true
+    },
+    {
+      "path": "case-study/rubric.json",
+      "sha256": "c7595dc8802772f7f202c0f56d3c0420a1708fdf2440e2d00caa283d11f74e1e",
+      "blob_sha": "4132aea94dbf80cd42e293e5d6af79e692b335af",
+      "equal_original": true
+    },
+    {
+      "path": "case-study/simulation-metadata_20261019_1418.json",
+      "sha256": "9405b56b4983a0fc565ce6c740a819ae159fbdc02e3d51d89bfa5cf323f20a10",
+      "blob_sha": "11077e8521c8899ae0d9a08db1ea400986fbbd06",
+      "equal_original": true
+    },
+    {
+      "path": "case-study/sources.json",
+      "sha256": "2b1f20f02837b9987d5c46465596bb6c31945593916b2cad6b024af1eae24a02",
+      "blob_sha": "38f6d7fd432969db405e2e42f8076dc63121d911",
+      "equal_original": true
+    },
+    {
+      "path": "case-study/synthetic-timeseries_20261019_1418.csv",
+      "sha256": "e82ea3bffffe85c532734d37fbe972c36499c2cf6ddc8f03bf1366c260b0576d",
+      "blob_sha": "65103835fbc2cf0b4aa8f31524cb2fbf839de572",
+      "equal_original": true
+    },
+    {
+      "path": "case-study/submission-template_20261019_1418.md",
+      "sha256": "360585e5420ca0761c4263178e75c2697438d071d61cdd7329cf256dab2dba66",
+      "blob_sha": "57303237fe572b29336a09c82403fdb66f518093",
+      "equal_original": true
+    },
+    {
+      "path": "case-study/teacher-records_20261019_1418.md",
+      "sha256": "51c566cb354edc697551df6d40012c891c743c89071b2334fbaa8cf83fba69fb",
+      "blob_sha": "0f8f835c200d9800ead1974776e89106a31f8691",
+      "equal_original": true
+    },
+    {
+      "path": "docs/audit-correction_20261019_1418.md",
+      "sha256": "f4a7a7910e5a8fc07cdb0794bd9b41653888040f724613fbb2b74821d92ab1fc",
+      "blob_sha": "54eda7850a5a309ad4a3b8c0c7376a65ce01c32a",
+      "equal_original": true
+    },
+    {
+      "path": "docs/commitment-evidence_20261019_1418.md",
+      "sha256": "17d0bb36ba312a52d921b8cae688cdca6767389943894dd0c4b2a3577c2d910e",
+      "blob_sha": "c7dcdea2cd985732b74f134932e3526da3a0c477",
+      "equal_original": true
+    },
+    {
+      "path": "docs/classroom-plan_20261019_1418.md",
+      "sha256": "1149ae387e5540621ed05615acf36e80832ce2189b02043272321b60c2792461",
+      "blob_sha": "57cc7b27afed58b4eb2821c7f96529e779753902",
+      "equal_original": true
+    },
+    {
+      "path": "docs/closure-checklist_20261019_1418.md",
+      "sha256": "68a39ce0da277ff9f6111f8b4d522e8c7aa0ea549a3d20096ef19c3a1608749a",
+      "blob_sha": "c709406050c06a398ca8d6948908fc427402a78b",
+      "equal_original": true
+    },
+    {
+      "path": "docs/github-preview_20261019_1418.md",
+      "sha256": "7893b9d8cf49565e9029a6049fbe23b8ce5a9c103108a8122f9a2121f58ae043",
+      "blob_sha": "561951bffc3d0c5f2c78eb53b9d894d1e78813d5",
+      "equal_original": true
+    },
+    {
+      "path": "case-study/student-templates_20261019_1418.md",
+      "sha256": "b21f083bacf5b6440e68375b1ba4d67d1b1ddc1846e3baac2517270aafd766c5",
+      "blob_sha": "e40caf95102db3ad288cd5aaecaa76d0c88b3e70",
+      "equal_original": true
+    },
+    {
+      "path": "docs/review-resolution_20261019_1418.md",
+      "sha256": "e51324c83b8ebf47356128823ddcc066c994f102cbde964b70d1924290914954",
+      "blob_sha": "223a635c0a60171bf5918490b7610adef717ff5a",
+      "equal_original": true
+    },
+    {
+      "path": "docs/openclaw-compatibility_20261019_1418.md",
+      "sha256": "c56afde779f9c83f2dcdc3a66ab28ef2d2d32279231ad3e3dbd0d5fb413582df",
+      "blob_sha": "91840ea27f6ce22a1bb266d7ab3e489c02fb987d",
+      "equal_original": true
+    },
+    {
+      "path": "docs/privacy-security_20261019_1418.md",
+      "sha256": "d285c9db5f9e38277611772d3c03f8130373cee73ae8505120cf52bc98890460",
+      "blob_sha": "a1631dc0d6b02a30d036eff0a77ad22658211e1f",
+      "equal_original": true
+    },
+    {
+      "path": "docs/handoff_20261019_1418.md",
+      "sha256": "3a17440ef3e9f529d157f67ae3d3932a4032cd918a7ffb00c12812b50746871d",
+      "blob_sha": "c6ee501893b1c2892e6847d3c4553eb930ebb8e3",
+      "equal_original": true
+    },
+    {
+      "path": "docs/source-authority_20261019_1418.md",
+      "sha256": "b2dee8e5ed2d3c00099df8d6ab52ad918f20e1d0cc0673f07fa1990c49a0f335",
+      "blob_sha": "2cc18b486e2bd41af08599656a72a0822bf2a93a",
+      "equal_original": true
+    },
+    {
+      "path": "docs/publication-checks_20261019_1418.json",
+      "sha256": "2e6ce1f8881a4010df302e5ca0a6004497ee78b3a39caf99dcb3b040c9091be9",
+      "blob_sha": "c00090cef921d33c9878f78f1fdd3a1267bdfe59",
+      "equal_original": true
+    },
+    {
+      "path": "docs/teacher-manual_20261019_1418.md",
+      "sha256": "a1127400f0fecb10f7dc9fac80ba0f4e4bbe6cd135e7009bcce911b5cf012f18",
+      "blob_sha": "a5cb99afb6b3fb912db3fcdedae04e6692125b06",
+      "equal_original": true
+    },
+    {
+      "path": "docs/test-report_20261019_1418.md",
+      "sha256": "fe0713a63bbb7f0de000a944e69ed6d5b90078dbac537b09a9c6feee510beb02",
+      "blob_sha": "8288c0e323c0412b664284b2ad82551612ebdefa",
+      "equal_original": true
+    },
+    {
+      "path": "docs/release-notes_20261019_1418.md",
+      "sha256": "6587cda8ec433e4c281bf377854fd704146288e7373bd27041df3f60f5017a00",
+      "blob_sha": "706a0ba726c4a52a990cbf626e5d0492f857c63a",
+      "equal_original": true
+    },
+    {
+      "path": "egtool/__init__.py",
+      "sha256": "36eb36988b17df37742127acd8f53e17a5a5b1efe4e425909a0720985f3830a4",
+      "blob_sha": "1a0cba48caa237fd1805122d523b45563f8b0c99",
+      "equal_original": true
+    },
+    {
+      "path": "egtool/finalize.py",
+      "sha256": "40b23f4bbf4ed81948c71da83ef09a4001ae0d90dd301e100fce094f1cc12487",
+      "blob_sha": "980c7efe86984454b95120fac55246167933cb7e",
+      "equal_original": true
+    },
+    {
+      "path": "egtool/contracts.py",
+      "sha256": "e3cce72125dea6733750e284a5eab39bc7ad1225b5fa9fb08de4afeecf20b23b",
+      "blob_sha": "bd8619807db04c406f2be91d218baadd452bf78c",
+      "equal_original": true
+    },
+    {
+      "path": "docs/validation-evidence_20261019_1418.json",
+      "sha256": "07edd13a5648c5789ea435ef49793753966b3833f1086ffe2fa77b1fbea41afb",
+      "blob_sha": "7b2476a4175c44a76d1f819ba875715bfb700fb3",
+      "equal_original": true
+    },
+    {
+      "path": "egtool/intake.py",
+      "sha256": "7da91a93c531acc3a3cbd0939bc81271fac4a5c5462166437de10a0a55747dfe",
+      "blob_sha": "de09e0501fbfd2474aa034d5842da5e5da75e93f",
+      "equal_original": true
+    },
+    {
+      "path": "egtool/__main__.py",
+      "sha256": "997c12732701df7c6ce44445d9727fc401696c23adbc8fbf4bd53e20dacd0fcb",
+      "blob_sha": "825185864ce970833a692009da27e401281e9bfa",
+      "equal_original": true
+    },
+    {
+      "path": "history/history-note_20261016_2038.md",
+      "sha256": "1dbde92d1d3711db91be247cdf9dbd6fff9137b5a473f0ed4cd966d4154913de",
+      "blob_sha": "67c0e9acb69e3bd078db276920209696dc81fdfd",
+      "equal_original": true
+    },
+    {
+      "path": "egtool/pipeline.py",
+      "sha256": "f19efec0807b27429fa94c63c3d0b1dc0fa8e4f56ba322f1a4e81168b39fa71a",
+      "blob_sha": "902f28142f9637e0eba839a477ee216d3912f0ca",
+      "equal_original": true
+    },
+    {
+      "path": "egtool/render.py",
+      "sha256": "ad2e23bda5ee95c7c0b0f42ca39154668c2670316a161377c2967c05f9977e4b",
+      "blob_sha": "1b6d37529bc97065b8d31a1a23f9446040e35a2c",
+      "equal_original": true
+    },
+    {
+      "path": "schemas/human-summary.schema.json",
+      "sha256": "0c41880966d6e98fb56ffab2dd070c72c37d412a703aad920807616ad832fd93",
+      "blob_sha": "7ac5fa51b8427a8a13d4e4c40d341458e22ed09d",
+      "equal_original": true
+    },
+    {
+      "path": "schemas/gate.schema.json",
+      "sha256": "3abcd1b249289739089b008568ea2dd81c75c57c4f677bf851b578c997db1634",
+      "blob_sha": "8481df0230d6577f69aaab5f66a11ae69d8c29cc",
+      "equal_original": true
+    },
+    {
+      "path": "schemas/feedback.schema.json",
+      "sha256": "ead4a016ed4b3cac7e35eac441eaccf3d15a7a46d3a4c2375f05f7705b5390d4",
+      "blob_sha": "530edea18d9b853e50c54dd2c8a832ff45a0d589",
+      "equal_original": true
+    },
+    {
+      "path": "history/skills-v0.1.0_20261016_2038.zip",
+      "sha256": "9400a4aa3ca88938042746065dedf3cd686d48979bbd27c8fb85b803f14f4092",
+      "blob_sha": "2d1577b3340417f6c9c10fee14fec2ae5a02bd92",
+      "equal_original": true
+    },
+    {
+      "path": "schemas/release.schema.json",
+      "sha256": "6dedfd1a885cc55e2430a605827dee0e5b08ae0ac6ce6a838cafdca253c90179",
+      "blob_sha": "9a32ca435f405d9d08522bfece59565c0c8cdc7d",
+      "equal_original": true
+    },
+    {
+      "path": "schemas/submission.schema.json",
+      "sha256": "5c83418083f6cef10ea52bd4b5028452b70345bc2a7f82934ca7f1f6233cdfda",
+      "blob_sha": "fbd7f1f0ccceb9a6f180e7af797e3b33fb546e1e",
+      "equal_original": true
+    },
+    {
+      "path": "schemas/run.schema.json",
+      "sha256": "39dd84ba9ee2c1ca8246a8e86b9762212020f87cc638ea2af56de8ff3dd76f0e",
+      "blob_sha": "acddc4b3d7ad107163a315450ba0f356f982919c",
+      "equal_original": true
+    },
+    {
+      "path": "schemas/teacher-intake.schema.json",
+      "sha256": "199401a1b061ce1156f2a0f580fb59f0239f6fd8ba7aef95525a1820386b7327",
+      "blob_sha": "7a47e63b045356226dd264cb9953ccea9e58e4b1",
+      "equal_original": true
+    },
+    {
+      "path": "schemas/teacher-review.schema.json",
+      "sha256": "fc411b899df56d9ad1c53e90c594ad0373e4e17608f38aaf684c2d3a152680ed",
+      "blob_sha": "32c485cb3fd97d3da47949be659142565b19102b",
+      "equal_original": true
+    },
+    {
+      "path": "history/repository-v0.1.1_20261016_2038.zip",
+      "sha256": "2758fca5d059e1aa3c23bafc6fcbffd6c46086104b02ce96a800618e15d2398c",
+      "blob_sha": "d4b41f9bbc3b7c176baab3c17d8b7e7662167420",
+      "equal_original": true
+    },
+    {
+      "path": "schemas/teacher-final.schema.json",
+      "sha256": "80485d832234c34881843f525881024dde6e34c960a4eef591931b6c18138e5c",
+      "blob_sha": "e1bd9b7ae4c0a0dff5c4a0a12946ad72d0386195",
+      "equal_original": true
+    },
+    {
+      "path": "skills/eg-authenticity-anchor/SKILL.md",
+      "sha256": "17e577c13796097cc0501d979207155ff79ac2ecf5a103ff938c67781a1a7956",
+      "blob_sha": "2d59b357518df864bf577e61588fdb8af6e48701",
+      "equal_original": true
+    },
+    {
+      "path": "skills/eg-authenticity-anchor/references/case-facts.json",
+      "sha256": "c76831711649d071f8cc0de2904adf4158becc4bc10f7029f4f45b836e28016c",
+      "blob_sha": "4402615f7ae528fc7a58327a544f990e6dee6df0",
+      "equal_original": true
+    },
+    {
+      "path": "skills/eg-authenticity-anchor/references/feedback.schema.json",
+      "sha256": "ead4a016ed4b3cac7e35eac441eaccf3d15a7a46d3a4c2375f05f7705b5390d4",
+      "blob_sha": "530edea18d9b853e50c54dd2c8a832ff45a0d589",
+      "equal_original": true
+    },
+    {
+      "path": "skills/eg-authenticity-anchor/references/gate.schema.json",
+      "sha256": "3abcd1b249289739089b008568ea2dd81c75c57c4f677bf851b578c997db1634",
+      "blob_sha": "8481df0230d6577f69aaab5f66a11ae69d8c29cc",
+      "equal_original": true
+    },
+    {
+      "path": "skills/eg-authenticity-anchor/references/contract-guide.md",
+      "sha256": "124fff097d36f4ce5514c7cb6f4ecfb76529a0796ad1c06f46aef761c224213f",
+      "blob_sha": "712dbfd07ddd2ef31354b6809a61d2a50935ef21",
+      "equal_original": true
+    },
+    {
+      "path": "skills/eg-authenticity-anchor/references/release.schema.json",
+      "sha256": "6dedfd1a885cc55e2430a605827dee0e5b08ae0ac6ce6a838cafdca253c90179",
+      "blob_sha": "9a32ca435f405d9d08522bfece59565c0c8cdc7d",
+      "equal_original": true
+    },
+    {
+      "path": "skills/eg-authenticity-anchor/references/human-summary.schema.json",
+      "sha256": "0c41880966d6e98fb56ffab2dd070c72c37d412a703aad920807616ad832fd93",
+      "blob_sha": "7ac5fa51b8427a8a13d4e4c40d341458e22ed09d",
+      "equal_original": true
+    },
+    {
+      "path": "scripts/offline_smoke_20261019_1418.py",
+      "sha256": "3c206b79a50d0a66a4b05eca1038a4dc627807a4e248770d7ea9c317e7175eaa",
+      "blob_sha": "fdb2d3aac2078df6210f9f5ec159de958549a42e",
+      "equal_original": true
+    },
+    {
+      "path": "skills/eg-authenticity-anchor/references/teacher-final.schema.json",
+      "sha256": "80485d832234c34881843f525881024dde6e34c960a4eef591931b6c18138e5c",
+      "blob_sha": "e1bd9b7ae4c0a0dff5c4a0a12946ad72d0386195",
+      "equal_original": true
+    },
+    {
+      "path": "skills/eg-authenticity-anchor/references/sources.json",
+      "sha256": "2b1f20f02837b9987d5c46465596bb6c31945593916b2cad6b024af1eae24a02",
+      "blob_sha": "38f6d7fd432969db405e2e42f8076dc63121d911",
+      "equal_original": true
+    },
+    {
+      "path": "skills/eg-authenticity-anchor/references/rubric.json",
+      "sha256": "c7595dc8802772f7f202c0f56d3c0420a1708fdf2440e2d00caa283d11f74e1e",
+      "blob_sha": "4132aea94dbf80cd42e293e5d6af79e692b335af",
+      "equal_original": true
+    },
+    {
+      "path": "skills/eg-authenticity-anchor/references/teacher-review.schema.json",
+      "sha256": "fc411b899df56d9ad1c53e90c594ad0373e4e17608f38aaf684c2d3a152680ed",
+      "blob_sha": "32c485cb3fd97d3da47949be659142565b19102b",
+      "equal_original": true
+    },
+    {
+      "path": "skills/eg-authenticity-anchor/references/teacher-intake.schema.json",
+      "sha256": "199401a1b061ce1156f2a0f580fb59f0239f6fd8ba7aef95525a1820386b7327",
+      "blob_sha": "7a47e63b045356226dd264cb9953ccea9e58e4b1",
+      "equal_original": true
+    },
+    {
+      "path": "skills/eg-report-feedback/SKILL.md",
+      "sha256": "22876863682fd51f809a830b399c47d422b27909827f95473b21bdd587498eea",
+      "blob_sha": "a9324c3d120eff69f8e4d74b1f501fa59bce4f31",
+      "equal_original": true
+    },
+    {
+      "path": "skills/eg-authenticity-anchor/scripts/validate.py",
+      "sha256": "5d6cfb8314b0f928cbadb0d45d0a3d18f05f367a2c9f1e1edac09ce1318a828d",
+      "blob_sha": "89961fe3b869ec7ef5ebd737deadcfe7cd590ac3",
+      "equal_original": true
+    },
+    {
+      "path": "skills/eg-authenticity-anchor/references/run.schema.json",
+      "sha256": "39dd84ba9ee2c1ca8246a8e86b9762212020f87cc638ea2af56de8ff3dd76f0e",
+      "blob_sha": "acddc4b3d7ad107163a315450ba0f356f982919c",
+      "equal_original": true
+    },
+    {
+      "path": "skills/eg-report-feedback/references/case-facts.json",
+      "sha256": "c76831711649d071f8cc0de2904adf4158becc4bc10f7029f4f45b836e28016c",
+      "blob_sha": "4402615f7ae528fc7a58327a544f990e6dee6df0",
+      "equal_original": true
+    },
+    {
+      "path": "skills/eg-authenticity-anchor/references/submission.schema.json",
+      "sha256": "5c83418083f6cef10ea52bd4b5028452b70345bc2a7f82934ca7f1f6233cdfda",
+      "blob_sha": "fbd7f1f0ccceb9a6f180e7af797e3b33fb546e1e",
+      "equal_original": true
+    },
+    {
+      "path": "skills/eg-report-feedback/references/contract-guide.md",
+      "sha256": "124fff097d36f4ce5514c7cb6f4ecfb76529a0796ad1c06f46aef761c224213f",
+      "blob_sha": "712dbfd07ddd2ef31354b6809a61d2a50935ef21",
+      "equal_original": true
+    },
+    {
+      "path": "skills/eg-authenticity-anchor/scripts/contracts.py",
+      "sha256": "e3cce72125dea6733750e284a5eab39bc7ad1225b5fa9fb08de4afeecf20b23b",
+      "blob_sha": "bd8619807db04c406f2be91d218baadd452bf78c",
+      "equal_original": true
+    },
+    {
+      "path": "skills/eg-report-feedback/references/feedback.schema.json",
+      "sha256": "ead4a016ed4b3cac7e35eac441eaccf3d15a7a46d3a4c2375f05f7705b5390d4",
+      "blob_sha": "530edea18d9b853e50c54dd2c8a832ff45a0d589",
+      "equal_original": true
+    },
+    {
+      "path": "skills/eg-report-feedback/references/gate.schema.json",
+      "sha256": "3abcd1b249289739089b008568ea2dd81c75c57c4f677bf851b578c997db1634",
+      "blob_sha": "8481df0230d6577f69aaab5f66a11ae69d8c29cc",
+      "equal_original": true
+    },
+    {
+      "path": "skills/eg-report-feedback/references/human-summary.schema.json",
+      "sha256": "0c41880966d6e98fb56ffab2dd070c72c37d412a703aad920807616ad832fd93",
+      "blob_sha": "7ac5fa51b8427a8a13d4e4c40d341458e22ed09d",
+      "equal_original": true
+    },
+    {
+      "path": "skills/eg-report-feedback/references/rubric.json",
+      "sha256": "c7595dc8802772f7f202c0f56d3c0420a1708fdf2440e2d00caa283d11f74e1e",
+      "blob_sha": "4132aea94dbf80cd42e293e5d6af79e692b335af",
+      "equal_original": true
+    },
+    {
+      "path": "skills/eg-report-feedback/references/run.schema.json",
+      "sha256": "39dd84ba9ee2c1ca8246a8e86b9762212020f87cc638ea2af56de8ff3dd76f0e",
+      "blob_sha": "acddc4b3d7ad107163a315450ba0f356f982919c",
+      "equal_original": true
+    },
+    {
+      "path": "skills/eg-report-feedback/references/submission.schema.json",
+      "sha256": "5c83418083f6cef10ea52bd4b5028452b70345bc2a7f82934ca7f1f6233cdfda",
+      "blob_sha": "fbd7f1f0ccceb9a6f180e7af797e3b33fb546e1e",
+      "equal_original": true
+    },
+    {
+      "path": "skills/eg-report-feedback/references/sources.json",
+      "sha256": "2b1f20f02837b9987d5c46465596bb6c31945593916b2cad6b024af1eae24a02",
+      "blob_sha": "38f6d7fd432969db405e2e42f8076dc63121d911",
+      "equal_original": true
+    },
+    {
+      "path": "skills/eg-report-feedback/references/teacher-final.schema.json",
+      "sha256": "80485d832234c34881843f525881024dde6e34c960a4eef591931b6c18138e5c",
+      "blob_sha": "e1bd9b7ae4c0a0dff5c4a0a12946ad72d0386195",
+      "equal_original": true
+    },
+    {
+      "path": "skills/eg-report-feedback/references/release.schema.json",
+      "sha256": "6dedfd1a885cc55e2430a605827dee0e5b08ae0ac6ce6a838cafdca253c90179",
+      "blob_sha": "9a32ca435f405d9d08522bfece59565c0c8cdc7d",
+      "equal_original": true
+    },
+    {
+      "path": "skills/eg-report-feedback/references/teacher-intake.schema.json",
+      "sha256": "199401a1b061ce1156f2a0f580fb59f0239f6fd8ba7aef95525a1820386b7327",
+      "blob_sha": "7a47e63b045356226dd264cb9953ccea9e58e4b1",
+      "equal_original": true
+    },
+    {
+      "path": "skills/eg-report-feedback/references/teacher-review.schema.json",
+      "sha256": "fc411b899df56d9ad1c53e90c594ad0373e4e17608f38aaf684c2d3a152680ed",
+      "blob_sha": "32c485cb3fd97d3da47949be659142565b19102b",
+      "equal_original": true
+    },
+    {
+      "path": "skills/eg-report-feedback/scripts/validate.py",
+      "sha256": "5d6cfb8314b0f928cbadb0d45d0a3d18f05f367a2c9f1e1edac09ce1318a828d",
+      "blob_sha": "89961fe3b869ec7ef5ebd737deadcfe7cd590ac3",
+      "equal_original": true
+    },
+    {
+      "path": "skills/eg-report-feedback/scripts/contracts.py",
+      "sha256": "e3cce72125dea6733750e284a5eab39bc7ad1225b5fa9fb08de4afeecf20b23b",
+      "blob_sha": "bd8619807db04c406f2be91d218baadd452bf78c",
+      "equal_original": true
+    },
+    {
+      "path": "skills/eg-rubric-check/SKILL.md",
+      "sha256": "e33ee3992c99c3bbbf09a207d15b9b464cec758e0743a1433107237f1dca7fe7",
+      "blob_sha": "a91a55a698c3e44733d00b64c711261b646b9cda",
+      "equal_original": true
+    },
+    {
+      "path": "skills/eg-rubric-check/references/contract-guide.md",
+      "sha256": "124fff097d36f4ce5514c7cb6f4ecfb76529a0796ad1c06f46aef761c224213f",
+      "blob_sha": "712dbfd07ddd2ef31354b6809a61d2a50935ef21",
+      "equal_original": true
+    },
+    {
+      "path": "skills/eg-rubric-check/references/case-facts.json",
+      "sha256": "c76831711649d071f8cc0de2904adf4158becc4bc10f7029f4f45b836e28016c",
+      "blob_sha": "4402615f7ae528fc7a58327a544f990e6dee6df0",
+      "equal_original": true
+    },
+    {
+      "path": "skills/eg-rubric-check/references/gate.schema.json",
+      "sha256": "3abcd1b249289739089b008568ea2dd81c75c57c4f677bf851b578c997db1634",
+      "blob_sha": "8481df0230d6577f69aaab5f66a11ae69d8c29cc",
+      "equal_original": true
+    },
+    {
+      "path": "skills/eg-rubric-check/references/feedback.schema.json",
+      "sha256": "ead4a016ed4b3cac7e35eac441eaccf3d15a7a46d3a4c2375f05f7705b5390d4",
+      "blob_sha": "530edea18d9b853e50c54dd2c8a832ff45a0d589",
+      "equal_original": true
+    },
+    {
+      "path": "skills/eg-rubric-check/references/human-summary.schema.json",
+      "sha256": "0c41880966d6e98fb56ffab2dd070c72c37d412a703aad920807616ad832fd93",
+      "blob_sha": "7ac5fa51b8427a8a13d4e4c40d341458e22ed09d",
+      "equal_original": true
+    },
+    {
+      "path": "skills/eg-rubric-check/references/release.schema.json",
+      "sha256": "6dedfd1a885cc55e2430a605827dee0e5b08ae0ac6ce6a838cafdca253c90179",
+      "blob_sha": "9a32ca435f405d9d08522bfece59565c0c8cdc7d",
+      "equal_original": true
+    },
+    {
+      "path": "skills/eg-rubric-check/references/rubric.json",
+      "sha256": "c7595dc8802772f7f202c0f56d3c0420a1708fdf2440e2d00caa283d11f74e1e",
+      "blob_sha": "4132aea94dbf80cd42e293e5d6af79e692b335af",
+      "equal_original": true
+    },
+    {
+      "path": "skills/eg-rubric-check/references/run.schema.json",
+      "sha256": "39dd84ba9ee2c1ca8246a8e86b9762212020f87cc638ea2af56de8ff3dd76f0e",
+      "blob_sha": "acddc4b3d7ad107163a315450ba0f356f982919c",
+      "equal_original": true
+    },
+    {
+      "path": "skills/eg-rubric-check/references/sources.json",
+      "sha256": "2b1f20f02837b9987d5c46465596bb6c31945593916b2cad6b024af1eae24a02",
+      "blob_sha": "38f6d7fd432969db405e2e42f8076dc63121d911",
+      "equal_original": true
+    },
+    {
+      "path": "skills/eg-rubric-check/references/teacher-final.schema.json",
+      "sha256": "80485d832234c34881843f525881024dde6e34c960a4eef591931b6c18138e5c",
+      "blob_sha": "e1bd9b7ae4c0a0dff5c4a0a12946ad72d0386195",
+      "equal_original": true
+    },
+    {
+      "path": "skills/eg-rubric-check/references/teacher-review.schema.json",
+      "sha256": "fc411b899df56d9ad1c53e90c594ad0373e4e17608f38aaf684c2d3a152680ed",
+      "blob_sha": "32c485cb3fd97d3da47949be659142565b19102b",
+      "equal_original": true
+    },
+    {
+      "path": "skills/eg-rubric-check/references/teacher-intake.schema.json",
+      "sha256": "199401a1b061ce1156f2a0f580fb59f0239f6fd8ba7aef95525a1820386b7327",
+      "blob_sha": "7a47e63b045356226dd264cb9953ccea9e58e4b1",
+      "equal_original": true
+    },
+    {
+      "path": "skills/eg-rubric-check/references/submission.schema.json",
+      "sha256": "5c83418083f6cef10ea52bd4b5028452b70345bc2a7f82934ca7f1f6233cdfda",
+      "blob_sha": "fbd7f1f0ccceb9a6f180e7af797e3b33fb546e1e",
+      "equal_original": true
+    },
+    {
+      "path": "skills/eg-rubric-check/scripts/validate.py",
+      "sha256": "5d6cfb8314b0f928cbadb0d45d0a3d18f05f367a2c9f1e1edac09ce1318a828d",
+      "blob_sha": "89961fe3b869ec7ef5ebd737deadcfe7cd590ac3",
+      "equal_original": true
+    },
+    {
+      "path": "skills/eg-rubric-check/scripts/contracts.py",
+      "sha256": "e3cce72125dea6733750e284a5eab39bc7ad1225b5fa9fb08de4afeecf20b23b",
+      "blob_sha": "bd8619807db04c406f2be91d218baadd452bf78c",
+      "equal_original": true
+    },
+    {
+      "path": "tests/fixtures/fixture-purpose_20261019_1418.md",
+      "sha256": "965b8e8543996197d2e2c1c6dfa9ce49e6318ec4bc2cfcd019653a367ec79527",
+      "blob_sha": "a39348340ebbd434a95e5be7388bef503103ce4e",
+      "equal_original": true
+    },
+    {
+      "path": "tests/fixtures/feedback-under-review_20261019_1418.json",
+      "sha256": "994d65db91bcae78567fb54c5133f19ae9c0c5c5364a3a74ea8d080437fc9bd1",
+      "blob_sha": "09d37605e77aedb1cdc59885c5455b57831f215d",
+      "equal_original": true
+    },
+    {
+      "path": "tests/fixtures/intake-under-review_20261019_1418.json",
+      "sha256": "25eea7a2507a29e3108a65eb700456dfb356a62b6ea7fa1927742a9f573ea909",
+      "blob_sha": "ee6e117720fe4d017fa268c936f020ce37968e80",
+      "equal_original": true
+    },
+    {
+      "path": "tests/fixtures/submission-under-review_20261019_1418.json",
+      "sha256": "13fa5ce5b38df3345cbcd2b8957762f167c30b8f6634df3a6364d878d8c39c5f",
+      "blob_sha": "eb470018e1c45df90784912cdd7578a9b8a62955",
+      "equal_original": true
+    },
+    {
+      "path": "tests/professional-acceptance_20261019_1418.md",
+      "sha256": "25153240ef37c24dfc0f2b544f746746fd506cced7c5d3304a6571d8fc1f43cb",
+      "blob_sha": "5e227bcc4bd9af5d493fab7c6f263a0327a06a21",
+      "equal_original": true
+    },
+    {
+      "path": "tests/test_pipeline.py",
+      "sha256": "c5417706dbe8a95bc65fb19c279bae21111276dc88f2d53add88059dd9d925fb",
+      "blob_sha": "80874c44e9ea399aea617d6c2810aa3822d2b500",
+      "equal_original": true
+    },
+    {
+      "path": "tests/test_preview.py",
+      "sha256": "b12cd7470275e14aa2ef31c8a95baf7d57a46568e5171499a9e9481f49ffb05e",
+      "blob_sha": "ead83c319d66b770384cc3d26aae3568a91bc511",
+      "equal_original": true
+    },
+    {
+      "path": "tests/test_revision.py",
+      "sha256": "b593829fdc51610b82cdd06b978c0298e4049317d4578165deab467cb454e6b8",
+      "blob_sha": "71ca322c293596be9b1ec59a6c5af630b501341e",
+      "equal_original": true
+    }
+  ]
+}
