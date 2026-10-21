@@ -1,12 +1,12 @@
 # 基于OpenClaw的《环境地质学》案例诊断报告形成性反馈教学
 
-**v0.1.2-preview**
+**发布基线 v0.1.2-preview · 主分支更新 2026年10月21日**
 
 面向《环境地质学》树坪滑坡案例，由教师运行学生反馈与教师复核两个Agent，使用三个Skill完成材料门槛、六维形成性反馈及量规质控。
 
 ## 先运行离线演示
 
-解压后，在包含本README的目录执行。无需安装Python依赖、OpenClaw、模型或密钥。本地已验证macOS上的Python 3.12与3.13；GitHub Actions中Ubuntu、macOS各Python 3.12/3.13四组均通过100项测试及66份模拟批处理。[在线测试记录](https://github.com/zytju/openclaw-environmental-geology-feedback/actions/runs/39228222085)。其他版本和Windows未测试。
+解压后，在包含本README的目录执行。无需安装Python依赖、OpenClaw、模型或密钥。本轮本地125项测试及66份模拟批处理已通过。GitHub Actions配置Ubuntu、macOS与Python 3.12/3.13四组检查，[在线测试按当前提交查看](https://github.com/zytju/openclaw-environmental-geology-feedback/actions/workflows/tests_20261019_1418.yml)。Windows未测试。
 
 ```bash
 python3 scripts/offline_smoke_20261019_1418.py
@@ -69,3 +69,14 @@ python3 -m unittest discover -s tests -v
 已用合成S001报告完成初稿反馈、教师质控、反馈纠正、修订回应及双端复评，并保存人工终审决定。[演示验证与运行范围](docs/teaching-demo-verification_20261021_1930.md)说明实际完成的节点和复现要求。案例正文、原始会话、截图及人工回复保存在本地教学归档。
 
 本次主分支源码校验使用MANIFEST_20261021_1930.sha256。v0.1.2-preview标签和既有发布附件保留为此前基线；当前主分支包含后续角色与显示修订。[在线测试](https://github.com/zytju/openclaw-environmental-geology-feedback/actions/workflows/tests_20261019_1418.yml)按提交查看。
+
+
+## 试运行后的规则与展示更新
+
+两个专业Skill增加评分校准案例与修订复评步骤。修订时按教师实际发放任务核对正文，区分采纳决定、实质回应与本轮等级。十个合成校准反例可生成不含预设答案的请求，供独立评价后核查。
+
+`egtool reading-views`从已校验原件直接生成中文概览和完整依据，无需再次调用模型整理。提供本轮匹配的人工终审记录后，页面显示采用或暂缓状态；旧版、不同稿次和未签认记录会被拒绝。
+
+独立profile现在同时设置全局与角色只读规则，并生成带版本校验的TOOLS.md，将完整Skill正文与必要参考预加载到上下文。本机实测原生read工具未暴露，不能把技能列表可见写成Skill正文已读取。受控预加载模式与原生文件读取分别记录，生产隔离审批保持独立。
+
+使用方法、回归范围与运行核验见[本次更新说明](docs/agent-skills-update_20261021_2036.md)。本次源码校验使用MANIFEST_20261021_2036.sha256；旧清单及已发布附件保留为历史快照。

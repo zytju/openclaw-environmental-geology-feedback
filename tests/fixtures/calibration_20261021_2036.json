@@ -1,0 +1,106 @@
+{
+  "material_kind": "synthetic",
+  "purpose": "规则校准反例，不是课堂数据或正式成绩",
+  "cases": [
+    {
+      "case_id": "C01",
+      "dimension": "uncertainty",
+      "material": "完整报告同时有以下两段。P03：库水位下降后孔压必然升高，滑坡一定失稳。P05：未取得当前监测资料，尚不能确定失稳时间。",
+      "question": "不确定性表达应如何评价？给出等级。",
+      "expected": {
+        "decision": "needs_revision",
+        "level": 1
+      }
+    },
+    {
+      "case_id": "C02",
+      "dimension": "uncertainty",
+      "material": "P03：把库水位下降表述为滑坡必然失稳并不成立。需结合坡内地下水响应、渗流及坡段条件分析，现有资料不足以确定失稳时间。",
+      "question": "仅凭本段出现必然二字，能否批评作者以必然失稳代替证据？本题不评完整维度等级。",
+      "expected": {
+        "decision": "no_basis_for_criticism",
+        "level": null
+      }
+    },
+    {
+      "case_id": "C03",
+      "dimension": "mitigation_match",
+      "material": "P06：建议先调查排水与抗滑措施的适用条件，最终方案由现场资料决定。本报告没有施工或治理效果记录。",
+      "question": "能否批评本段把建议写成已经实施的工程？本题只审查这项批评，不评措施匹配等级。",
+      "expected": {
+        "decision": "no_basis_for_criticism",
+        "level": null
+      }
+    },
+    {
+      "case_id": "C04",
+      "dimension": "mitigation_match",
+      "material": "P06：建议采用抗滑桩、锚索、排水和监测。尚未比较各措施适用的坡段、施工条件、代价和监测指标，最终方案需现场调查。",
+      "question": "措施匹配是否已达到基本要求？给出等级；本题不涉及已实施工程的陈述。",
+      "expected": {
+        "decision": "needs_revision",
+        "level": 1
+      }
+    },
+    {
+      "case_id": "C05",
+      "dimension": "evidence_extraction",
+      "material": "资料只提出今后可采用抽水降低坡内水位。P06却写：该场地已经实施抽水，监测证实治理有效。没有提供相应施工或效果记录。",
+      "question": "是否存在把文献建议改成工程事实的证据地位错误？本题不评完整维度等级。",
+      "expected": {
+        "decision": "evidence_status_error",
+        "level": null
+      }
+    },
+    {
+      "case_id": "C06",
+      "dimension": "mitigation_match",
+      "material": "教师要求比较措施。修订稿已逐项比较排水、土方调整、抗滑桩和锚索所针对的机制，说明坡段调查、施工限制、代价类别、失效情形与监测指标。学生因未取得现场资料，部分采纳，并保留尺寸、位置及实施优先级。",
+      "question": "这项部分采纳是否有充分依据？按上述完整比较给出措施匹配等级。",
+      "expected": {
+        "decision": "supported_partial_adoption",
+        "level": 3
+      }
+    },
+    {
+      "case_id": "C07",
+      "dimension": "hazard_chain",
+      "material": "修订稿逐环对应快速运动、入水、涌浪传播与受体，标明成立条件、文献支持和教学假设，但没有比较不同情景与阻断环节。其余维度都已改善，旧任务均有回应。",
+      "question": "灾害链是否应随其他维度一起升为3级？给出本维等级。",
+      "expected": {
+        "decision": "level_two",
+        "level": 2
+      }
+    },
+    {
+      "case_id": "C08",
+      "dimension": "mitigation_match",
+      "material": "本轮为报告片段，教师声明只评价推理链。片段没有提供防治建议。",
+      "question": "本轮如何处理防治建议匹配？",
+      "expected": {
+        "decision": "not_in_scope",
+        "level": null
+      }
+    },
+    {
+      "case_id": "C09",
+      "dimension": "revision",
+      "material": "收到一篇修订稿及学生自述已全部修改，但没有上轮实际发放任务和对应原件，教师也未完成上轮材料核验。",
+      "question": "是否可以确认旧任务已经解决并放行复评？",
+      "expected": {
+        "decision": "hold_for_teacher",
+        "level": null
+      }
+    },
+    {
+      "case_id": "C10",
+      "dimension": "reasoning_chain",
+      "material": "修订稿文字更流畅，段落更多，但核心仍只有：降雨与位移同时增加，因此降雨必然是唯一成因。没有机制、中间环节、条件或替代解释。",
+      "question": "推理链是否因行文改善而达到基本要求？给出等级。",
+      "expected": {
+        "decision": "needs_revision",
+        "level": 0
+      }
+    }
+  ]
+}

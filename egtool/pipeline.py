@@ -16,8 +16,13 @@ from .contracts import (ContractError, DIMENSIONS, LABELS, VERSION, CASE_ID, req
                         read_json, loads, digest, validate, check_submission,
                         material_gate, check_feedback, check_teacher)
 from .render import feedback_markdown, teacher_markdown
+from .context_loader import bootstrap_context,verify_bootstrap,role_resources
 
 ROOT = Path(__file__).resolve().parents[1]
+READ_ONLY_TOOLS={'allow':['read'],'deny':['exec','process','write','edit','apply_patch','browser','message',
+    'sessions_list','sessions_history','sessions_send','sessions_spawn','memory_search','memory_get',
+    'web_search','web_fetch','gateway','cron','nodes'],'elevated':{'enabled':False}}
+READ_ONLY_SANDBOX={'mode':'all','scope':'session','workspaceAccess':'ro','docker':{'network':'none'}}
 
 
 def stamp():
@@ -148,6 +153,12 @@ def verify_profile(config, layout):
         require(isinstance(entries, dict), 'PROFILE_AGENT_ENTRIES_REQUIRED')
         require("list" not in a, "PROFILE_LAYOUT_MIXED")
     require(set(entries) == {"eg-student-feedback", "eg-teacher-review"}, "PROFILE_AGENT_SET")
+    global_tools=cfg.get('tools',{})
+    require(global_tools.get('allow')==['read'] and global_tools.get('elevated',{}).get('enabled') is False,
+            'PROFILE_GLOBAL_READ_ONLY_TOOLS')
+    require(set(READ_ONLY_TOOLS['deny'])<=set(global_tools.get('deny',[])),'PROFILE_GLOBAL_TOOL_DENIALS')
+    defaults=a.get('defaults',{}).get('sandbox',{})
+    require(all(defaults.get(k)==v for k,v in READ_ONLY_SANDBOX.items()),'PROFILE_DEFAULT_SANDBOX_POLICY')
     state = Path(config).resolve().parent
     require(state != Path.home() / ".openclaw", "LIVE_DEFAULT_STATE_FORBIDDEN")
     require(not state.is_relative_to(ROOT), 'PRIVATE_PROFILE_OUTSIDE_PUBLIC_REPO_REQUIRED')
@@ -160,6 +171,7 @@ def verify_profile(config, layout):
         require(sandbox.get("mode") == "all" and sandbox.get("scope") == "session" and
                 sandbox.get("workspaceAccess") == "ro" and sandbox.get("docker", {}).get("network") == "none", "PROFILE_SANDBOX_POLICY")
         require(agent.get("tools", {}).get("allow") == ["read"], "PROFILE_READ_ONLY_TOOLS")
+        require(set(READ_ONLY_TOOLS['deny'])<=set(agent['tools'].get('deny',[])),'PROFILE_AGENT_TOOL_DENIALS')
         require(agent.get("tools", {}).get("elevated", {}).get("enabled") is False, "PROFILE_ELEVATION_DISABLED")
         expected = ["eg-authenticity-anchor", "eg-report-feedback"] if name == "eg-student-feedback" else ["eg-rubric-check", "eg-authenticity-anchor"]
         require(agent.get("skills") == expected, "PROFILE_SKILL_ALLOWLIST")
@@ -186,6 +198,9 @@ class OpenClawBackend:
             require(a.get(key) is True, "LIVE_REVIEW_" + key.upper())
         require(a.get("config_sha256") == digest(read_json(self.config)), "LIVE_CONFIG_REVIEW_STALE")
         verify_profile(self.config, a.get("layout"))
+        configured=read_json(self.config)['agents']
+        entries=configured['list'] if a['layout']=='legacy-list' else [dict(id=k,**v) for k,v in configured['entries'].items()]
+        for entry in entries:verify_bootstrap(entry['id'],entry['workspace'])
         self.env = os.environ.copy()
         for key in ("OPENCLAW_PROFILE", "OPENCLAW_CONTAINER", "OPENCLAW_WORKSPACE_DIR", "OPENCLAW_SHELL"):
             self.env.pop(key, None)
@@ -214,6 +229,7 @@ class OpenClawBackend:
         for name in names:
             body = (ROOT / 'skills' / name / 'SKILL.md').read_text(encoding='utf-8')
             prompt['role_rules'].append({'name': name, 'sha256': hashlib.sha256(body.encode()).hexdigest(), 'body': body})
+        prompt['role_resources'] = [r for r in role_resources(agent,sub['stage']) if not r['name'].endswith('/SKILL.md')]
         if feedback is not None:
             prompt["feedback_to_audit"] = feedback
             prompt["feedback_sha256"] = digest(feedback)
@@ -333,7 +349,7 @@ def run_batch(inputs, intake_path, out, backend=None, only=None):
             check_feedback(f, sub, gate, schemas["feedback"], facts)
             row['calls'][-1]['protocol_valid'] = True
             save(out / (sid + ".feedback_" + ts + ".json"), f)
-            save_text(out / (sid + ".feedback_" + ts + ".md"), feedback_markdown(f, backend.name == "mock" or sub["material_kind"] == "synthetic"))
+            save_text(out / (sid + ".feedback_" + ts + ".md"), feedback_markdown(f, backend.name == "mock" or sub["material_kind"] == "synthetic",compact=True,submission=sub))
             row["feedback_sha256"] = digest(f)
             row["status"] = "feedback_valid_teacher_pending"
             session_id = str(uuid.uuid4())
@@ -342,7 +358,7 @@ def run_batch(inputs, intake_path, out, backend=None, only=None):
             check_teacher(t, sub, f, schemas["teacher-review"], facts)
             row['calls'][-1]['protocol_valid'] = True
             save(out / (sid + ".teacher_" + ts + ".json"), t)
-            save_text(out / (sid + ".teacher_" + ts + ".md"), teacher_markdown(t, backend.name == "mock" or sub["material_kind"] == "synthetic"))
+            save_text(out / (sid + ".teacher_" + ts + ".md"), teacher_markdown(t, backend.name == "mock" or sub["material_kind"] == "synthetic", feedback=f,compact=True))
             row["teacher_review_sha256"] = digest(t)
             row["teacher_disposition"] = t["disposition"]
             row["feedback_review_flags"] = [x["dimension"] for x in t["checks"] if x["verdict"] != "aligned" and x['dimension'] in sub['assessed_dimensions']]
@@ -388,6 +404,7 @@ def stage(out, layout, model):
         workspace.mkdir(parents=True, mode=0o700)
         shutil.copy2(ROOT / "agents" / name / "AGENTS.md", workspace / "AGENTS.md")
         shutil.copy2(ROOT / "agents" / name / "SOUL.md", workspace / "SOUL.md")
+        save_text(workspace/'TOOLS.md',bootstrap_context(name))
         for sk in skills:
             shutil.copytree(ROOT / "skills" / sk, workspace / "skills" / sk,
                             ignore=shutil.ignore_patterns("__pycache__", "*.pyc"))
@@ -402,6 +419,8 @@ def stage(out, layout, model):
         cfg = {"agents": {"list": agents}}
     else:
         cfg = {"agents": {"ownership": "explicit", "entries": {a["id"]: {k:v for k,v in a.items() if k != "id"} for a in agents}}}
+    cfg['tools']=copy.deepcopy(READ_ONLY_TOOLS)
+    cfg['agents']['defaults']={'sandbox':copy.deepcopy(READ_ONLY_SANDBOX),'heartbeat':{'every':'0m'},'memorySearch':{'enabled':False}}
     save(out / "openclaw.json", cfg)
     save(out / ("APPROVAL_REQUIRED_" + stamp() + ".json"), {"layout": layout,
         "runtime_version": "2026.7.1-2" if layout == "legacy-list" else "UNVERIFIED",

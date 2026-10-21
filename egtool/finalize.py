@@ -51,8 +51,8 @@ def check_final(rec, schema):
     return rec
 
 
-def release(submission, intake, feedback, review, decisions, out):
-    sub, fb, tr, schemas = context(submission, intake, feedback, review)
+def bound_decision(sub, fb, tr, schemas, decisions):
+    """Verify human status against this exact submission, feedback and review."""
     rec = check_final(read_json(decisions), schemas['teacher-final'])
     for key, expected in [('student_id', sub['student_id']), ('stage', sub['stage']),
         ('material_kind', sub['material_kind']), ('assessed_dimensions', sub['assessed_dimensions']),
@@ -63,6 +63,12 @@ def release(submission, intake, feedback, review, decisions, out):
     require(all(by_id[i]['severity'] != 'teacher_check' for i in rec['released_issue_ids']), 'TEACHER_ONLY_ISSUE_CANNOT_BE_RELEASED')
     if rec['approved_for_release'] and tr['disposition'] != 'accept_proposal':
         require(len(rec['comment'].strip()) >= 20, 'HUMAN_OVERRIDE_REASON_REQUIRED')
+    return rec
+
+
+def release(submission, intake, feedback, review, decisions, out):
+    sub, fb, tr, schemas = context(submission, intake, feedback, review)
+    rec = bound_decision(sub, fb, tr, schemas, decisions)
     private_output(out, sub)
     out = Path(out)
     require(not out.exists(), 'OUTPUT_EXISTS')

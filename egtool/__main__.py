@@ -6,6 +6,7 @@ from .pipeline import make_demo, stage, run_batch, OpenClawBackend
 from .intake import prepare, intake_template, upgrade_submission, csv_ids
 from .finalize import final_template, release, summarize_finals
 from .contracts import DIMENSIONS
+from .display import reading_views
 
 
 def main():
@@ -30,6 +31,9 @@ def main():
         if name=='release':q.add_argument('--decisions',required=True)
     sm=sp.add_parser('summarize-finals',help='按阶段汇总教师确认的学生问题，与AI质控统计分开')
     sm.add_argument('--records',required=True);sm.add_argument('--out',required=True);sm.add_argument('--stage',choices=['draft','revision'],required=True)
+    rv=sp.add_parser('reading-views',help='从已校验原件生成中文阅读版，可绑定本轮人工终审状态')
+    for flag in ('submission','intake','feedback','teacher-review','out'):rv.add_argument('--'+flag,required=True)
+    rv.add_argument('--decisions',help='可选的本轮人工终审记录，旧版或未签认记录不能使用')
     a=p.parse_args()
     try:
         if a.cmd=="demo":
@@ -47,6 +51,8 @@ def main():
             print(release(a.submission,a.intake,a.feedback,a.teacher_review,a.decisions,a.out));return
         if a.cmd=='summarize-finals':
             r=summarize_finals(a.records,a.out,a.stage);print('human_final_reviews='+str(r['human_final_reviews'])+' simulated='+str(r['is_simulated']));return
+        if a.cmd=='reading-views':
+            print(reading_views(a.submission,a.intake,a.feedback,a.teacher_review,a.out,a.decisions));return
         backend=None
         if a.backend=="openclaw":
             if not all([a.executable,a.config,a.approval_file]):raise ContractError("LIVE_PROFILE_ARGUMENTS_REQUIRED")

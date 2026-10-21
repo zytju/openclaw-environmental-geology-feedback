@@ -92,6 +92,50 @@
           }
         }
       }
+    },
+    "defaults": {
+      "sandbox": {
+        "mode": "all",
+        "scope": "session",
+        "workspaceAccess": "ro",
+        "docker": {
+          "network": "none"
+        }
+      },
+      "heartbeat": {
+        "every": "0m"
+      },
+      "memorySearch": {
+        "enabled": false
+      }
+    }
+  },
+  "tools": {
+    "allow": [
+      "read"
+    ],
+    "deny": [
+      "exec",
+      "process",
+      "write",
+      "edit",
+      "apply_patch",
+      "browser",
+      "message",
+      "sessions_list",
+      "sessions_history",
+      "sessions_send",
+      "sessions_spawn",
+      "memory_search",
+      "memory_get",
+      "web_search",
+      "web_fetch",
+      "gateway",
+      "cron",
+      "nodes"
+    ],
+    "elevated": {
+      "enabled": false
     }
   }
 }
