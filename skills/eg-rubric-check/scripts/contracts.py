@@ -257,19 +257,24 @@ def check_feedback(feedback, sub, gate, schema, facts):
                   'needs_teacher': (None,), 'not_in_scope': (None,)}
         require(d['level_proposal'] in levels[d['assessment']], 'ASSESSMENT_LEVEL_MISMATCH')
         if d['assessment'] == 'not_in_scope':
-            require(not d['issues'] and not d['citations'] and not d['evidence_card_ids'], 'OUT_OF_SCOPE_NO_ISSUES_OR_CITATIONS')
+            require(not d['issues'] and not d['citations'] and not d['evidence_card_ids'] and not d.get('related_issue_ids'), 'OUT_OF_SCOPE_NO_ISSUES_OR_CITATIONS')
         if d["assessment"] in ("absent", 'not_in_scope'):
             require(d["anchor"]["paragraph_id"] == "REPORT", "ABSENCE_USE_REPORT_ANCHOR")
         else:
             require(d["anchor"]["paragraph_id"] != "REPORT", "PRESENT_NEEDS_EXACT_ANCHOR")
         if d["assessment"] not in ("supported", 'not_in_scope'):
-            require(bool(d["issues"]), "ISSUE_REQUIRED_FOR_GAP")
+            require(bool(d["issues"]) or (d['assessment']=='partial' and bool(d.get('related_issue_ids'))), "ISSUE_REQUIRED_FOR_GAP")
         for issue in d["issues"]:
             check_anchor(issue["anchor"], sub)
             check_citations(issue["citations"], facts)
             require(set(issue["evidence_card_ids"]) <= card_ids, "ISSUE_EVIDENCE_CARD_UNKNOWN")
             all_issues.append(issue)
     unique(all_issues, "issue_id")
+    all_ids={i['issue_id'] for i in all_issues}
+    for d in feedback['dimensions']:
+        related=set(d.get('related_issue_ids',[]))
+        require(related<=all_ids,'RELATED_ISSUE_UNKNOWN')
+        require(not related.intersection(i['issue_id'] for i in d['issues']),'RELATED_ISSUE_MUST_BE_OTHER_DIMENSION')
     require(not PII.search(prose_text(feedback)), "OUTPUT_POSSIBLE_PERSONAL_INFORMATION")
     return feedback
 
@@ -281,7 +286,7 @@ def check_teacher(review, sub, feedback, schema, facts):
     require(review["feedback_sha256"] == digest(feedback), "TEACHER_FEEDBACK_MISMATCH")
     require([x["dimension"] for x in review["checks"]] == DIMENSIONS, "TEACHER_SIX_DIMENSIONS_ORDER")
     issue_ids = {i["issue_id"] for d in feedback["dimensions"] for i in d["issues"]}
-    dimension_issues = {d['dimension']: {i['issue_id'] for i in d['issues']} for d in feedback['dimensions']}
+    dimension_issues = {d['dimension']: {i['issue_id'] for i in d['issues']} | set(d.get('related_issue_ids',[])) for d in feedback['dimensions']}
     for check in review["checks"]:
         require(set(check["issue_ids"]) <= issue_ids, "TEACHER_ISSUE_UNKNOWN")
         require(set(check['issue_ids']) <= dimension_issues[check['dimension']], 'TEACHER_ISSUE_WRONG_DIMENSION')

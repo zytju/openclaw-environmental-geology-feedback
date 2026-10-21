@@ -1,0 +1,99 @@
+{
+  "schema_version": "1.1.0",
+  "case_id": "shuping-teaching-v1",
+  "student_id": "S001",
+  "material_kind": "synthetic",
+  "stage": "draft",
+  "report_scope": "full_report",
+  "assessed_dimensions": [
+    "problem_identification",
+    "evidence_extraction",
+    "reasoning_chain",
+    "hazard_chain",
+    "uncertainty",
+    "mitigation_match"
+  ],
+  "previous_issue_ids": [],
+  "paragraphs": [
+    {
+      "paragraph_id": "P01",
+      "text": "合成连续运行测试第1份。本报告分析三峡库区树坪滑坡的变形机制及风险。树坪属于库岸滑坡，分析需要区分后部驱动段与前部抗滑段，并考虑库水位、坡内地下水和降雨的影响。潜在影响对象包括临近岸段、航运活动和人员。具体暴露范围尚未调查。本报告使用公开文献，不包含自行取得的现场监测记录。本作业为教学演示样例。"
+    },
+    {
+      "paragraph_id": "P02",
+      "text": "Zou等2021年的研究讨论了树坪滑坡的地质条件、水文变化和变形。文中的情景3给出快速降水位末期最低安全系数约0.995，因此可以将0.995直接作为目前树坪滑坡的统一预警阈值。证据卡E02记录了这一结果。Wen等2017年将位移分为趋势项和周期项进行预测，这说明时间序列可以帮助描述位移变化，但预测准确并不等于解释了触发机制。"
+    },
+    {
+      "paragraph_id": "P03",
+      "text": "库水位下降后，坡内地下水消退可能滞后，坡内外出现水头差。这时水会向库区排泄，并产生朝向库区的渗流作用。因为库水位下降，所以滑坡体内孔隙水压力必然升高，滑坡一定失稳。我认为这可以解释所有库岸滑坡在降水位期间的加速变形，降雨的作用可以忽略。当前没有对不同坡段或不同水位阶段分别讨论。"
+    },
+    {
+      "paragraph_id": "P04",
+      "text": "若滑体在特定条件下快速运动并进入库水，可能引起涌浪，再影响对岸或附近航道。这条灾害链是本次教学分析提出的情景，不能当作树坪已经发生的完整历史事件。判断是否形成较大涌浪，需要进一步核查可能入水的体积、速度、库水深度、传播路径和受体位置。现有材料不足以计算浪高或影响距离。"
+    },
+    {
+      "paragraph_id": "P05",
+      "text": "报告存在数据不足的问题，部分结论还需进一步研究。由于没有当前监测资料，我不能确定失稳时间，也不能确定哪些住户或船舶会受影响。不过，文献结论具有参考价值，补充资料后应当能得到更准确的判断。"
+    },
+    {
+      "paragraph_id": "P06",
+      "text": "建议采用抗滑桩、锚索、排水和监测相结合的办法治理，并在库水位下降期间提高关注程度。这些措施可以同时增强抗滑能力并降低地下水影响。现阶段尚未比较各项措施适用的坡段、施工条件和实施代价，也未说明需要监测哪些指标来核查效果。最终工程方案应由专业人员根据现场调查确定。"
+    }
+  ],
+  "raw_analysis": [
+    {
+      "artifact_id": "A01",
+      "kind": "notes",
+      "content": "教学演示分析记录。先阅读案例背景，注意到文献把滑坡分为驱动段和抗滑段。我起初认为只要库水位下降，滑坡就更危险。阅读情景3后又注意到坡内地下水有滞后，暂时还没有把水头差、孔压和渗流力区分清楚。整理报告时把论文的安全系数拿来当预警阈值，需要核查是否合适。灾害链部分按假设情景书写，没有找到树坪快速入水涌浪的历史证据。治理部分先列常见措施，尚未完成针对性比较。这些记录均为本次构造样例的组成部分。"
+    }
+  ],
+  "evidence_cards": [
+    {
+      "card_id": "E01",
+      "source_id": "ZOU2021",
+      "locator": "2.2 Driving–resisting model; 3.1 Geological setting",
+      "excerpt_type": "paraphrase",
+      "excerpt": "研究用驱动段与抗滑段的作用关系分析树坪滑坡，解释时需要考虑坡段及其地质条件。",
+      "interpretation": "支持P01中区分不同坡段的分析范围，不能代替现场边界与暴露对象调查。",
+      "paragraph_ids": [
+        "P01",
+        "P03"
+      ]
+    },
+    {
+      "card_id": "E02",
+      "source_id": "ZOU2021",
+      "locator": "5.3 Scenario 3; Figures 16–17",
+      "excerpt_type": "paraphrase",
+      "excerpt": "情景3的数值模拟在快速降水位末期给出最低安全系数约0.995和最大坡内外水头差约14米。",
+      "interpretation": "这些数值来自论文模型情景，可帮助理解水文响应与稳定性的关系，是否能够用于当前预警仍需核查。",
+      "paragraph_ids": [
+        "P02",
+        "P03"
+      ]
+    },
+    {
+      "card_id": "E03",
+      "source_id": "ZOU2021",
+      "locator": "2.3 Effect of water force on the resisting and driving sections; 5.3 Scenario 3",
+      "excerpt_type": "paraphrase",
+      "excerpt": "论文分析的快速降水位条件下，坡内地下水消退滞后，可形成朝向库水的水力梯度，向外渗流作用不利于稳定。",
+      "interpretation": "支持P03前半部分的机制线索。该解释有场地、时段和边界条件，不能直接推到所有库岸滑坡。",
+      "paragraph_ids": [
+        "P03"
+      ]
+    },
+    {
+      "card_id": "E04",
+      "source_id": "WEN2017",
+      "locator": "Abstract",
+      "excerpt_type": "paraphrase",
+      "excerpt": "论文通过趋势项与周期项建模预测滑坡位移。",
+      "interpretation": "支持P02关于位移预测用途的说明；预测拟合本身不能单独证明某因素导致了滑坡变形。",
+      "paragraph_ids": [
+        "P02"
+      ]
+    }
+  ],
+  "revisions": []
+}

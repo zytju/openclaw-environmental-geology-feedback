@@ -1,0 +1,1 @@
+{"id":"eg-skill-reader","name":"Teaching Skill Reader","description":"Read only the active teaching role's versioned Skill resources.","contracts":{"tools":["eg_skill_read"]},"toolMetadata":{"eg_skill_read":{"optional":true}},"configSchema":{"type":"object","additionalProperties":false,"properties":{}}}

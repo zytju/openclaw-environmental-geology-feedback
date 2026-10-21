@@ -154,7 +154,9 @@ def verify_profile(config, layout):
         require("list" not in a, "PROFILE_LAYOUT_MIXED")
     require(set(entries) == {"eg-student-feedback", "eg-teacher-review"}, "PROFILE_AGENT_SET")
     global_tools=cfg.get('tools',{})
-    require(global_tools.get('allow')==['read'] and global_tools.get('elevated',{}).get('enabled') is False,
+    reader=cfg.get('plugins',{}).get('entries',{}).get('eg-skill-reader',{}).get('enabled') is True
+    allowed=['eg_skill_read'] if reader else ['read']
+    require(global_tools.get('allow')==allowed and global_tools.get('elevated',{}).get('enabled') is False,
             'PROFILE_GLOBAL_READ_ONLY_TOOLS')
     require(set(READ_ONLY_TOOLS['deny'])<=set(global_tools.get('deny',[])),'PROFILE_GLOBAL_TOOL_DENIALS')
     defaults=a.get('defaults',{}).get('sandbox',{})
@@ -170,7 +172,13 @@ def verify_profile(config, layout):
         require(isinstance(agent.get('tools'), dict) and isinstance(agent['tools'].get('elevated'), dict), 'PROFILE_TOOLS_OBJECT')
         require(sandbox.get("mode") == "all" and sandbox.get("scope") == "session" and
                 sandbox.get("workspaceAccess") == "ro" and sandbox.get("docker", {}).get("network") == "none", "PROFILE_SANDBOX_POLICY")
-        require(agent.get("tools", {}).get("allow") == ["read"], "PROFILE_READ_ONLY_TOOLS")
+        require(agent.get("tools", {}).get("allow") == allowed, "PROFILE_READ_ONLY_TOOLS")
+        if reader:
+            from .native_loading import verify_native_workspace
+            verify_native_workspace(name,agent['workspace'])
+            for tools in (global_tools,agent['tools']):
+                require(tools.get('sandbox',{}).get('tools',{}).get('allow')==allowed,'PROFILE_READER_SANDBOX_POLICY')
+                require(tools.get('fs',{}).get('workspaceOnly') is True,'PROFILE_READER_WORKSPACE_POLICY')
         require(set(READ_ONLY_TOOLS['deny'])<=set(agent['tools'].get('deny',[])),'PROFILE_AGENT_TOOL_DENIALS')
         require(agent.get("tools", {}).get("elevated", {}).get("enabled") is False, "PROFILE_ELEVATION_DISABLED")
         expected = ["eg-authenticity-anchor", "eg-report-feedback"] if name == "eg-student-feedback" else ["eg-rubric-check", "eg-authenticity-anchor"]
@@ -200,7 +208,12 @@ class OpenClawBackend:
         verify_profile(self.config, a.get("layout"))
         configured=read_json(self.config)['agents']
         entries=configured['list'] if a['layout']=='legacy-list' else [dict(id=k,**v) for k,v in configured['entries'].items()]
-        for entry in entries:verify_bootstrap(entry['id'],entry['workspace'])
+        self.native_reader=read_json(self.config).get('tools',{}).get('allow')==['eg_skill_read']
+        for entry in entries:
+            if self.native_reader:
+                from .native_loading import verify_native_workspace
+                verify_native_workspace(entry['id'],entry['workspace'])
+            else:verify_bootstrap(entry['id'],entry['workspace'])
         self.env = os.environ.copy()
         for key in ("OPENCLAW_PROFILE", "OPENCLAW_CONTAINER", "OPENCLAW_WORKSPACE_DIR", "OPENCLAW_SHELL"):
             self.env.pop(key, None)
@@ -225,27 +238,38 @@ class OpenClawBackend:
             "source_registry": sources, "case_facts": facts, "rubric": read_json(ROOT / "case-study/rubric.json"),
             "output_schema": contract}
         names = ['eg-authenticity-anchor', 'eg-report-feedback'] if role == 'student' else ['eg-authenticity-anchor', 'eg-rubric-check']
-        prompt['role_rules'] = []
-        for name in names:
-            body = (ROOT / 'skills' / name / 'SKILL.md').read_text(encoding='utf-8')
-            prompt['role_rules'].append({'name': name, 'sha256': hashlib.sha256(body.encode()).hexdigest(), 'body': body})
-        prompt['role_resources'] = [r for r in role_resources(agent,sub['stage']) if not r['name'].endswith('/SKILL.md')]
+        if getattr(self,'native_reader',False):
+            prompt['skill_loading']={'mode':'on_demand','tool':'eg_skill_read','skills':names,
+                'instruction':'先实际调用工具完整读取列出的Skill，再读取评分锚点、协议及本任务所需参考。修订稿另读修订复评步骤。不能用技能名和简介替代正文。'}
+        else:
+            prompt['role_rules'] = []
+            for name in names:
+                body = (ROOT / 'skills' / name / 'SKILL.md').read_text(encoding='utf-8')
+                prompt['role_rules'].append({'name': name, 'sha256': hashlib.sha256(body.encode()).hexdigest(), 'body': body})
+            prompt['role_resources'] = [r for r in role_resources(agent,sub['stage']) if not r['name'].endswith('/SKILL.md')]
         if feedback is not None:
             prompt["feedback_to_audit"] = feedback
             prompt["feedback_sha256"] = digest(feedback)
         with tempfile.TemporaryDirectory(prefix="eg-turn-") as tmp:
             p = Path(tmp) / "request.json"
             save(p, prompt)
-            cmd = [self.executable, "agent", "--local", "--agent", agent, "--session-id", session_id,
+            cmd = [self.executable, "agent"] + ([] if getattr(self,'use_gateway',False) else ["--local"]) + ["--agent", agent, "--session-id", session_id,
                    "--message-file", str(p), "--timeout", str(self.timeout), "--json"]
             try:
+                started=time.time()
                 r = subprocess.run(cmd, env=self.env, capture_output=True, text=True, timeout=self.timeout + 30)
             except subprocess.TimeoutExpired as exc:
                 raise ContractError("PROVIDER_TIMEOUT_UNCERTAIN_NO_AUTOMATIC_RETRY") from exc
+            if hasattr(self,'audit'):
+                save_text(self.audit/(self.current_prefix+'.request.private.json'),json.dumps(prompt,ensure_ascii=False,indent=2))
+                save_text(self.audit/(self.current_prefix+'.stderr.private.txt'),r.stderr)
             require(r.returncode == 0, "PROVIDER_COMMAND_FAILED")
             require(len(r.stdout.encode()) <= 100_000, "PROVIDER_OUTPUT_OVERSIZE")
             self.last_call_metrics = numeric_cli_metrics(r.stdout)
-            return unwrap_openclaw(r.stdout)
+            if hasattr(self,'retain_result'):self.retain_result(r.stdout,started)
+            value=unwrap_openclaw(r.stdout)
+            require(role!='student' or 'teacher_edit_trace_id' not in value,'MODEL_CANNOT_ASSERT_TEACHER_EDIT')
+            return value
 
 
 def numeric_cli_metrics(text):

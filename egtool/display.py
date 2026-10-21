@@ -7,9 +7,14 @@ from .pipeline import save_text, stamp
 from .render import feedback_markdown, teacher_markdown
 
 
-def reading_views(submission, intake, feedback, review, out, decisions=None):
+def reading_views(submission, intake, feedback, review, out, decisions=None, edit_ledger=None):
     sub, fb, tr, schemas=context(submission,intake,feedback,review)
-    final=bound_decision(sub,fb,tr,schemas,decisions) if decisions else None
+    from .teacher_edits import resolve_ledger
+    edit_ledger=resolve_ledger(feedback,fb,edit_ledger)
+    final=bound_decision(sub,fb,tr,schemas,decisions,edit_ledger) if decisions else None
+    if edit_ledger:
+        from .teacher_edits import verify_ledger
+        verify_ledger(edit_ledger,sub,fb)
     private_output(out,sub)
     out=Path(out)
     require(not out.exists(),'OUTPUT_EXISTS')

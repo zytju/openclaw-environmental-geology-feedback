@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.1.0",
+  "student_id": "S005",
+  "case_id": "shuping-teaching-v1",
+  "material_kind": "synthetic",
+  "stage": "draft",
+  "report_scope": "excerpt",
+  "assessed_dimensions": [
+    "mitigation_match"
+  ],
+  "paragraphs": [
+    {
+      "paragraph_id": "P01",
+      "text": "合成连续运行测试第5份。文献已经证实本滑坡当前安装了排水和抗滑桩，而且一定有效；因此无需再调查坡段与条件。"
+    },
+    {
+      "paragraph_id": "P02",
+      "text": "本练习依据树坪滑坡文献核查概念和材料身份，不含真实学生信息或当前现场监测值。"
+    }
+  ],
+  "raw_analysis": [
+    {
+      "artifact_id": "A01",
+      "kind": "notes",
+      "content": "模拟学习笔记：先区分库水位与坡内地下水响应，再检查有效应力、渗流和临水支撑条件。没有原始孔压记录，不能给出确定性方向。"
+    }
+  ],
+  "evidence_cards": [
+    {
+      "card_id": "E01",
+      "source_id": "ZOU2021",
+      "locator": "5.3 Scenario 3; 6 Discussion",
+      "excerpt_type": "paraphrase",
+      "excerpt": "论文讨论库水位快速下降阶段的渗流作用及地下水响应条件。",
+      "interpretation": "文献机理可作为核查方向，但不是本模拟报告具备实测孔压证据的证明。",
+      "paragraph_ids": [
+        "P01"
+      ]
+    }
+  ],
+  "previous_issue_ids": [],
+  "revisions": []
+}

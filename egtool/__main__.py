@@ -7,6 +7,7 @@ from .intake import prepare, intake_template, upgrade_submission, csv_ids
 from .finalize import final_template, release, summarize_finals
 from .contracts import DIMENSIONS
 from .display import reading_views
+from .teacher_edits import edit_template, apply_edits
 
 
 def main():
@@ -14,6 +15,7 @@ def main():
     sp=p.add_subparsers(dest="cmd",required=True)
     d=sp.add_parser("demo");d.add_argument("--out",required=True);d.add_argument("--count",type=int,default=66)
     st=sp.add_parser("stage");st.add_argument("--out",required=True);st.add_argument("--layout",choices=["legacy-list","current-entries"],required=True);st.add_argument("--model",required=True)
+    st.add_argument('--skill-loading',choices=['preloaded','on-demand'],default='preloaded')
     b=sp.add_parser("batch");b.add_argument("--inputs",required=True);b.add_argument("--intake",required=True);b.add_argument("--out",required=True)
     b.add_argument("--backend",choices=["mock","openclaw"],default="mock");b.add_argument("--only",help="仅在新运行目录重试逗号分隔的匿名编号")
     b.add_argument("--executable");b.add_argument("--config");b.add_argument("--approval-file");b.add_argument("--confirmed-live-use",action="store_true")
@@ -29,30 +31,55 @@ def main():
         for flag in ('submission','intake','feedback','teacher-review','out'):
             q.add_argument('--'+flag,required=True)
         if name=='release':q.add_argument('--decisions',required=True)
+        q.add_argument('--edit-ledger')
+    for name in ('edit-template','apply-edits'):
+        q=sp.add_parser(name,help='生成教师修改模板' if name=='edit-template' else '保存修改稿与逐项追溯记录')
+        for flag in ('submission','intake','feedback','teacher-review','out'):q.add_argument('--'+flag,required=True)
+        if name=='apply-edits':
+            q.add_argument('--plan',required=True);q.add_argument('--previous-ledger')
     sm=sp.add_parser('summarize-finals',help='按阶段汇总教师确认的学生问题，与AI质控统计分开')
     sm.add_argument('--records',required=True);sm.add_argument('--out',required=True);sm.add_argument('--stage',choices=['draft','revision'],required=True)
     rv=sp.add_parser('reading-views',help='从已校验原件生成中文阅读版，可绑定本轮人工终审状态')
     for flag in ('submission','intake','feedback','teacher-review','out'):rv.add_argument('--'+flag,required=True)
     rv.add_argument('--decisions',help='可选的本轮人工终审记录，旧版或未签认记录不能使用')
+    rv.add_argument('--edit-ledger')
+    live=sp.add_parser('synthetic-live',help='只用合成材料串行调用真实模型，保留逐次读取证据；不替代生产验收')
+    for flag in ('inputs','intake','out','audit','executable','config'):live.add_argument('--'+flag,required=True)
+    live.add_argument('--count',type=int,default=6);live.add_argument('--confirmed-live-use',action='store_true')
     a=p.parse_args()
     try:
         if a.cmd=="demo":
             print(make_demo(a.out,a.count));return
         if a.cmd=="stage":
-            print(stage(a.out,a.layout,a.model));return
+            result=stage(a.out,a.layout,a.model)
+            if a.skill_loading=='on-demand':
+                from .native_loading import configure_on_demand
+                configure_on_demand(result/'openclaw.json')
+            print(result);return
         if a.cmd=='prepare':print(prepare(a.markdown,a.out));return
         if a.cmd=='intake-template':print(intake_template(a.inputs,a.out));return
         if a.cmd=='upgrade-submission':
             dims=csv_ids(a.dimensions) if a.dimensions else DIMENSIONS[:] if a.report_scope=='full_report' else []
             print(upgrade_submission(a.submission,a.out,a.report_scope,dims));return
         if a.cmd=='final-template':
-            print(final_template(a.submission,a.intake,a.feedback,a.teacher_review,a.out));return
+            print(final_template(a.submission,a.intake,a.feedback,a.teacher_review,a.out,a.edit_ledger));return
         if a.cmd=='release':
-            print(release(a.submission,a.intake,a.feedback,a.teacher_review,a.decisions,a.out));return
+            print(release(a.submission,a.intake,a.feedback,a.teacher_review,a.decisions,a.out,a.edit_ledger));return
+        if a.cmd=='edit-template':
+            print(edit_template(a.submission,a.intake,a.feedback,a.teacher_review,a.out));return
+        if a.cmd=='apply-edits':
+            print(apply_edits(a.submission,a.intake,a.feedback,a.teacher_review,a.plan,a.out,a.previous_ledger));return
         if a.cmd=='summarize-finals':
             r=summarize_finals(a.records,a.out,a.stage);print('human_final_reviews='+str(r['human_final_reviews'])+' simulated='+str(r['is_simulated']));return
         if a.cmd=='reading-views':
-            print(reading_views(a.submission,a.intake,a.feedback,a.teacher_review,a.out,a.decisions));return
+            print(reading_views(a.submission,a.intake,a.feedback,a.teacher_review,a.out,a.decisions,a.edit_ledger));return
+        if a.cmd=='synthetic-live':
+            from .synthetic_live import SyntheticLiveBackend,serial_test
+            backend=SyntheticLiveBackend(a.executable,a.config,a.audit,a.confirmed_live_use)
+            result=serial_test(a.inputs,a.intake,a.out,backend,a.count)
+            print('completed_submissions='+str(result['completed_submissions'])+' valid_model_outputs='+str(result['successful_model_calls']))
+            if result['status']!='complete':sys.exit(2)
+            return
         backend=None
         if a.backend=="openclaw":
             if not all([a.executable,a.config,a.approval_file]):raise ContractError("LIVE_PROFILE_ARGUMENTS_REQUIRED")

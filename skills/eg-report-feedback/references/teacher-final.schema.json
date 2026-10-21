@@ -107,6 +107,12 @@
           "mitigation_match"
         ]
       }
+    },
+    "edit_ledger_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$",
+      "minLength": 64,
+      "maxLength": 64
     }
   },
   "required": [

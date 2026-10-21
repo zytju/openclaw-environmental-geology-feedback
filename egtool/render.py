@@ -75,15 +75,17 @@ def feedback_markdown(record, simulated=False, *, final_record=None, compact=Fal
 
 def teacher_markdown(record, simulated=False, *, feedback=None, final_record=None, compact=False):
     levels={d['dimension']:d['level_proposal'] for d in feedback['dimensions']} if feedback else {}
+    outside={d['dimension'] for d in feedback['dimensions'] if d['assessment']=='not_in_scope'} if feedback else set()
     lines=['# 案例报告反馈复核','',md(record['student_id'])+' · '+('教学演示 · ' if simulated else '')+_status(final_record),'']
     if final_record is None or record['disposition']!='accept_proposal':lines+=['模型处置建议：'+DISPOSITIONS[record['disposition']]+'。','']
     lines+=['| 评价维度 | 核查结论 |','|---|---|']
     for check,label in zip(record['checks'],LABELS):
-        value=VERDICTS[check['verdict']]
+        value='本轮不评' if check['dimension'] in outside else VERDICTS[check['verdict']]
         if levels.get(check['dimension']) is not None:value+='，建议'+str(levels[check['dimension']])+'级'
         lines+=['| '+label+' | '+value+' |']
     lines+=['']
     for check,label in zip(record['checks'],LABELS):
+        if compact and check['dimension'] in outside:continue
         if not compact or check['verdict']!='aligned':lines+=['## '+label,'',md(check['reason']),'']+_location(check['anchor'])+_sources(check['citations'])
         elif levels.get(check['dimension']) is not None and levels[check['dimension']]<3:
             lines+=[label+'：'+md(check['reason']),'']

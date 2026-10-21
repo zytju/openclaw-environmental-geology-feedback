@@ -29,5 +29,7 @@ jobs:
           python-version: ${{ matrix.python }}
       - name: Standard-library tests
         run: python -m unittest discover -s tests -v
+      - name: Role-scoped Skill reader checks
+        run: node plugins/eg-skill-reader/test.mjs
       - name: Synthetic 66-report smoke test
         run: python scripts/offline_smoke_20261019_1418.py --count 66

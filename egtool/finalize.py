@@ -20,8 +20,10 @@ def context(submission, intake, feedback, review):
     return sub, fb, tr, schemas
 
 
-def final_template(submission, intake, feedback, review, out):
+def final_template(submission, intake, feedback, review, out, edit_ledger=None):
     sub, fb, tr, _ = context(submission, intake, feedback, review)
+    from .teacher_edits import resolve_ledger
+    edit_ledger=resolve_ledger(feedback,fb,edit_ledger)
     private_output(out, sub)
     value = {'schema_version': VERSION, 'student_id': sub['student_id'], 'stage': sub['stage'],
         'material_kind': sub['material_kind'], 'assessed_dimensions': sub['assessed_dimensions'],
@@ -29,6 +31,9 @@ def final_template(submission, intake, feedback, review, out):
         'reviewer_code': 'T000', 'reviewed_at': 'NOT_REVIEWED', 'human_review_complete': False,
         'approved_for_release': False, 'released_issue_ids': [], 'confirmed_student_problem_dimensions': [],
         'comment': '待教师逐条核查并选择实际发放的问题；本模板不是终审完成记录。'}
+    if edit_ledger:
+        from .teacher_edits import verify_ledger
+        value['edit_ledger_sha256'] = digest(verify_ledger(edit_ledger,sub,fb,read_json(intake)))
     save(out, value)
     return Path(out)
 
@@ -51,9 +56,14 @@ def check_final(rec, schema):
     return rec
 
 
-def bound_decision(sub, fb, tr, schemas, decisions):
+def bound_decision(sub, fb, tr, schemas, decisions, edit_ledger=None):
     """Verify human status against this exact submission, feedback and review."""
     rec = check_final(read_json(decisions), schemas['teacher-final'])
+    if edit_ledger or 'edit_ledger_sha256' in rec or 'teacher_edit_trace_id' in fb:
+        from .teacher_edits import verify_ledger
+        require(edit_ledger is not None,'EDIT_LEDGER_REQUIRED')
+        ledger=verify_ledger(edit_ledger,sub,fb)
+        require(rec.get('edit_ledger_sha256')==digest(ledger),'FINAL_EDIT_LEDGER_MISMATCH')
     for key, expected in [('student_id', sub['student_id']), ('stage', sub['stage']),
         ('material_kind', sub['material_kind']), ('assessed_dimensions', sub['assessed_dimensions']),
         ('submission_sha256', digest(sub)), ('feedback_sha256', digest(fb)), ('teacher_review_sha256', digest(tr))]:
@@ -66,15 +76,20 @@ def bound_decision(sub, fb, tr, schemas, decisions):
     return rec
 
 
-def release(submission, intake, feedback, review, decisions, out):
+def release(submission, intake, feedback, review, decisions, out, edit_ledger=None):
     sub, fb, tr, schemas = context(submission, intake, feedback, review)
-    rec = bound_decision(sub, fb, tr, schemas, decisions)
+    from .teacher_edits import resolve_ledger
+    edit_ledger=resolve_ledger(feedback,fb,edit_ledger)
+    rec = bound_decision(sub, fb, tr, schemas, decisions, edit_ledger)
     private_output(out, sub)
     out = Path(out)
     require(not out.exists(), 'OUTPUT_EXISTS')
     out.mkdir(parents=True, mode=0o700)
     ts = stamp()
     save(out / (sub['student_id'] + '.final_' + ts + '.json'), rec)
+    if edit_ledger:
+        from .teacher_edits import verify_ledger
+        save(out / (sub['student_id']+'.edit-ledger_'+ts+'.json'), verify_ledger(edit_ledger,sub,fb,read_json(intake)))
     if rec['approved_for_release']:
         delivered = {'release_version': VERSION, 'student_id': sub['student_id'],
             'is_simulated': sub['material_kind'] == 'synthetic', 'final_record_sha256': digest(rec),

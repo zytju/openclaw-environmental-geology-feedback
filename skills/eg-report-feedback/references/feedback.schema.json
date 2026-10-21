@@ -265,6 +265,17 @@
             },
             "minItems": 0,
             "maxItems": 3
+          },
+          "related_issue_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^I[0-9]{2,6}$",
+              "minLength": 3,
+              "maxLength": 7
+            },
+            "uniqueItems": true,
+            "maxItems": 18
           }
         },
         "required": [
@@ -286,6 +297,12 @@
       "type": "string",
       "minLength": 1,
       "maxLength": 350
+    },
+    "teacher_edit_trace_id": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$",
+      "minLength": 64,
+      "maxLength": 64
     }
   },
   "required": [

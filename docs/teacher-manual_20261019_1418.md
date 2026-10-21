@@ -49,7 +49,7 @@ python3 -m egtool summarize-finals --records /PRIVATE/releases --stage draft --o
 
 这里intake是单条对象，不是数组。final-template默认未审、未批准。教师逐条检查科学解释和量规，填写human_review_complete、actual reviewed_at（含时区）、真实T编号及comment；选择released_issue_ids及confirmed_student_problem_dimensions，再决定approved_for_release。模型hold时人工放行需要记录理由。
 
-release只在本地生成教师选定的学生问题，拒绝发放severity=teacher_check事项，不带草稿等级或其他教师专用内容。不自动发送给学生。若需改写错误建议或新增模型遗漏，本版应由教师另写并归档修正稿与理由，不把原AI稿直接篡改为模型原输出；只有已正确核验的问题才经本命令发放。这个编辑与新增问题环节尚未自动结构化。
+release只在本地生成教师选定的学生问题，拒绝发放severity=teacher_check事项，不带草稿等级或其他教师专用内容。不自动发送给学生。教师可用edit-template与apply-edits改写、新增或撤回问题，保留原反馈和修改历史，重新复核后完成本轮终审。操作见[教师修改与追溯](teacher-edits_20261021_2121.md)。
 
 优先发放少量核心、可完成的问题，数量由教师按本次任务决定，不能把18条上限当目标。修订稿previous_issue_ids只填实际发放的released_issue_ids，学生逐项写采纳、部分采纳或拒绝的证据理由。教师核对上轮发放原件后勾选previous_feedback_verified。另发的人工建议须纳入教师维护的完整发放清单，不能遗漏追溯。
 

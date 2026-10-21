@@ -88,6 +88,9 @@ class ReadingTest(unittest.TestCase):
         text=feedback_markdown(self.fb,True)
         self.assertIn('| 防治建议匹配 | 本轮不评 |',text)
         self.assertNotIn('## 防治建议匹配',text)
+        teacher=teacher_markdown(self.tr,True,feedback=self.fb,compact=True)
+        self.assertIn('| 防治建议匹配 | 本轮不评 |',teacher)
+        self.assertNotIn('| 防治建议匹配 | 依据一致',teacher)
     def test_student_overview_hides_grades_inside_basis_but_retains_full_evidence(self):
         self.fb['dimensions'][0]['basis']='当前仍有对应证据缺口，因此建议等级1。'
         overview=feedback_markdown(self.fb,True,compact=True)
