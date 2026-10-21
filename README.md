@@ -57,6 +57,15 @@ python3 -m unittest discover -s tests -v
 
 自编代码、规则、模板和模拟值采用[MIT](LICENSE)，版权署名为OpenClaw EG teaching project contributors。第三方论文和数据保留各自许可，见[第三方说明](THIRD_PARTY_NOTICES.md)。公开包不含学校原件、问卷图、学生作业、身份表、密钥、真实会话或真实监测文件。
 
-代码已公开上传至[GitHub仓库](https://github.com/zytju/openclaw-environmental-geology-feedback)。初次上传的133个文件与审定预览逐字节一致；之后的README人工修改已保留。预发布工作流仅在main分支的离线测试成功后创建[v0.1.2-preview](https://github.com/zytju/openclaw-environmental-geology-feedback/releases/tag/v0.1.2-preview)，附件包含对应提交的源码ZIP与SHA-256校验文件。当前仍未完成OpenClaw真实模型、容器权限和教学成效验收。
+代码已公开上传至[GitHub仓库](https://github.com/zytju/openclaw-environmental-geology-feedback)。初次上传的133个文件与审定预览逐字节一致；之后的README人工修改已保留。预发布工作流仅在main分支的离线测试成功后创建[v0.1.2-preview](https://github.com/zytju/openclaw-environmental-geology-feedback/releases/tag/v0.1.2-preview)，附件包含对应提交的源码ZIP与SHA-256校验文件。2026年10月20日至21日已补充OpenClaw实际模型教学演示；原生Skill文件读取和生产隔离按目标环境单独验收，详见下方演示记录。
 
 本轮核验见[发布核验记录](docs/publication-verification_20261019_1726.md)。当前源码校验使用MANIFEST_20261019_1726.sha256；MANIFEST_20261019_1418.sha256及14:18文档保留为原始审定包的历史快照，其“未上传、CI未执行”等状态描述以本记录为更新。原审定ZIP未改写，原校验值仍保留。
+
+
+## 2026年10月21日课程演示更新
+
+学生端和教师端默认输出中文概览，受控程序调用继续输出原结构化协议。修正两项专业规则：不确定性评价覆盖完整报告；治理反馈按学生原文区分建议与已实施陈述。
+
+已用合成S001报告完成初稿反馈、教师质控、反馈纠正、修订回应及双端复评，并保存人工终审决定。[演示验证与运行范围](docs/teaching-demo-verification_20261021_1930.md)说明实际完成的节点和复现要求。案例正文、原始会话、截图及人工回复保存在本地教学归档。
+
+本次主分支源码校验使用MANIFEST_20261021_1930.sha256。v0.1.2-preview标签和既有发布附件保留为此前基线；当前主分支包含后续角色与显示修订。[在线测试](https://github.com/zytju/openclaw-environmental-geology-feedback/actions/workflows/tests_20261019_1418.yml)按提交查看。

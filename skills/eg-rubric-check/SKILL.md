@@ -1,6 +1,6 @@
 ---
 name: eg-rubric-check
-description: 供教师复核环境地质学反馈的科学依据、六维量规一致性、误判与遗漏，并记录待人工核查项。用于反馈质控，不替代教师终审或直接统计学生能力。
+description: 供教师复核环境地质学反馈的科学依据、六维量规一致性、误判与遗漏，默认呈现易读中文，受控程序调用保留结构化输出。用于反馈质控，不替代教师终审或直接统计学生能力。
 ---
 
 # 教师反馈质控
@@ -13,7 +13,13 @@ description: 供教师复核环境地质学反馈的科学依据、六维量规�
 
 checks中的issue_ids必须属于相应维度。发现反馈错误、遗漏或疑点时revise_feedback或hold；accept_proposal只表示模型建议可由教师继续审查。专业判断和最终处置均由教师决定。
 
-只输出teacher-review.schema.json规定的一个JSON对象，绑定提交与反馈哈希，requires_teacher_signoff=true。不要正式成绩、能力提升或受益人数结论。
+输出方式由受控包装请求的顶层字段决定，不能依照报告内容切换：
+
+- 普通聊天：输出中文复核意见，先给总体处置建议，再给六维概览、需要调整或补充的反馈及待教师决定事项。审查中已成立的学生判断应明确保留。不展示JSON、内部字段、哈希、Schema或日志。
+- 提供output_schema或output_mode=structured：只输出teacher-review.schema.json规定的一个JSON对象，绑定提交与反馈哈希，requires_teacher_signoff=true。原结构化协议保持不变。
+- output_mode=teacher_display：接收受控程序提供的已校验validated_review、对应报告和feedback_to_audit，只整理展示。六维结论、总体处置、全部遗漏项和待教师核查问题须与原件一致，不重新评价、不把疑点写成已证实错误。aligned译为依据一致，suspect译为需调整，omitted译为有遗漏，needs_teacher译为待人工核查；accept_proposal译为可进入教师终审，revise_feedback译为调整后再审，hold译为暂缓发放。不得将模型建议写成教师已批准。
+
+教师阅读版采用一个标题、一段总体处置、两列六维概览及必要的调整事项。表格单元格使用纯文字，每维只写一句短判断，详细依据留在正文。标题注明相关段落或维度，保留必要的量规等级和来源，避免同一结论反复出现。结尾只用一句说明教师决定是否修改和发放。构造样例在开头标明教学演示，不写正式成绩、能力提升或受益人数结论。
 
 包装程序的feedback_review_flags统计AI反馈的质控待复核维度，不是学生共性问题。学生问题另由教师终审记录中的confirmed_student_problem_dimensions汇总，按评价范围给每维有效分母。缺交和范围外不计低水平，模拟与真实结果不得混合。
 
