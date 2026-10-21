@@ -73,7 +73,26 @@ def feedback_markdown(record, simulated=False, *, final_record=None, compact=Fal
     return '\n'.join(lines)
 
 
-def teacher_markdown(record, simulated=False, *, feedback=None, final_record=None, compact=False):
+def _teacher_edit_lines(ledger):
+    labels=dict(zip(DIMENSIONS,LABELS));actions={'replace_issue':'改写问题','add_issue':'新增问题','remove_issue':'撤回问题','set_dimension':'调整维度'}
+    lines=['## 教师修改记录','']
+    for n,entry in enumerate(ledger['history'],1):
+        plan=entry['plan'];levels={d['dimension']:d['level_proposal'] for d in entry['before_feedback']['dimensions']}
+        lines+=['修改'+str(n)+' · '+md(plan['reviewer_code'])+' · '+md(plan['reviewed_at']),'']
+        if plan['reviewer_code']=='T000':lines+=['T000为合成测试身份。','']
+        for op in plan['operations']:
+            detail=labels[op['dimension']]+'：'+actions[op['op']]
+            issue_id=op.get('issue_id') or (op.get('value') or {}).get('issue_id')
+            if issue_id:detail+=' '+issue_id
+            if op['op']=='set_dimension' and 'level_proposal' in op['value']:
+                old,new=levels[op['dimension']],op['value']['level_proposal']
+                show=lambda v:'本轮不评' if v is None else str(v)+'级'
+                detail+='，'+show(old)+' → '+show(new);levels[op['dimension']]=new
+            lines+=[md(detail)+'。','','理由：'+md(op['reason']),'']
+    return lines
+
+
+def teacher_markdown(record, simulated=False, *, feedback=None, final_record=None, compact=False, edit_ledger=None):
     levels={d['dimension']:d['level_proposal'] for d in feedback['dimensions']} if feedback else {}
     outside={d['dimension'] for d in feedback['dimensions'] if d['assessment']=='not_in_scope'} if feedback else set()
     lines=['# 案例报告反馈复核','',md(record['student_id'])+' · '+('教学演示 · ' if simulated else '')+_status(final_record),'']
@@ -96,6 +115,7 @@ def teacher_markdown(record, simulated=False, *, feedback=None, final_record=Non
         lines+=['## 待教师决定','']+['- '+md(q) for q in record['teacher_questions']]+['']
     if compact and all(c['verdict']=='aligned' for c in record['checks']) and not record['omissions'] and not record['teacher_questions']:
         lines+=['本轮未发现需要调整的反馈、遗漏项或新增核查事项。','']
+    if edit_ledger:lines+=_teacher_edit_lines(edit_ledger)
     if final_record is None:lines+=['教师核对后决定是否采用和发放。','']
     else:
         lines+=['人工终审时间：'+md(final_record['reviewed_at'])+'。','']

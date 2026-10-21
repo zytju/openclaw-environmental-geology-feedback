@@ -32,6 +32,13 @@ class TeacherEditTests(unittest.TestCase):
         ledger=verify_ledger(out/'edit-ledger.json',self.sub,fb,self.it)
         self.assertEqual(ledger['history'][0]['before_feedback'],self.fb)
         self.assertEqual(ledger['history'][0]['plan']['operations'][0]['reason'],self.plan['operations'][0]['reason'])
+        from egtool.display import reading_views
+        tr=MockBackend().generate('teacher',self.sub,fb);save(self.p/'new-review.json',tr)
+        views=reading_views(self.args[0],self.args[1],out/'feedback-amended.json',self.p/'new-review.json',self.p/'reading')
+        teacher=next(views.glob('*.teacher-reading_*.md')).read_text();student=next(views.glob('*.student-reading_*.md')).read_text()
+        self.assertIn('教师修改记录',teacher);self.assertIn('改写问题 I01',teacher)
+        self.assertIn(self.plan['operations'][0]['reason'],teacher);self.assertIn('T000为合成测试身份',teacher)
+        self.assertNotIn('教师修改记录',student)
     def test_stale_review_is_rejected_for_amended_feedback(self):
         out=self.run_edit()
         with self.assertRaisesRegex(ContractError,'TEACHER_FEEDBACK_MISMATCH'):

@@ -12,16 +12,17 @@ def reading_views(submission, intake, feedback, review, out, decisions=None, edi
     from .teacher_edits import resolve_ledger
     edit_ledger=resolve_ledger(feedback,fb,edit_ledger)
     final=bound_decision(sub,fb,tr,schemas,decisions,edit_ledger) if decisions else None
+    ledger=None
     if edit_ledger:
         from .teacher_edits import verify_ledger
-        verify_ledger(edit_ledger,sub,fb)
+        ledger=verify_ledger(edit_ledger,sub,fb)
     private_output(out,sub)
     out=Path(out)
     require(not out.exists(),'OUTPUT_EXISTS')
     out.mkdir(parents=True,mode=0o700)
     ts=stamp();simulated=sub['material_kind']=='synthetic'
     save_text(out/(sub['student_id']+'.student-reading_'+ts+'.md'),feedback_markdown(fb,simulated,final_record=final,compact=True,submission=sub))
-    save_text(out/(sub['student_id']+'.teacher-reading_'+ts+'.md'),teacher_markdown(tr,simulated,feedback=fb,final_record=final,compact=True))
+    save_text(out/(sub['student_id']+'.teacher-reading_'+ts+'.md'),teacher_markdown(tr,simulated,feedback=fb,final_record=final,compact=True,edit_ledger=ledger))
     save_text(out/(sub['student_id']+'.student-evidence_'+ts+'.md'),feedback_markdown(fb,simulated,final_record=final,submission=sub))
-    save_text(out/(sub['student_id']+'.teacher-evidence_'+ts+'.md'),teacher_markdown(tr,simulated,feedback=fb,final_record=final))
+    save_text(out/(sub['student_id']+'.teacher-evidence_'+ts+'.md'),teacher_markdown(tr,simulated,feedback=fb,final_record=final,edit_ledger=ledger))
     return out
