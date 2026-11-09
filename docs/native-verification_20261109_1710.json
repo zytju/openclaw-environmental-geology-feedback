@@ -32,5 +32,10 @@
     "gpt-isolation-attacks.json": "16a8923bd43e8566529faaf3cb07c0b29aae1e46c5c0ca35ab6607ab544d4665",
     "browser-feedback.json": "6e08c258a6493eff6917f1e8c16b8ca9ecac6ad568400d33437b758d3bc787b4",
     "native-compatible-final.json": "b8f8c60452b59f42f41877bf70cf4629640087f340c4602742f1c08922b4ccab"
+  },
+  "assignment_source": {
+    "initial_snapshot_sha256": "75f4233433c422446d68265d492b6b661fa7f625f96bb12a3b6a91b801216d11",
+    "current_snapshot_sha256": "64aa09661d62b9f1c53f4cbd46b0e5ce2f27692c04b5fef35bd3ade4aab6ad65",
+    "differences": "Teacher changed filename, visible title and numbering; deadline, scope and submission route unchanged. Explicit chat requirements remain authoritative. Both snapshots retained; desktop source not overwritten."
   }
 }
