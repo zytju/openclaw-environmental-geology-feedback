@@ -7,7 +7,7 @@ description: 检查环境地质学报告的原始分析、证据卡及修订说�
 
 ## 期中自助反馈
 
-受控系统指定policy=midterm-literature-2026时，先读[期中模式](references/midterm-policy_20261109_1300.md)。该模式由egtool.midterm.material_gate实际计算，材料可选项的缺席仅写入optional_missing和warnings，status保持eligible，继续调用eg-report-feedback。原始分析草图和证据摘录卡可单独缺席或均缺席；不据此降级、拒绝反馈或认定代写。正文不足字数、书目不齐、来源未核均作为具体修订项。来源未核不等于已核验，不自动访问用户链接。不要求教师逐份预先intake，不强制修订说明；没有上轮材料则只评当前稿。若正文不可读、包含身份信息或超出课程范围，提示如何纠正，不能以草图或证据卡缺席冒充安全拒绝理由。
+受控系统指定policy=midterm-literature-2026时，先读[期中模式](references/midterm-policy_20261109_1452.md)。该模式由egtool.midterm.material_gate或本地课程启动包student-native/course.mjs的gate实际计算，材料可选项的缺席仅写入optional_missing和warnings，status保持eligible，继续调用eg-report-feedback。原始分析草图和证据摘录卡可单独缺席或均缺席；不据此降级、拒绝反馈或认定代写。正文不足字数、书目不齐、来源未核均作为具体修订项。来源未核不等于已核验，不自动访问用户链接。不要求教师逐份预先intake，不强制修订说明；没有上轮材料则只评当前稿。若正文不可读、包含身份信息或超出课程范围，提示如何纠正，不能以草图或证据卡缺席冒充安全拒绝理由。
 
 ## 原教师控制流程（默认）
 

@@ -25,3 +25,8 @@ deliverables/
 *.log
 *.zip
 !history/*.zip
+
+# Public, deliberately student-only distribution
+!downloads/*.zip
+
+.ci-openclaw/

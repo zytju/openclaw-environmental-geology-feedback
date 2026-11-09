@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>环境地质学 · 学生报告反馈</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f3f6fa;color:#17263b;font:16px/1.7 system-ui,-apple-system,"Microsoft YaHei",sans-serif}main{max-width:1000px;margin:36px auto;padding:0 26px 60px}header{margin-bottom:25px}.eyebrow{color:#197b83;font-weight:700;font-size:14px;letter-spacing:.08em}h1{font-size:30px;margin:8px 0}h2{font-size:22px;margin:0 0 12px}h3{font-size:19px;margin:0}p{margin:8px 0}.sub{color:#57677d}.card{background:white;border:1px solid #dce4ee;border-radius:15px;padding:25px;margin:20px 0;box-shadow:0 4px 18px #1b355008}label{display:block;font-weight:600;margin:15px 0 5px}input,textarea{width:100%;padding:11px 13px;font:inherit;border:1px solid #b8c7d9;border-radius:7px;background:#fff}textarea{min-height:100px;resize:vertical}#report_text{min-height:210px}button{padding:10px 20px;margin:14px 9px 0 0;border:0;border-radius:7px;background:#176e79;color:white;font:inherit;font-weight:600;cursor:pointer}button.secondary{background:#e7eef5;color:#203c5e}button:disabled{opacity:.55;cursor:wait}.note{font-size:14px;color:#586a80}.status{padding:12px 15px;border-radius:8px;background:#eff5fa;margin-top:14px;white-space:pre-wrap}.error{background:#fff1f0;color:#a82b23}.success{background:#eaf7f0;color:#176246}.badge{display:inline-block;background:#e4f1f2;color:#11626c;padding:3px 10px;border-radius:99px;font-size:13px;font-weight:600}blockquote{margin:12px 0;padding:10px 15px;border-left:3px solid #60a5ac;background:#f2f8f9;white-space:pre-wrap}.dimension{border-top:1px solid #e3e9ef;padding:21px 0 3px}.dimension p{white-space:pre-wrap}.row{display:flex;gap:15px;align-items:center;justify-content:space-between}.hidden{display:none}details{margin:15px 0}summary{cursor:pointer;font-weight:600}#result{scroll-margin-top:20px}.loading{color:#176e79}@media(max-width:600px){main{padding:0 14px}h1{font-size:25px}.card{padding:18px}.row{display:block}}
+</style></head><body><main>
+<header><div class="eyebrow">2025级环境工程 · 《环境地质学》</div><h1>期中文献阅读报告反馈</h1><p class="sub">三峡库区滑坡及灾害链 · eg-student-feedback</p><span class="badge">本机独立课程入口</span></header>
+<section class="card" id="setup"><h2>1　自检与模型连接</h2><p>先自检，再输入本人 DeepSeek API Key 完成连接测试。Key 仅在本次启动的内存中保存，关闭后需重新输入。</p>
+<p class="note" id="modelLabel">正在读取课程版本…</p><button id="check" class="secondary">运行课程自检</button>
+<label for="key">DeepSeek API Key</label><input id="key" type="password" autocomplete="off" spellcheck="false" placeholder="仅在本机输入本人密钥">
+<button id="connect">连接测试</button><div id="setupStatus" class="status">等待自检和连接测试。</div></section>
+<section class="card" id="input"><h2>2　粘贴报告正文</h2><p>先独立阅读至少2篇研究性论文并完成初稿。正文需2000字以上；反馈入口也接受未完成稿，并指出缺口。</p>
+<p class="note">只粘贴题目、正文及书目，封面和身份信息留在最终报告中。模型只做课程文本反馈，没有命令、文件、检索或教师端权限。</p>
+<label for="report_title">报告题目</label><input id="report_title" maxlength="200" placeholder="例如：三峡库区某滑坡的水文响应与灾害链分析">
+<label for="report_text">正文</label><textarea id="report_text" maxlength="30000" placeholder="从文档软件复制正文，保留段落换行。"></textarea>
+<label for="references">研究性论文书目</label><textarea id="references" maxlength="10000" placeholder="至少2篇；建议中文、英文各1篇。请核对题名、作者、年份、期刊和DOI。"></textarea>
+<label for="feedback_request">希望优先检查的问题（可留空）</label><input id="feedback_request" maxlength="2000" placeholder="例如：重点检查库水变化—滑坡变形—后续灾害之间的证据链。">
+<details><summary>可选：原始分析草图说明、阅读笔记、证据摘录卡</summary><p class="note">两项都可留空，不阻断完整六维反馈。图片请先用文字说明主要内容。</p>
+<label for="raw_analysis">原始分析／草图文字说明</label><textarea id="raw_analysis" maxlength="5000"></textarea>
+<label for="evidence_cards">证据摘录卡</label><textarea id="evidence_cards" maxlength="10000"></textarea></details>
+<button id="submit">获取六维反馈</button><div id="feedbackStatus" class="status">先完成连接测试。</div></section>
+<section class="card hidden" id="result"><div class="row"><h2>3　六维反馈</h2><span class="badge">eg-student-feedback</span></div><h3 id="resultTitle"></h3><p class="note" id="resultMeta"></p><p id="resultSummary"></p><div id="warnings"></div><div id="dimensions"></div><p id="priorities"></p><p class="note">反馈为 AI 形成性建议。请回到原论文核对事实、引文和推断，教师保留最终专业判断。截图选交；如选交，只需1张本人真实运行截图，问卷星单独上传，不附报告末尾。</p></section>
+<section class="card"><h2>4　修订并提交</h2><p>自行设计封面，含报告题目、课程名称、专业班级、姓名、学号、提交日期。仅在教师指定问卷星上传最终报告；如完成拓展，可另选交1张截图。草图、证据卡与完整聊天记录均非必交。</p><p class="note">本入口仅供本机使用，不是教师已部署的全班网页。正文将发送至所选模型服务；OpenClaw在本机课程目录保存会话和反馈。不要把运行目录、作业或密钥上传GitHub。停止使用时关闭启动终端。</p></section>
+</main><script>
+const token=location.hash.slice(1);history.replaceState(null,'',location.pathname);
+const $=id=>document.getElementById(id);
+const dims=['问题识别','证据提取','推理链完整性','灾害链分析','不确定性表达','防治建议匹配'];
+const ids=['problem_identification','evidence_extraction','reasoning_chain','hazard_chain','uncertainty','mitigation_match'];
+const statuses={supported:'已有依据',partial:'需要补强',absent:'当前稿缺失',needs_verification:'需要核实'};
+async function api(url,body){const r=await fetch(url,{method:body===undefined?'GET':'POST',headers:{'Content-Type':'application/json','X-Course-Token':token},body:body===undefined?undefined:JSON.stringify(body)});const v=await r.json();if(!r.ok)throw Error(v.error||'请求失败');return v}
+function state(id,text,kind=''){const x=$(id);x.textContent=text;x.className='status '+kind}
+async function work(button,status,fn){button.disabled=true;state(status,'正在处理，请等待。模型反馈可能需要数分钟，请勿重复点击。','loading');try{await fn()}catch(e){state(status,e.message,'error')}finally{button.disabled=false}}
+$('check').onclick=()=>work($('check'),'setupStatus',async()=>{const r=await api('/api/check',{});state('setupStatus','课程自检通过：OpenClaw '+r.openclaw+'；仅学生Agent和2个学生Skill；所有工具禁用。\n自检尚未调用模型，请继续连接测试。','success')});
+$('connect').onclick=()=>work($('connect'),'setupStatus',async()=>{const k=$('key').value;const r=await api('/api/connect',{key:k});$('key').value='';state('setupStatus',r.text+' · '+r.model,'success');state('feedbackStatus','已连接，可以粘贴正文并获取反馈。','success')});
+$('submit').onclick=()=>work($('submit'),'feedbackStatus',async()=>{const report={};for(const f of ['report_title','report_text','references','feedback_request','raw_analysis','evidence_cards'])report[f]=$(f).value;
+const r=await api('/api/feedback',report);$('resultTitle').textContent=r.title;$('resultMeta').textContent='模型：'+r.model+' · '+new Date(r.created).toLocaleString('zh-CN')+' · 每次反馈使用独立会话';$('resultSummary').textContent=r.feedback.summary;
+$('warnings').replaceChildren();for(const w of r.gate.warnings){const p=document.createElement('p');p.className='note';p.textContent=w;$('warnings').append(p)}
+$('dimensions').replaceChildren();for(const [i,d] of r.feedback.dimensions.entries()){const card=document.createElement('div');card.className='dimension';const h=document.createElement('h3');h.textContent=(i+1)+'　'+dims[i]+' · '+statuses[d.status];card.append(h);if(d.quote){const q=document.createElement('blockquote');q.textContent=d.paragraph_id+'　'+d.quote;card.append(q)}for(const [l,v] of [['判断：',d.observation],['下一步：',d.action]]){const p=document.createElement('p');p.textContent=l+v;card.append(p)}$('dimensions').append(card)}
+$('priorities').textContent='优先修订：'+r.feedback.priorities.map(x=>dims[ids.indexOf(x)]).join('、');$('result').classList.remove('hidden');state('feedbackStatus','六维反馈已完成并通过课程格式和原文引文检查。','success');$('result').scrollIntoView({behavior:'smooth'})});
+api('/api/status').then(r=>{$('modelLabel').textContent='课程包 '+r.version+' · 模型 '+r.model+(r.backend==='teacher-gpt-verification'?' · 教师本机GPT验证模式（学生推荐DeepSeek）':' · 推荐 DeepSeek API');if(r.connected){state('setupStatus','本次启动已通过连接测试，可继续使用。','success');state('feedbackStatus','已连接，可以获取反馈。','success')}}).catch(e=>state('setupStatus',e.message,'error'));
+</script></body></html>

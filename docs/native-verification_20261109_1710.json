@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-09",
+  "openclaw": "2026.7.1-2",
+  "gpt_browser": {
+    "passed": true,
+    "model": "gpt-5.6-sol",
+    "harness": "codex",
+    "dimensions": 6,
+    "optional_missing": [
+      "raw_analysis",
+      "evidence_cards"
+    ],
+    "tools": [],
+    "skills": [
+      "eg-authenticity-anchor",
+      "eg-report-feedback"
+    ],
+    "truncated": false
+  },
+  "deepseek_live": {
+    "passed": false,
+    "reason": "No usable DeepSeek API Key supplied; configuration and local compatible fixture only."
+  },
+  "native_tests": 17,
+  "legacy_python_tests": 165,
+  "skill_reader_tests": 7,
+  "synthetic_session_count": 66,
+  "production_student_count": 0,
+  "public_student_url": null,
+  "evidence_sha256": {
+    "gpt-six-dimensions.json": "7f8e8696b4df419abac452dbc6276bfe9215108269b1ab9b1d91a145b5f7f4f3",
+    "gpt-isolation-attacks.json": "16a8923bd43e8566529faaf3cb07c0b29aae1e46c5c0ca35ab6607ab544d4665",
+    "browser-feedback.json": "6e08c258a6493eff6917f1e8c16b8ca9ecac6ad568400d33437b758d3bc787b4",
+    "native-compatible-final.json": "b8f8c60452b59f42f41877bf70cf4629640087f340c4602742f1c08922b4ccab"
+  }
+}
