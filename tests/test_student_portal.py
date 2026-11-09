@@ -12,7 +12,7 @@ from unittest.mock import patch
 from egtool import midterm
 from egtool.contracts import ContractError, DIMENSIONS
 from egtool.student_portal import (Portal, PortalServer, PortalError, TextModelBackend,
-                                   NoRedirect, handler_for, secret_hash)
+                                   MAX_BODY, NoRedirect, handler_for, secret_hash)
 
 
 def report(marker="同一报告"):
@@ -86,16 +86,20 @@ class HTTPTests(unittest.TestCase):
     def tearDownClass(cls):
         cls.server.shutdown(); cls.server.server_close(); cls.thread.join()
 
-    def call(self, path, method="GET", data=None, cookie=None, origin=None, raw=None, host=None):
+    def call(self, path, method="GET", data=None, cookie=None, origin=None, raw=None, host=None,
+             declared_length=None):
         connection = http.client.HTTPConnection("127.0.0.1", self.port, timeout=10)
         headers = {"Origin": origin or self.origin, "Host": host or "127.0.0.1:%d" % self.port}
         if cookie: headers["Cookie"] = cookie
         body = raw if raw is not None else json.dumps(data) if data is not None else None
         if body is not None: headers["Content-Type"] = "application/json"
-        connection.request(method, path, body=body, headers=headers)
-        response = connection.getresponse(); content = response.read(); status = response.status; hs = dict(response.getheaders())
-        connection.close()
-        return status, json.loads(content) if "application/json" in hs.get("Content-Type", "") else content, hs
+        if declared_length is not None: headers["Content-Length"] = str(declared_length)
+        try:
+            connection.request(method, path, body=body, headers=headers)
+            response = connection.getresponse(); content = response.read(); status = response.status; hs = dict(response.getheaders())
+            return status, json.loads(content) if "application/json" in hs.get("Content-Type", "") else content, hs
+        finally:
+            connection.close()
 
     def login(self, code):
         status, data, headers = self.call("/api/login", "POST", {"student_code": code, "secret": self.secrets[code], "consent": True})
@@ -149,7 +153,11 @@ class HTTPTests(unittest.TestCase):
         self.assertEqual(self.call("/api/login", "POST", {}, origin="https://evil.example")[0], 403)
         self.assertEqual(self.call("/", host="evil.example")[0], 421)
         self.assertEqual(self.call("/api/login", "POST", raw='{"secret":"a","secret":"b"}')[0], 422)
-        self.assertEqual(self.call("/api/login", "POST", raw='{"x":"' + "a"*180000 + '"}')[0], 413)
+        # The server rejects the declared size before reading the body. Sending
+        # that body races its immediate response and connection close on macOS.
+        status, data, _ = self.call("/api/login", "POST", raw="", declared_length=MAX_BODY + 1)
+        self.assertEqual(status, 413)
+        self.assertEqual(data["error"], "BODY_SIZE")
 
     def test_logout_deletes_feedback_and_invalidates_cookie(self):
         s, cookie = self.login("S006")
