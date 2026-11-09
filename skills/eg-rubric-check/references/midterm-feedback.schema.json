@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:eg:midterm-feedback:1.0.0",
+  "type": "object",
+  "properties": {
+    "summary": {"type": "string", "minLength": 10, "maxLength": 1500},
+    "dimensions": {
+      "type": "array", "minItems": 6, "maxItems": 6,
+      "items": {
+        "type": "object",
+        "properties": {
+          "dimension": {"enum": ["problem_identification", "evidence_extraction", "reasoning_chain", "hazard_chain", "uncertainty", "mitigation_match"]},
+          "status": {"enum": ["supported", "partial", "absent", "needs_verification"]},
+          "paragraph_id": {"type": "string", "pattern": "^(REPORT|P[0-9]{3,6})$"},
+          "quote": {"type": ["string", "null"], "maxLength": 500},
+          "observation": {"type": "string", "minLength": 10, "maxLength": 1500},
+          "action": {"type": "string", "minLength": 10, "maxLength": 1500}
+        },
+        "required": ["dimension", "status", "paragraph_id", "quote", "observation", "action"],
+        "additionalProperties": false
+      }
+    },
+    "priorities": {"type": "array", "minItems": 1, "maxItems": 3, "uniqueItems": true,
+      "items": {"enum": ["problem_identification", "evidence_extraction", "reasoning_chain", "hazard_chain", "uncertainty", "mitigation_match"]}}
+  },
+  "required": ["summary", "dimensions", "priorities"],
+  "additionalProperties": false
+}

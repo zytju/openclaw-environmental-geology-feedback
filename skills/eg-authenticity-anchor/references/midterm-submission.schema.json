@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:eg:midterm-submission:1.0.0",
+  "type": "object",
+  "properties": {
+    "report_title": {"type": "string", "minLength": 2, "maxLength": 200},
+    "report_text": {"type": "string", "minLength": 1, "maxLength": 30000},
+    "feedback_request": {"type": "string", "maxLength": 2000},
+    "references": {"type": "string", "maxLength": 10000},
+    "raw_analysis": {"type": "string", "maxLength": 5000},
+    "evidence_cards": {"type": "string", "maxLength": 10000}
+  },
+  "required": ["report_title", "report_text"],
+  "additionalProperties": false
+}

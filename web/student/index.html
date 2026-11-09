@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>环境地质学 · 学生反馈</title><link rel="stylesheet" href="/app.css"><script src="/app.js" defer></script></head>
+<body><main>
+<p class="eyebrow">2025级环境工程专业 · 期中文献阅读报告</p>
+<h1>环境地质学 · 学生反馈</h1>
+<p>eg-student-feedback · 仅评三峡库区滑坡及灾害链。AI建议供修订参考，正式成绩由教师决定。</p>
+<p id="demo" class="warning" hidden>合成技术测试页面：未调用专业模型，不能用于正式作业截图。</p>
+<p id="message" role="status" aria-live="polite"></p>
+<section id="login"><h2>1. 使用教师单独发放的访问凭证</h2>
+<form id="login-form"><label>课程匿名编号<input id="code" placeholder="如 S001" autocomplete="username" maxlength="4" required></label>
+<label>个人访问口令<input id="secret" type="password" autocomplete="current-password" maxlength="100" required></label>
+<p>请先阅读教师关于模型服务商、数据流向和保存期限的说明。网页服务仅在内存暂存当前反馈，会话4小时到期，重启会清除；模型服务商另有数据处理规则。请先保存本人需要的反馈。</p>
+<label class="check"><input id="consent" type="checkbox" required>我已阅读教师的数据处理说明；仅提交本人已去标识的材料。</label>
+<button type="submit">登录我的会话</button></form></section>
+<section id="workspace" hidden>
+<div class="actions"><p id="identity"></p><button id="logout" type="button">退出并清除本次反馈</button></div>
+<h2>2. 粘贴报告正文</h2><p>不要粘贴封面、姓名、学号、联系方式、密钥或他人材料。此入口接收文字；图片草图可选提供文字说明，无需上传原图。</p>
+<details id="editor" open><summary>填写或修改本次报告</summary>
+<form id="report-form"><label>报告题目<input id="title" maxlength="200" required></label>
+<label>报告正文<textarea id="report" rows="12" maxlength="30000" required></textarea></label>
+<label>本次关注点（可粘贴教程提示词）<textarea id="focus" rows="3" maxlength="2000" placeholder="可留空；始终按课程六维提供反馈"></textarea></label>
+<label>参考文献书目信息<textarea id="references" rows="3" maxlength="10000" placeholder="至少2篇研究性论文，建议1中1英；暂未齐全仍可获得反馈"></textarea></label>
+<details><summary>可选：原始分析与证据摘录卡</summary>
+<label>草图文字说明或原始分析笔记<textarea id="analysis" rows="3" maxlength="5000"></textarea></label>
+<label>证据卡：来源、位置、摘录及自己的解释<textarea id="cards" rows="3" maxlength="10000"></textarea></label></details>
+<p>草图和证据卡可以都不提交，不影响完整六维反馈。正文不达字数或参考文献未齐全时会提示补充。</p>
+<button id="submit-report" type="submit">获取完整六维反馈</button></form></details>
+<section id="result" hidden><h2>3. 阅读反馈并自行修订</h2><p id="report-title"></p><p id="summary"></p><ul id="warnings"></ul><div id="dimensions"></div><p id="notice"></p>
+<p>截图保留Agent名称、你的报告题目和至少一条具体专业反馈。避开个人访问口令、姓名、学号和其他同学信息。通过问卷星分别上传最终报告和1张截图，不把截图附在报告末尾。</p>
+<button id="clear" type="button">清除网页中的反馈</button></section></section>
+</main></body></html>
