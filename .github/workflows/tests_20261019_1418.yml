@@ -33,3 +33,25 @@ jobs:
         run: node plugins/eg-skill-reader/test.mjs
       - name: Synthetic 66-report smoke test
         run: python scripts/offline_smoke_20261019_1418.py --count 66
+
+  student-native:
+    name: Student native kit / ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 12
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24.15.0'
+      - name: Student package isolation and 66 synthetic sessions
+        run: node --test student-native/test.mjs
+      - name: Install pinned OpenClaw in disposable CI directory
+        run: npm install --ignore-scripts --prefix .ci-openclaw openclaw@2026.7.1-2
+      - name: Real OpenClaw with local compatible API, no model billing
+        run: node --input-type=module -e "import path from 'node:path'; process.env.EG_OPENCLAW_ENTRY=path.resolve('.ci-openclaw/node_modules/openclaw/dist/entry.js'); await import('./student-native/native-integration.mjs');"

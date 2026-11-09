@@ -1,0 +1,42 @@
+{
+  "checked_at_asia_shanghai": "2026-11-09",
+  "baseline_commit": "8cf531fc04484d40b068c5708d148bd8fc95a731",
+  "branch": "codex/midterm-student-portal-20261109",
+  "python_tests_passed": 165,
+  "student_portal_tests_passed": 21,
+  "skill_reader_checks_passed": 7,
+  "student_skill_format_checks_passed": 2,
+  "synthetic_http_accounts": 66,
+  "distinct_synthetic_conversations": 66,
+  "cross_owner_denials": 4290,
+  "legacy_offline_synthetic_reports": 66,
+  "browser_checks": {
+    "login": true,
+    "six_dimensions": true,
+    "refresh": true,
+    "logout": true,
+    "mobile_width": 390,
+    "page_errors": [],
+    "is_demo": true,
+    "real_model_calls": 0
+  },
+  "guide_pages": 10,
+  "guide_visual_qa_passed": true,
+  "real_model_calls": 0,
+  "openclaw_native_midterm_runs": 0,
+  "public_student_url": null,
+  "public_deployment_verified": false,
+  "simultaneous_66_user_load_verified": false,
+  "default_gateway_config_changed": false,
+  "git_baseline_bundle_verified": true,
+  "config_backup_restore_tested": false,
+  "teacher_credentials_published": false,
+  "real_student_material_used": false,
+  "pending": [
+    "stable_host_and_https_reverse_proxy",
+    "approved_model_provider_credentials_budget_and_data_policy",
+    "real_model_six_dimension_quality_and_injection_tests",
+    "public_authentication_cross_session_and_load_acceptance",
+    "questionnaire_private_upload_fields_urls_and_deadline"
+  ]
+}

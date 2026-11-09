@@ -13,6 +13,10 @@ profiles/
 *.sqlite*
 auth-profiles.json
 openclaw.json
+roster.json
+individual-access.csv
+*.bundle
+private-demo*/
 *.key
 *.pem
 
@@ -21,3 +25,8 @@ deliverables/
 *.log
 *.zip
 !history/*.zip
+
+# Public, deliberately student-only distribution
+!downloads/*.zip
+
+.ci-openclaw/

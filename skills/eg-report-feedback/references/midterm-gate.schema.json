@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:eg:midterm-gate:1.0.0",
+  "type": "object",
+  "properties": {
+    "policy": {"const": "midterm-literature-2026"},
+    "status": {"const": "eligible"},
+    "optional_missing": {"type": "array", "items": {"enum": ["raw_analysis", "evidence_cards"]}, "uniqueItems": true},
+    "warnings": {"type": "array", "items": {"type": "string", "minLength": 1, "maxLength": 1000}, "maxItems": 8},
+    "sources_verified": {"const": false},
+    "authorship_proven": {"const": false},
+    "assessed_dimensions": {"const": ["problem_identification", "evidence_extraction", "reasoning_chain", "hazard_chain", "uncertainty", "mitigation_match"]}
+  },
+  "required": ["policy", "status", "optional_missing", "warnings", "sources_verified", "authorship_proven", "assessed_dimensions"],
+  "additionalProperties": false
+}
